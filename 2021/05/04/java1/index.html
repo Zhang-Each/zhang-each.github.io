@@ -1,0 +1,1567 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Java应用技术1:基础语法, zyc的旅行笔记">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Java应用技术1:基础语法 | zyc的旅行笔记</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">zyc的旅行笔记</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">zyc的旅行笔记</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11-min.png')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Java应用技术1:基础语法</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">
+                                <span class="chip bg-color">编程语言</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/CS%E6%A0%B8%E5%BF%83%E8%AF%BE%E7%A8%8B/" class="post-category">
+                                CS核心课程
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-05-04
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-05-04
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.2k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    12 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="Java应用技术1：基础语法"><a href="#Java应用技术1：基础语法" class="headerlink" title="Java应用技术1：基础语法"></a>Java应用技术1：基础语法</h1><h4 id="RandomStar"><a href="#RandomStar" class="headerlink" title="RandomStar"></a>RandomStar</h4><h3 id="成绩组成"><a href="#成绩组成" class="headerlink" title="成绩组成"></a>成绩组成</h3><ul>
+<li>平时分70%+期末考试30%<ul>
+<li>包含出勤，PTA作业，编程小作业，大作业，期中考试</li>
+</ul>
+</li>
+</ul>
+<h2 id="Chapter-1：Introduction"><a href="#Chapter-1：Introduction" class="headerlink" title="Chapter 1：Introduction"></a>Chapter 1：Introduction</h2><h3 id="1-1-Java语言的特性"><a href="#1-1-Java语言的特性" class="headerlink" title="1.1 Java语言的特性"></a>1.1 Java语言的特性</h3><ul>
+<li>简洁<ul>
+<li>没有C/C++中的指针，没有多重继承和运算符重载的语法特性</li>
+</ul>
+</li>
+<li>面向对象<ul>
+<li>Java设计的核心是如何复用代码，并且支持继承封装多态</li>
+</ul>
+</li>
+<li>Interpreted<ul>
+<li>代码会编译成字节码(bytecode)在Java虚拟机上运行</li>
+<li>Java是跨平台的，可以在所有有JVM的计算机上运行，JMV可以设置不同的安全等级</li>
+</ul>
+</li>
+<li>鲁棒性<ul>
+<li>强类型机制，异常处理，垃圾内存自动搜集等机制</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-2-JDK的版本"><a href="#1-2-JDK的版本" class="headerlink" title="1.2 JDK的版本"></a>1.2 JDK的版本</h3><ul>
+<li>Java Standard Edition (J2SE)<ul>
+<li>可以用于开发客户端应用和app</li>
+</ul>
+</li>
+<li>Java Enterprise Edition (J2EE)<ul>
+<li>可以用于开发服务端应用，比如Java Servlets</li>
+</ul>
+</li>
+<li>Java Micro Edition (J2ME)<ul>
+<li>开发手机应用</li>
+</ul>
+</li>
+<li>本课程中的内容主要是<strong>J2SE</strong> </li>
+</ul>
+<h3 id="1-3-Java程序的组成"><a href="#1-3-Java程序的组成" class="headerlink" title="1.3 Java程序的组成"></a>1.3 Java程序的组成</h3><ul>
+<li>一个简单的Java程序</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HelloWorld</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Hello World!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>Java代码编译的过程<ul>
+<li>Java代码文件的后缀名是<code>.java</code>，被Java编译器编译之后编译成<code>.class</code>文件，之后在JVM中运行</li>
+</ul>
+</li>
+<li>每个Java程序至少需要一个class，每个class都有唯一的class name<ul>
+<li>block是java程序的组件，比如一个类就是一个class block</li>
+</ul>
+</li>
+<li>Java程序中的错误<ul>
+<li>语法错误Syntax Error：会在编译期间被检查出来，因此有语法错误的时候无法通过编译</li>
+<li>运行时错误 Run time Error：</li>
+<li>程序逻辑上本身的错误</li>
+</ul>
+</li>
+</ul>
+<h3 id="⭐作业里一道莫名其妙的题目"><a href="#⭐作业里一道莫名其妙的题目" class="headerlink" title="⭐作业里一道莫名其妙的题目"></a>⭐作业里一道莫名其妙的题目</h3><ul>
+<li>对于下面的这样一个Java程序，它<strong>可以通过编译</strong>但是运行的时候会因为<strong>没有入口main函数</strong>而出现错误<ul>
+<li>这是因为Java的编译器会把类编译成class文件，下面这个类是一个合法的类，没有语法错误，因此可以通过编译</li>
+<li>但是在JVM中执行的时候会因为没有入口main函数而出现错误</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class main &#123;
+    public void main() &#123;
+        System.out.println(&quot;Hello World!&quot;);
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="2-Java的基本语法"><a href="#2-Java的基本语法" class="headerlink" title="2. Java的基本语法"></a>2. Java的基本语法</h2><h3 id="2-1-Java的变量命名"><a href="#2-1-Java的变量命名" class="headerlink" title="2.1 Java的变量命名"></a>2.1 Java的变量命名</h3><ul>
+<li><p>变量：包含大小写字母，数字，下划线和$符号</p>
+<ul>
+<li>Java中的变量不能用数字开头，也不能是保留字</li>
+</ul>
+</li>
+<li><p>变量的定义和声明</p>
+<ul>
+<li>Java中<strong>不区分变量的声明和定义</strong>，这是和C/C++的最大不同<ul>
+<li>C/C++中的编译器<strong>不会为基本类型赋予初始默认值</strong></li>
+</ul>
+</li>
+<li>Java对于方法的局部变量，Java以<strong>编译时错误</strong>来保证**变量在使用前都能得到恰当的初始化 ** <ul>
+<li>但是Java对于方法内的单个变量不会赋予初始值，对于数组会赋予默认的值</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>对于下面这样一段代码</p>
+<ul>
+<li>输出的结果是0，因为<strong>变量进行了初始化但是没有赋予具体值</strong></li>
+<li>Java中int类型的默认值就是0</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class JavaPractice &#123;
+    static int array[] &#x3D; new int[5];
+    public static void main(String a[]) &#123;
+        System.out.println(array[0]);
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><p><strong>常量</strong>定义<code>final datatype CONSTANTNAME = VALUE;</code></p>
+<ul>
+<li>final的主要用法有如下三种<ul>
+<li>修饰变量，表示变量的值<strong>不能改变</strong>，但是可以进行任何合法形式的初始化，相当于C/C++中的const类型<ul>
+<li>修饰类对象，表示这个变量不能再赋值成其他的对象，比如一个对象被new了之后，就不能再把它new成一个新的对象</li>
+</ul>
+</li>
+<li>修饰方法method，表示一个Java函数不可更改，<strong>不能被重载</strong> </li>
+<li>修饰类，表示这个类<strong>不能被继承</strong>，类中的所有方法也就变成了final类型的</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Java中的变量类型</p>
+<ul>
+<li>数值型变量：Java中整数类型的范围和<strong>运行的机器无关</strong>，这一点和C/C++不同<ul>
+<li>byte 8bit 有符号类型</li>
+<li>short 16bit 有符号类型</li>
+<li>int 32bit有符号类型</li>
+<li>long 64bit有符号类型</li>
+<li>float和double分别是32bit和64bit的IEEE754标准</li>
+</ul>
+</li>
+<li><strong>字符类型char</strong> <ul>
+<li>编码方式是Unicode</li>
+<li>Java中的一个char类型变量占16bits，也就是2个字节</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>数值类型的读入</p>
+<ul>
+<li>首先需要定义Scanner读入器<code>Scanner input = new Scanner(System.in)</code></li>
+<li>之后可以用input的<code>nextInt</code>方法读取下一个整数，其他数据类型同理</li>
+</ul>
+</li>
+<li><p>Java中的数值运算：支持加减乘除取余等各种操作</p>
+<ul>
+<li><p>除法中如整数除法的结果是整数，浮点数除法的结果浮点数</p>
+</li>
+<li><p>浮点数中double比float更加精确，double精确到16位，float精确到8位小数</p>
+</li>
+<li><p>几个特殊的浮点数值</p>
+<ul>
+<li><code>Double.POSITIVE_INFINITY</code> 正无穷大</li>
+<li><code>Double.NEGATIVE_INFINITY</code> 负无穷大</li>
+<li><code>Double.NaN</code> 不是数字</li>
+<li>可以用Double.isNaN来判断是否为数字</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>类型转换：byte，short，int，float，double，long，char之间可以进行类型转换</p>
+<ul>
+<li>其中整形向浮点型的转换可能会造成精度的损失</li>
+<li>浮点数向整形转换的时候会丢弃小数部分</li>
+<li>Java不支持C++中的自动强制类型转换，有需要的类型转换必须显式地声明</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-2-选择语句"><a href="#2-2-选择语句" class="headerlink" title="2.2 选择语句"></a>2.2 选择语句</h3><ul>
+<li>布尔类型变量(boolean) 值只有true和false，Java中的大小关系符和C/C++一致</li>
+</ul>
+<h4 id="2-2-1-if语句和switch语句"><a href="#2-2-1-if语句和switch语句" class="headerlink" title="2.2.1 if语句和switch语句"></a>2.2.1 if语句和switch语句</h4><ul>
+<li><p>和C/C++基本一致，没啥好学的</p>
+</li>
+<li><p>if语句有单个if，if-else，多层嵌套if等写法，<strong>else和最近的if匹配</strong> </p>
+</li>
+<li><p>switch语句也跟C/C++基本一致，有break有default</p>
+<ul>
+<li>布尔类型不能用在switch的选择里，下面的代码是错误的</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">boolean x;
+switch(x) &#123;
+  &#x2F;&#x2F; 
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="2-2-2-逻辑运算符"><a href="#2-2-2-逻辑运算符" class="headerlink" title="2.2.2 逻辑运算符"></a>2.2.2 逻辑运算符</h4><ul>
+<li><p>Java中有如下逻辑运算符</p>
+<ul>
+<li>！逻辑否，&amp;&amp;逻辑且，|| 逻辑或，<strong>^逻辑异或</strong> </li>
+<li>&amp;&amp;和||的运算按照短路的方式来求值，如果第一个操作数已经可以确定表达式的值，后面的就不需要进行运算了</li>
+<li>&amp;和|也可以进行逻辑运算，区别是这两个不用短路的方式来求值</li>
+</ul>
+<img src="C:\Users\74096\AppData\Roaming\Typora\typora-user-images\image-20200708231822126.png" alt="image-20200708231822126" style="zoom:67%;" /></li>
+</ul>
+<h3 id="2-3-数学函数"><a href="#2-3-数学函数" class="headerlink" title="2.3 数学函数"></a>2.3 数学函数</h3><ul>
+<li>常见的两个常数：PI和E表示圆周率和自然对数的底数</li>
+<li>常见的数学类方法<ul>
+<li>三角函数</li>
+<li>幂</li>
+<li>高斯函数和舍入方法</li>
+<li>最大，最小，绝对值和随机</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-4-字符和字符串类型"><a href="#2-4-字符和字符串类型" class="headerlink" title="2.4 字符和字符串类型"></a>2.4 字符和字符串类型</h3><ul>
+<li>Java中的字符类型有两种表示方式，ASCII编码和Unicode编码模式<ul>
+<li>Unicode编码模式的形式是前缀<code>\u</code>+四位十六进制数，可以表示从0000到FFFF一共65536个字符</li>
+<li>常见的ASCII码<ul>
+<li>‘0’ - ‘9’在ASCII码中式48到57</li>
+<li>‘A’ - ‘Z’ 式65-90， ‘a’-‘z’是97-122</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>字符串内置方法</li>
+</ul>
+<p><img src="C:\Users\74096\AppData\Roaming\Typora\typora-user-images\image-20200709172718342.png" alt="image-20200709172718342"></p>
+<ul>
+<li><p>字符串类型 String</p>
+<ul>
+<li>一些简单的内置方法</li>
+</ul>
+<p><img src="C:\Users\74096\AppData\Roaming\Typora\typora-user-images\image-20200709174536954.png" alt="image-20200709174536954"></p>
+<p><img src="C:\Users\74096\AppData\Roaming\Typora\typora-user-images\image-20200709175413874.png" alt="image-20200709175413874"></p>
+<ul>
+<li>读取字符串的方式：<ul>
+<li>使用next() 从有效字符开始扫描，遇到第一个分隔符或者结束符的时候结束，将结果作为字符串返回</li>
+<li>nextLine扫描当前行所有的字符串作为结果返回</li>
+</ul>
+</li>
+<li>获取字串，使用<code>substring</code>方法，必须要有的参数是起始位置beginIndex，结束位置endIndex可以缺省，默认值是字符串末尾</li>
+<li>访问单个字符和子串的位置</li>
+</ul>
+<p><img src="C:\Users\74096\AppData\Roaming\Typora\typora-user-images\image-20200709175604703.png" alt="image-20200709175604703"></p>
+<ul>
+<li>字符串类型是不可变的，不能对String中的内容做出改变，同时如果在函数中对String进行赋值操作也不能改变主函数里的String，比如下面这样一段代码，最后的输出还是A,B</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span> args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">String</span> a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"A"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">String</span> b <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"B"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">swap</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>a <span class="token operator">+</span> <span class="token string">"."</span> <span class="token operator">+</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">swap</span><span class="token punctuation">(</span><span class="token class-name">String</span> x<span class="token punctuation">,</span> <span class="token class-name">String</span> y<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        y <span class="token operator">=</span> x<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><p>String的concat和substring等方法都不是在原来的字符串上操作的，而是生成了一个新的字符串</p>
+</li>
+<li><p>格式化输出</p>
+<ul>
+<li><p><code>System.out.printf(format, items);</code> 具体的用法和C语言的printf类似</p>
+</li>
+<li><p>占位符的具体格式包括</p>
+<ul>
+<li><p><code>%[index$][标识]*[最小宽度][.精度]转换符</code> </p>
+</li>
+<li><p>index表示从第几个位置开始计算来进行格式化，起始为1</p>
+</li>
+<li><p>最小宽度是格式化之后最小的长度，当输出结果小于最小宽度的时候用标识符填补空格，没有标识符的时候用空格填充</p>
+<ul>
+<li>字符串可用标识：- 表示左对齐，默认的是右对齐</li>
+<li>整数和浮点数可用标识：</li>
+</ul>
+<p><img src="C:\Users\74096\AppData\Roaming\Typora\typora-user-images\image-20200709192611084.png" alt="image-20200709192611084"></p>
+<ul>
+<li>对日期进行格式化</li>
+</ul>
+</li>
+<li><p>精度用于设置浮点数保留几位小数</p>
+</li>
+<li><p>转换符用于指定转化的格式，有f，d等等</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-5-循环"><a href="#2-5-循环" class="headerlink" title="2.5 循环"></a>2.5 循环</h3><ul>
+<li>和C/C++基本一致，有for循环，while循环和do-while循环<ul>
+<li>要注意区别while循环和do-while循环</li>
+<li><code>for(;;)&#123;&#125;</code>和<code>while(true)&#123;&#125;</code>等价</li>
+<li>Java中也有<code>break</code>和<code>continue</code>来结束或者跳出循环</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-6-方法"><a href="#2-6-方法" class="headerlink" title="2.6 方法"></a>2.6 方法</h3><ul>
+<li>将程序中的一部分过程抽象成一个方法，起到代码复用的作用，一个方法的定义包含如下如内容<ul>
+<li>modifier 修饰符，包括方法的public/private/protected和是否是static，final等属性</li>
+<li>return value type 返回值类型</li>
+<li>method name 方法名</li>
+<li>formal parameters 形式参数<ul>
+<li>方法名+形式参数称为方法的签名</li>
+<li>与之相对应的是actual parameter or argument实际参数，也就是调用方法的时候使用的参数</li>
+<li>实参的内容不会因为方法中的操作被改变</li>
+</ul>
+</li>
+<li>body 方法的具体内容</li>
+</ul>
+</li>
+<li>方法的重载：相同的方法名，不同的参数表构成重载关系<ul>
+<li>只有返回值类型不相同的时候不构成重载，这种写法会引起编译错误，不能使用</li>
+<li>重载可以有返回值类型的区别，但是一定会有<strong>参数表的区别</strong> </li>
+</ul>
+</li>
+<li>局部变量：定义在方法内部的变量叫做局部变量<ul>
+<li>局部变量的可调用范围是从定义开始到不再包含这个变量的方法内部区域为止(比如for循环中定义的变量只能在for循环中调用) </li>
+</ul>
+</li>
+</ul>
+<h3 id="2-7-数组"><a href="#2-7-数组" class="headerlink" title="2.7 数组"></a>2.7 数组</h3><h4 id="2-7-1-一维数组"><a href="#2-7-1-一维数组" class="headerlink" title="2.7.1 一维数组"></a>2.7.1 一维数组</h4><ul>
+<li><p>Java中数组的定义方式<code>datatype[ ] array</code>，中括号也可以放在后面，然后需要用<code>new datatype[size]</code>来声明数组的大小</p>
+<ul>
+<li>可以用length来获得数组的长度，但要注意这个和String类型的<code>length()</code> <strong>方法</strong>不一样，数组里的length是state</li>
+<li>数组的长度定义之后就<strong>不能改变</strong> </li>
+<li>数组的长度确定之后，里面所有元素的值会被设定为默认值<ul>
+<li>对于数值类型的数组，默认值是0</li>
+<li>对于char类型，默认值是<code>\u0000</code></li>
+<li>对于boolean类型，默认值是false</li>
+</ul>
+</li>
+<li>数组可以在定义的时候直接赋予若干值，此时数组的长度会被自动设定为值的个数，但是下面这种方式是错误的</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">double</span><span class="token punctuation">[</span><span class="token punctuation">]</span> list<span class="token punctuation">;</span>
+list <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ul>
+<li>Java数组和C++数组的<strong>区别</strong> <ul>
+<li>Java的数组定义在<strong>堆</strong>上，C++中直接声明大小的数组分配在栈上，动态分配的数组在堆上</li>
+<li>Java的[ ]运算符被会检查数组边界，防止下标溢出，并且没有指针运算</li>
+<li>Java中命令行参数是<code>String[] args</code>，其中<code>args[0]</code>是第一个参数，<strong>程序名没有存储</strong>在args中需要在启动Java程序的时候就输入</li>
+</ul>
+</li>
+<li>数组的遍历<ul>
+<li>用下标i去遍历一个数组</li>
+<li>用<code>elementType value: arrayRefVar</code> 的形式来遍历</li>
+</ul>
+</li>
+<li>数组的拷贝：<code>arraycopy(sourceArray, src_pos, targetArray, tar_pos, length);</code> 自带的处理方法<ul>
+<li>在拷贝的过程中，如果被拷贝的数组存在多余的元素，则赋以默认值，如果小于原始数组长度，则只拷贝前面的元素</li>
+</ul>
+</li>
+<li>数组作为方法的参数<ul>
+<li>Anonymous Array 匿名数组：在方法调用中的参数里直接写一个数组，没有用变量去引用，如<code>new int[]&#123;1,2,3&#125;</code>直接作为参数</li>
+<li>将数组作为参数的时候，数组作为一个引用传入，方法中改变数组的值将会影响到原来的数组，但是匿名数组没有变量名</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-7-2-多维数组"><a href="#2-7-2-多维数组" class="headerlink" title="2.7.2 多维数组"></a>2.7.2 多维数组</h4><ul>
+<li>二维数组的定义：<code>dataType[][] refVar;</code> <ul>
+<li>如何new：<code>new dataType[rowSize][columnSize]</code> </li>
+<li>Java的二维数组每一列大小可以不同，并不需要完全相同！<ul>
+<li>比如<code>int[][] a = &#123;&#123;1, 2&#125;, &#123;3, 4, 5&#125;&#125;;</code> </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>如何创建一个二维数组？以下四种写法中，只有第2行的是对的<ul>
+<li>总结起来就是中括号可以放在前面也可以放在后面，但是<strong>声明的时候不能直接指定数组的大小</strong></li>
+<li>数组的大小需要在new的时候指定，并且二维数组<strong>一定要有行的数目</strong> </li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">int a[3][2] &#x3D; &#123;&#123;1, 2&#125;, &#123;2, 3&#125;, &#123;3, 4&#125;&#125;;
+int a[][] &#x3D; new int[3][];
+int[][] a &#x3D; new int[][3];
+int[][] a &#x3D; new int[][];<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Zhang-Each</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://example.com/2021/05/04/java1/">http://example.com/2021/05/04/java1/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Zhang-Each</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">
+                                    <span class="chip bg-color">编程语言</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/05/04/java2/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/7-min.png" class="responsive-img" alt="Java应用技术2:类和对象">
+                        
+                        <span class="card-title">Java应用技术2:类和对象</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            2020-2021秋冬学期《Java应用技术》的知识整理回顾3
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-04
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/CS%E6%A0%B8%E5%BF%83%E8%AF%BE%E7%A8%8B/" class="post-category">
+                                    CS核心课程
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">
+                        <span class="chip bg-color">编程语言</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/05/04/cn4/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22-min.png" class="responsive-img" alt="计算机网络4:应用层与网络安全">
+                        
+                        <span class="card-title">计算机网络4:应用层与网络安全</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            2020-2021秋冬学期《计算机网络》的知识整理回顾4
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/CS%E6%A0%B8%E5%BF%83%E8%AF%BE%E7%A8%8B/" class="post-category">
+                                    CS核心课程
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">计算机系统</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">计算机网络</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: zyc的旅行笔记<br />'
+            + '文章作者: Zhang-Each<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">Zhang-Each</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">138.6k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/zhang-each" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:740969824@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=740969824" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 740969824" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"superSample":2,"width":150,"height":300,"position":"right","hOffset":0,"vOffset":-20},"mobile":{"show":true,"scale":0.5},"log":false});</script></body>
+
+</html>

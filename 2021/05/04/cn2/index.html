@@ -1,0 +1,1760 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="物理层，数据链路层与MAC子层, zyc的旅行笔记">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>物理层，数据链路层与MAC子层 | zyc的旅行笔记</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">zyc的旅行笔记</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">zyc的旅行笔记</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/24-min.png')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">物理层，数据链路层与MAC子层</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">
+                                <span class="chip bg-color">计算机系统</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                                <span class="chip bg-color">计算机网络</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/CS%E6%A0%B8%E5%BF%83%E8%AF%BE%E7%A8%8B/" class="post-category">
+                                CS核心课程
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-05-04
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-05-04
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6.1k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    22 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="Chapter2-Physics-Layer"><a href="#Chapter2-Physics-Layer" class="headerlink" title="Chapter2.  Physics Layer"></a>Chapter2.  Physics Layer</h2><h3 id="2-0-物理层的基本概念"><a href="#2-0-物理层的基本概念" class="headerlink" title="2.0 物理层的基本概念"></a>2.0 物理层的基本概念</h3><ul>
+<li>物理层存在的意义正是要尽可能地屏蔽不同的传输媒体和通信手段之间的差异，使得物理层上面的数据链路层感受不到这些差异<ul>
+<li>物理层的协议也常常称为规程 procedure，这个词比协议要出现的早</li>
+</ul>
+</li>
+<li>一个数据通信系统分为如下几个部分<ul>
+<li>源系统，也叫发送端和发送方：包含源点和发送器</li>
+<li>传输系统，也叫传输网络</li>
+<li>目的系统，也叫接收端，包含接收器和重点</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-1-有线通信和无线通信"><a href="#2-1-有线通信和无线通信" class="headerlink" title="2.1 有线通信和无线通信"></a>2.1 有线通信和无线通信</h3><ul>
+<li>物理层用到的几种线<ul>
+<li>双绞线 Twisted Pair</li>
+<li>同轴电缆</li>
+<li>光缆 Fiber Cables<ul>
+<li>利用了光的全反射原理，在特定入射角度下不会发生折射</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>接口线 Interface Line</li>
+<li>无线通信：<ul>
+<li>卫星通信</li>
+<li>微波通信：常见于移动通讯，微波会穿过遮挡物继续传播，但可能会被吸收</li>
+</ul>
+</li>
+<li>物理层要做的就是把计算机中的电信号转化成上面这些可以传播的信号<ul>
+<li>信号 signal是数据的电气或者电磁表现，分为模拟信号和数字信号<ul>
+<li>模拟信号也叫连续信号，代表消息的参数的取值是连续的</li>
+<li>数字信号也叫离散信号，代表消息的参数取值是离散的，比如计算机和解调器的通信就是数字信号</li>
+</ul>
+</li>
+<li>信号分为数字信号和模拟信号，比如：<ul>
+<li>电话是将模拟信号转换成模拟信号</li>
+<li>Modem是模拟信号转换成数字信号</li>
+<li>Codec是把数字信号转换成模拟信号</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-2-信道channel和传输-Transmission"><a href="#2-2-信道channel和传输-Transmission" class="headerlink" title="2.2 信道channel和传输 Transmission"></a>2.2 信道channel和传输 Transmission</h3><ul>
+<li><p>信道：表示向某一方向传送信息的媒体</p>
+<ul>
+<li>信道和电路的概念不相同，电路往往包含了发送信道和接受信道各一条</li>
+<li>信道的通信方式也分为单向通信、双向交替通信和双向同时通信</li>
+</ul>
+</li>
+<li><p>基带传输 Baseband Transmission 信号分为0和1，分为若干种传输方式：</p>
+<ul>
+<li>Non-return to zero 用高频代表1，低频信号代表0<ul>
+<li>存在时钟恢复问题，应该从中间处采样</li>
+</ul>
+</li>
+<li>NRZ Invert 在发生10切换的时候信号突变，高低电平进行切换<ul>
+<li>被USB使用</li>
+</ul>
+</li>
+<li>Manchester 曼切斯特编码：传输1是半个高信号+半个低信号，传输0是半个低信号+半个高信号<ul>
+<li>被Ethernet 以太网使用</li>
+</ul>
+</li>
+</ul>
+<img src="image-20200929115121369.png" alt="image-20200929115121369" style="zoom:50%;" />
+
+<ul>
+<li><p>二级编码：AMI</p>
+</li>
+<li><p>4B/5B编码：每四位一组，按照规则扩展成32位，共有32种组合，其余的16种作为控制码</p>
+</li>
+<li><p>宽带传输和基带传输的<strong>区别</strong>：</p>
+<ul>
+<li>宽带传输是把基带信号调制之后形成频分复用模拟信号，在模拟信道上传输</li>
+<li>调制是将数字01转换为信号的过程</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>通带传输 Passband Transmission</p>
+<ul>
+<li>调制的三种方法：调幅Amplitude shift keying，调频 Frequency shift keying，调相 Phase shift keying</li>
+<li>调幅是用多个振幅来表示一个信号——调节振幅</li>
+<li>调频是用多个频率来表示信号——调节频率</li>
+<li>调相是用多个相位来表示信号——调节相位</li>
+<li>QPSK 正交<strong>相移键控</strong>(调相的全名) 用45°，135°，225°和315°的四个偏移</li>
+</ul>
+</li>
+<li><p>信道的<strong>最大数据传输速率</strong>：</p>
+<ul>
+<li>Nyquist定理：带宽为W，则<strong>信号传输速率</strong>不超过2W<ul>
+<li>对于一个信道，并且没有噪声的情况下才适用</li>
+<li>W的单位是赫兹，表示每秒信号变化次数</li>
+</ul>
+</li>
+<li>Bilevel 编码：数据传输速率 = 2倍的带宽，单位是bps</li>
+<li>多进制编码：数据传输速度 =  $2W\log_2M$ 其中M是进制，结果的单位是bps<ul>
+<li>没有理论值的上限，但是会产生损失</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>香农定理 Shannon’s Theorem</p>
+<ul>
+<li>带宽是H(HZ)，信噪比是S/N，信噪比的计量单位是dB</li>
+<li>最大的数据传输速率是：$H\log _2(1+\frac SN)$ <ul>
+<li>也就是说信噪比越大，最大的可能传输速率就越高</li>
+</ul>
+</li>
+<li>信噪比的计算公式：$信噪比=10\log_{10}(\frac SN)$  </li>
+</ul>
+</li>
+</ul>
+<h3 id="2-3-公共电话系统-PSTN"><a href="#2-3-公共电话系统-PSTN" class="headerlink" title="2.3 公共电话系统 PSTN"></a>2.3 公共电话系统 PSTN</h3><ul>
+<li><p>PSTN用于传输人声，但是更加难以辨别，结构如下图所示：</p>
+<img src="image-20200929115442909.png" alt="image-20200929115442909" style="zoom: 67%;" />
+
+<ul>
+<li>主要组成部分：<ul>
+<li>本地回路：传输模拟信号的双绞线</li>
+<li>干线 Trunk：数字光缆，连接了各个交换局</li>
+<li>交换局 Switching office：进行通话的交换，从手动切换变成了计算机切换</li>
+</ul>
+</li>
+<li>模拟信号在end office通过设备使用codec进行数字化<ul>
+<li>每秒采样8000次，每次采样量化成8bit的二进制数，这项技术叫做PCM脉冲编码调制</li>
+<li>T1信道有24个PCM信号，数据传输速率是<strong>1.544Mbps</strong> </li>
+<li>E1信道有32个PCM信号，数据传输速率是<strong>2.048Mbps</strong> </li>
+</ul>
+</li>
+</ul>
+<img src="image-20200929200113363.png" alt="image-20200929200113363" style="zoom:50%;" />
+
+<ul>
+<li>信道的<strong>开销cost</strong>：<ul>
+<li>T1信道每一帧传输的193bit中，有7*24=168bit是有效信息，有25bit是开销，因此开销率是25/193=13%</li>
+<li>E1信道的32个信道中30个传输数据，2个传输信号，因此开销是2/32=6.25%</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-4-信道复用"><a href="#2-4-信道复用" class="headerlink" title="2.4 信道复用"></a>2.4 信道复用</h3><h4 id="2-4-1-频分复用-FDM-Frequency-Division-Multiplexing"><a href="#2-4-1-频分复用-FDM-Frequency-Division-Multiplexing" class="headerlink" title="2.4.1 频分复用(FDM, Frequency Division Multiplexing)"></a>2.4.1 频分复用(FDM, Frequency Division Multiplexing)</h4><ul>
+<li><p>利用通带传输的优势使得多个用户共享信道，每个用户拥有一个自己的频段来发射自己的信号</p>
+<img src="image-20200929193200257.png" alt="image-20200929193200257" style="zoom:50%;" />
+
+<ul>
+<li>OFDM 正交分频复用</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-5-2-时分复用-TDM"><a href="#2-5-2-时分复用-TDM" class="headerlink" title="2.5.2 时分复用 TDM"></a>2.5.2 时分复用 TDM</h4><ul>
+<li><p>每个用户周期性地获取整个带宽非常短的一个时间段，每个输入流中的bit从一个固定的时间槽中取出，并输出到混合流中</p>
+<ul>
+<li>TDM被广泛应用在电话网络和蜂窝网络中</li>
+</ul>
+<img src="image-20200929194404181.png" alt="image-20200929194404181" style="zoom:50%;" /></li>
+</ul>
+<h4 id="2-5-3-码分复用-CDM"><a href="#2-5-3-码分复用-CDM" class="headerlink" title="2.5.3 码分复用 CDM"></a>2.5.3 码分复用 CDM</h4><ul>
+<li>码分多址 CDMA：在CDMA中，每个bit时间被分为m个更短的时间间隔，称为码片chip<ul>
+<li>如果要传输一个1就发送分配的码片序列，如果要传输0就发送码片序列的反码</li>
+<li>发送站的任意两个chip都正交，也就是归一化的内积为0</li>
+</ul>
+</li>
+</ul>
+<img src="image-20200929195813292.png" alt="image-20200929195813292" style="zoom:50%;" />
+
+
+
+<h3 id="2-6-习题"><a href="#2-6-习题" class="headerlink" title="2.6 习题"></a>2.6 习题</h3><ul>
+<li><p> If a binary signal is sent over a 15-kHz channel whose signal-to-noise ratio is 15 dB, what is the maximum achievable data rate?</p>
+</li>
+<li><p>首先需要根据信噪比的分贝数算出S/N，再算出香农定理下的最大传输速率，但是要注意另一种算法下的最大传输速率是30，因此取比较小的应该是30</p>
+</li>
+<li><p>14 signals, each requiring 5000 Hz, are multiplexed on to a single channel using FDM. How much minimum bandwidth is required for the multiplexed channel? Assume that the guard bands are 200 Hz wide.</p>
+<ul>
+<li>n个信号，每个所需要的宽度是x，guard band是y，则一共需要的带宽是nx+(n-1)y HZ</li>
+</ul>
+</li>
+<li><p>A simple telephone system consists of two end offices and a single toll office to which each end office is connected by a 1-MHz full-duplex trunk. The average telephone is used to make four calls per 8-hour workday. The mean call duration is 6 min. Ten percent of the calls are long-distance (i.e., pass through the toll office). What is the maximum number of telephones an end office can support? (Assume 4 kHz per circuit.)</p>
+<ul>
+<li>每天工作8小时，平均一台电话机要打4个电话，每个电话6min，一共是24min所以每小时只需要3min，因此可以一次支持20台远程通话，又因为只有10%是远程通话，所以一个信道可以支持200台</li>
+<li>1MHZ的干线，每个信道的带宽是4KHZ，一共有250个，因此答案是50000个</li>
+</ul>
+<h2 id="Chapter3-Data-link-layer"><a href="#Chapter3-Data-link-layer" class="headerlink" title="Chapter3. Data link layer"></a>Chapter3. Data link layer</h2></li>
+</ul>
+<h3 id="3-1-基本概念"><a href="#3-1-基本概念" class="headerlink" title="3.1 基本概念"></a>3.1 基本概念</h3><ul>
+<li><p>数据链路层：构建数据链路和逻辑链路，区别于物理层，物理层构建的是物理链路</p>
+<ul>
+<li><strong>物理层和数据链路层</strong>的本质作用都是用来构建网络通信、访问通道</li>
+<li>物理链路是真实存在的物理线路和设备，数据链路层是一些必要的硬件(比如网络适配器)和软件(传输协议)组成的</li>
+<li>数据链路层向上提供网络层的服务，处理传输的错误(因为物理层不能发现传输错误)，调节数据流，确保接收方不会被淹没</li>
+<li>提供的一些服务：<ul>
+<li>无确认，无连接的服务：对丢失的帧不负责重发而是交给上一层处理，适用于实时通信或者误码率低的信道，比如以太网</li>
+<li>有确认的，无连接的服务，比如无线通信</li>
+<li>有确认的，面向连接的服务：帧的传输需要建立数据链路、传输帧、释放数据链路，适用于长距离的不可靠链路</li>
+<li>提供“虚拟的交流”：实际上就是通过协议和查错，避免需要通过物理层的通信产生的差错，就好像绕过了物理层一样</li>
+</ul>
+<img src="image-20201014114245291.png" alt="image-20201014114245291" style="zoom:67%;" /> </li>
+</ul>
+</li>
+<li><p>Frame和Framing 帧：是数据链路层<strong>发送数据的单位</strong> </p>
+<ul>
+<li><p>Packet和Frame的关系</p>
+<img src="image-20201014113939446.png" alt="image-20201014113939446" style="zoom:67%; " align="center"/></li>
+<li><p>具有一定的特殊格式：</p>
+<ul>
+<li><p>character count 不常用的方法，很容易出错，一个错了后面的就都错了</p>
+</li>
+<li><p>字节填充法：开始和结束使用特定的字符，用STX和ETX分别表示帧的开始和结束，DLE可以用来表示转义字符</p>
+<ul>
+<li>DLE+STX表示需要把STX进行转义，不代表帧开始的符号，DLE+DLE表示把第二个DLE进行转义</li>
+</ul>
+</li>
+<li><p>比特填充法：通过在帧头和帧尾各插入一个特定的比特串（如 01111110) 来标识-一个数据帧的起始与结束</p>
+<ul>
+<li>为了保证传输的内容不被错误解析，可以在传输的数据中每出现连续的5个1就在后面添加一个0，这样就不会出现连续的6个1，就算后面有0也要加一个0</li>
+</ul>
+<img src="image-20201013102809850.png" alt="image-20201013102809850" style="zoom:67%;" /></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-2-数据链路层的错误检测"><a href="#3-2-数据链路层的错误检测" class="headerlink" title="3.2 数据链路层的错误检测"></a>3.2 数据链路层的错误检测</h3><ul>
+<li><p>错误控制的方式</p>
+<ul>
+<li><code>error correcting</code> 纠错功能</li>
+<li><code>error detecting with retransmission</code> 错误检测和重发</li>
+</ul>
+</li>
+<li><h3 id="纠错码-Error-correcting-code"><a href="#纠错码-Error-correcting-code" class="headerlink" title="纠错码 Error correcting code"></a>纠错码 Error correcting code</h3><ul>
+<li><p>假设一帧由 $m$ 个数据位和 $r$ 个冗余位组成，记 $n=m+r$， 并将该编码描述成$(m,n)$码</p>
+</li>
+<li><p>海明码：设置一系列校验码和校验位</p>
+<ul>
+<li>海明距离：两个码字(codeword)中不同的位的个数，如果两个码字的海明距离为 $d$ ，则需要 $d$ 个1位错误才能把一个码字转换成另一个码字<ul>
+<li>也就是一个码字中最多可能错误的位数</li>
+</ul>
+</li>
+<li>纠错能力：<ul>
+<li>为了检测d个错误，就需要d+1的海明距离的编码方案，其实也就是说海明距离为n的编码方案只能检测出n-1个错误</li>
+<li>为了纠正d个错误，需要2d+1的海明编码方案</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>对于每$2^m$个合法消息，任何一个消息都有n个非法码字，即海明距离为1的非法码字有n个，因此每个合法消息都需要用n+1位来标识，由于总共有$2^n$种位模式，也就是$(n+1)\le 2^r$ </p>
+<ul>
+<li>用2的幂次的位置作为校验码，其他位置依次放数据</li>
+</ul>
+</li>
+<li><p>海明码的海明距离为3，可以发现2bit的错误，可以纠正1bit的错误，将码字内的位编号为1到n，其中是2的幂次的位就是校验码，其余的都是数据码</p>
+</li>
+</ul>
+</li>
+<li><p><strong>循环冗余校验 Cyclic Redundancy Check</strong>  </p>
+<ul>
+<li>基本思路：并在数据帧的末尾添加若干位作为校验码，<strong>要使所生成的新帧能与</strong>发送端和接收端<strong>共同选定的某个特定数整除</strong> <ul>
+<li><p>约定一个生成多项式$G(x)$ 需要首位和末尾的系数都是1</p>
+<ul>
+<li>所选定的除数二进制位数（假设为 k 位），然后在要发送的数据帧（假设为 m 位）后面加上 k- 1 位0，接着以这个加了 k-1 个0的新帧（一共是 m+k-1 位）<strong>除</strong>以上面这个除数</li>
+</ul>
+</li>
+<li><p>所得到的余数（也是二进制的比特串）就是该帧的 CRC 校验码，又称 FCS（帧校验序列）</p>
+<ul>
+<li>但要注意的是，余数的位数比除数位数只能少一位，不能省略0</li>
+</ul>
+</li>
+<li><p>还要注意这里的除法是特殊的计算方式，除法中用到的减法是异或XOR，也就是不会借位</p>
+</li>
+</ul>
+<img src="image-20201013111047773.png" alt="image-20201013111047773" style="zoom: 50%;" />
+
+<ul>
+<li>再把这个余数附加在原数据帧的末尾(覆盖之前的0)，构建一个新的帧发送到接收端</li>
+<li>在接收端除以第二步中的除数，如果没有余数就说明没有差错</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-3-数据链路层的协议"><a href="#3-3-数据链路层的协议" class="headerlink" title="3.3 数据链路层的协议"></a>3.3 数据链路层的协议</h3><ul>
+<li><p>停止-等待协议 <code>Stop-and-Wait Protocol</code></p>
+<ul>
+<li>最简单的通信协议</li>
+</ul>
+<img src="image-20201013112052219.png" alt="image-20201013112052219" style="zoom: 67%;" />
+
+<ul>
+<li>基本思路：每次发送完毕，停止，等到接收方收到**表示发送成功的数据包(ACK)**之后再进行下一次的发送<ul>
+<li>如果收到了NAK包，表示不确认，此时需要发送方重新发送一次数据包</li>
+<li>如果产生了数据丢失，就会Time Out，即发送方迟迟等不到接收方的回复，就会尝试<strong>主动重发</strong> </li>
+<li>如果产生了ACK丢失，也会导致发送方重发，这时就会丢弃收到的数据，并再发送一个ACK提醒发送方已经收到</li>
+</ul>
+</li>
+<li>对发送的数据包的标记方式可以只用1个bit来标记，01交替表示换了个新的数据包</li>
+<li>效率的衡量<ul>
+<li>$T_{frame}$ 表示发送方<strong>发出去完整的一个帧</strong>需要的时间，$T_{prop}$ 表示传输到接收方需要的时间<ul>
+<li>$T_{prop}=\frac{distance}{\mathcal {speed}}$ 而且 $T_{frame}=\frac{frame_size}{bit_rate}$ </li>
+<li>令$\alpha = \frac{T_{prop}}{T_{frame}}$ 则链路利用率 $U=\frac 1 {2\alpha +1}$ </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>停止等待协议的编程实现——重要的数据结构</li>
+</ul>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#define MAX_PKT 1024
+typedef unsigned int seq_nr;
+typedef struct packet &#123;
+    unsigned char data[MAX_PKT];
+&#125;;
+typedef enum &#123;data, ack, nak&#125; frame_kind;
+typedef struct &#123;
+    frame_kind kind;
+    seq_nr seq, ack;
+    packet info;
+&#125; frame;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<ul>
+<li><p>滑动窗口协议 <code>Sliding Window Protocols</code></p>
+<ul>
+<li><p>窗口就是一系列用于收发数据的<strong>序列号的集合</strong> </p>
+<ul>
+<li><p>发送方维持一组连续的允许发送帧的窗口，称为发送窗口</p>
+<ul>
+<li>发送方每次收到一个ACK就把窗口移动一个位置</li>
+</ul>
+</li>
+<li><p>某些协议中的发送窗口</p>
+</li>
+</ul>
+</li>
+<li><p>接收方维持一组连续的允许接收帧的窗口，称为接收窗口</p>
+<ul>
+<li>接收端收到一个数据帧之后就把接收窗口移动一格，并发回确认帧ACK，落在接收窗口之外的数据帧一律丢弃</li>
+<li>当发生错误时，丢弃错误帧后所有的帧，不发回确认，要求发送方重传开始错误之后的帧</li>
+</ul>
+</li>
+<li><p>滑动窗口协议的利用率$U=\min (\frac{N}{2\alpha +1}, 1)$ 但是仅存理论可能</p>
+</li>
+<li><p>几种不同的<strong>重新发送</strong>的协议</p>
+<ul>
+<li><p>Go-Back-N </p>
+<ul>
+<li>回退到第一个出问题的窗口，对后面的所有内容都进行重新发送，因此接收端也必须丢弃所有相应的数据包</li>
+</ul>
+</li>
+<li><p>发送方窗口大小不超过 <code>MAX_SEQ</code>，即<strong>最大的序列号</strong> </p>
+<ul>
+<li><p>接收方的窗口大小为1</p>
+</li>
+<li><p>问题在于网络情况不好的时候会进一步恶化网络状况</p>
+</li>
+</ul>
+</li>
+<li><p>Selective Repeat Protocol 选择重复协议</p>
+<img src="image-20201013114512808.png" alt="image-20201013114512808" style="zoom: 50%;" />
+
+<ul>
+<li>在滑动窗口的基础上，不需要发送丢失之后的所有数据帧，只需要发送缺少的数据帧就可以</li>
+<li>为了保证没有序号重叠，窗口的最大尺寸不应该超过序号空间的一半，即(MAX_SEQ+1)/2<ul>
+<li>接收方和发送方的窗口size一样，接收方的缓冲区=窗口的size</li>
+</ul>
+</li>
+<li>相比于GO-Back-N需要更大的缓冲区</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>PPP协议(Point to Point Protocol) </p>
+<ul>
+<li><p>用于在链路中发送数据包的协议，包含光纤链路和ADSL</p>
+</li>
+<li><p>是一个点对点的协议，需要提供身份验证，会动态分配IP地址，具有简单的差错功能，包含了链路控制协议LCP和网络控制协议NCP</p>
+<ul>
+<li>链路控制协议会激活数据链路，并进行测试，当不需要的时候再关闭</li>
+</ul>
+</li>
+<li><p>有若干种状态</p>
+<p>​    <img src="image-20201019123822959.png" alt="image-20201019123822959" style="zoom: 80%;" /></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-4-HDLC帧格式"><a href="#3-4-HDLC帧格式" class="headerlink" title="3.4 HDLC帧格式"></a>3.4 HDLC帧格式</h3><ul>
+<li>起始和结束都是8bit的01111110+8bit address + 8bit control + 若干位data + 16位checksum <ul>
+<li>不同类型的帧的控制位数不一样</li>
+<li>对于信息帧而言，8bit = 1bit 0 + 3bit seq序号 + 1bit P/F + 3bit next序号</li>
+<li>监督帧：10+2bit type + P/F + 3bit next</li>
+<li>无符号帧： 11+2bit type + P/F + 3bit modifier</li>
+</ul>
+</li>
+</ul>
+<img src="image-20201019123740549.png" alt="image-20201019123740549" style="zoom:67%;" />
+
+
+
+<h2 id="Chapter4：Medium-Access-Sublayer"><a href="#Chapter4：Medium-Access-Sublayer" class="headerlink" title="Chapter4：Medium Access Sublayer"></a>Chapter4：Medium Access Sublayer</h2><ul>
+<li>中译名：介质<strong>访问控制</strong>子层</li>
+</ul>
+<h3 id="4-1-回忆"><a href="#4-1-回忆" class="headerlink" title="4.1 回忆"></a>4.1 回忆</h3><ul>
+<li>数据链路的两种类型：<ul>
+<li>P2P的连接</li>
+<li>使用广播信道进行连接<ul>
+<li>多路访问信道 Multiaccess Channel</li>
+<li>随机访问信道 Random Access Channel</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>介质访问控制子层 Medium Access Control(MAC)<ul>
+<li>用于确定多路访问信道中下一个使用者的协议</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-2-信道分配协议"><a href="#4-2-信道分配协议" class="headerlink" title="4.2 信道分配协议"></a>4.2 信道分配协议</h3><ul>
+<li>信道分配的方式：<ul>
+<li>静态分配：比如物理层中介绍的频分复用，波分复用，码分复用等等<ul>
+<li>在用户少，信道充足的情况下简单高效</li>
+<li>单个信道的帧平均延迟时间：K是帧的到达速率，$\frac{1}{\lambda}$是帧的长度，C表示信道的总数，则$T=\frac{1}{\lambda C-K}$，在频分复用的时候时间延迟变成NT，其中N是子信道的个数</li>
+</ul>
+</li>
+<li>动态信道分配：又叫多点接入，特点是信道并非在用户通信的时候固定分配给用户<ul>
+<li>5个基本的假设：<ul>
+<li>流量独立：帧的传输是独立的，一旦生成了一帧，这个站就会被阻塞，直到帧被成功发送出去</li>
+<li>单信道假设：所有站点使用一个信道</li>
+<li>帧的发送冲突可以被观察到</li>
+<li>发送的时间是连续的或者有间隔的发送</li>
+<li>载体感知或者无载体感知：站点在发送之前可以知道信道是否在使用</li>
+</ul>
+</li>
+<li>多路传输协议：ALOHA，CSMA等等</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-2-1-竞争性的协议"><a href="#4-2-1-竞争性的协议" class="headerlink" title="4.2.1 竞争性的协议"></a>4.2.1 竞争性的协议</h4><ul>
+<li>ALOHA协议<ul>
+<li>Pure ALOHA：有需要的时候就可以发送帧，不需要全局时间的同步<ul>
+<li>协议的效率 $S=Ge^{-2G}$ 其中G表示每个帧发送所需的时间内new和resend的帧的数量，一个帧时间内希望有G帧，但是生成K帧的概率服从泊松分布</li>
+<li>协议最高的效率大约是：18.4%——因为所有的站点都可以随机发送，因此冲突非常多</li>
+</ul>
+</li>
+<li>Slotted分槽ALOHA：将时间分成离散的间隔，用户遵守统一的时间槽边界，效率是$S=Ge^{-G}$ </li>
+</ul>
+</li>
+<li>CSMA协议(Carrier Sense Multiple Access Protocol)<ul>
+<li>特点：在发送数据之前一直监听信道，如果冲突了就等待一段随机的时间之后再试一次</li>
+<li>分为多种情况：<ul>
+<li>1-persistant CSMA：<ul>
+<li>先监听，一有空闲时间就发送，如果信道繁忙就持续监听</li>
+<li>如果发生冲突就等待一段随机的时间，如果带宽延迟乘积大，协议的性能就差</li>
+</ul>
+</li>
+<li>non-persistant CSMA：<ul>
+<li>如果信道正在使用则不持续监听，改成随即等待，冲突就随即等一段时间</li>
+<li>信道的利用率高但是延迟大</li>
+</ul>
+</li>
+<li>p-persistant CSMA：<ul>
+<li>持续监听信道，如果空闲就以一定的概率p发送数据，否则推迟到下一个时间槽，如果信道繁忙就持续监听</li>
+<li>IEEE 802.11使用优化后的p-CSMA</li>
+</ul>
+</li>
+<li>有冲突检测的CSMA(CSMA/CD)<ul>
+<li>假设两个站点之间传播所需的最长时间是t那么只有一个站的传输时间大于2t才能被检测到冲突</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-2-2-非竞争和有限竞争"><a href="#4-2-2-非竞争和有限竞争" class="headerlink" title="4.2.2 非竞争和有限竞争"></a>4.2.2 非竞争和有限竞争</h4><ul>
+<li>无冲突协议 CFP<ul>
+<li><strong>基本位图法</strong>：竞争槽中表示哪个station需要传输，假设数据的传输所需的时间长度为d，每个竞争期包含的槽的个数是N<ul>
+<li>在低负载的情况下，低序号的站发送的平均等待时间是1.5N，高序号的站的平均等待时间是0.5N，对所有站而言平均等待时间是N，即每一帧的额外开销是N位，因此低负载的情况下信道的利用率是$\frac{d}{N+d}$ </li>
+<li>在高负载的情况下，N个竞争位被分到了N个帧上面，此时利用率是$\frac{d}{1+d}$ </li>
+</ul>
+</li>
+<li><strong>令牌传递</strong> token passing<ul>
+<li>令牌环：用于向下一个站点发送令牌</li>
+<li>令牌总线：利用总线发送帧</li>
+</ul>
+</li>
+<li><strong>二进制计数</strong> Binary CountDown<ul>
+<li>高序站的优先级比较高，利用率是$\frac d {d+\log_2 N}$ </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>有限竞争协议：<ul>
+<li>低负载的时候使用竞争协议降低延迟，高负载的时候采用无冲突的方法提高信道效率</li>
+<li>自适应树遍历协议：二叉树中的节点表示各个站点，当节点冲突的时候，左子树下面的节点才有竞争权</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-2-3-WLAN协议"><a href="#4-2-3-WLAN协议" class="headerlink" title="4.2.3 WLAN协议"></a>4.2.3 WLAN协议</h4><ul>
+<li><p>WLAN的特点</p>
+<ul>
+<li>无线通信系统通常不能检测出正在发生的冲突，站点接收到的信号可能非常微弱</li>
+<li>WLAN的站点可能无法给所有其他的站发送帧，也可能无法接受来自所有来自其他站的帧</li>
+</ul>
+</li>
+<li><p>一个简单的想法是使用CSMA：每个站点监听是否有其他的站点在传输，并且只有当没有其他站在传送数据的时候才进行传输，问题在于这种方法没有考虑WLAN的特性，如下图所示：</p>
+<p><img src="/2021/05/04/cn2/image-20201020230440351.png" alt="image-20201020230440351"></p>
+<ul>
+<li>当A发送给B的时候，C在监听，但是监听不到A，因为在距离之外，因此错误地认为C可以向B发送数据，因此B处就造成了混乱，扰乱了A发送过来的数据帧</li>
+<li>因此我们需要一个MAC协议防止此类冲突的发生</li>
+<li>冲突将导致宽带的浪费，由于竞争者离得太远而导致站点无法检测到潜在的竞争者，这个问题被称为<strong>隐藏终端问题</strong>(<code>hidden station problem</code>)</li>
+</ul>
+</li>
+<li><p>MACA 冲突避免多路访问协议</p>
+<ul>
+<li>基本思路是发送方刺激接收方输出一个短的数据帧，以便其在附近可以接收到，同时避免接下去进行的数据帧传输也需要发送数据</li>
+<li>RTS(Request to Send)：30字节，包含随后要发送的数据帧长度</li>
+<li>CTS(Clear to Send)：应答帧</li>
+</ul>
+<p><img src="/2021/05/04/cn2/image-20201020112537734.png" alt="image-20201020112537734"></p>
+</li>
+</ul>
+<h3 id="4-3-以太网-IEEE802-3标准"><a href="#4-3-以太网-IEEE802-3标准" class="headerlink" title="4.3 以太网 IEEE802.3标准"></a>4.3 以太网 IEEE802.3标准</h3><ul>
+<li><p>以太网的分类：</p>
+<ul>
+<li>经典以太网 Classsic</li>
+<li>交换式以太网 Switched：用交换机来连接不同的计算机，目前主要使用的以太网类型</li>
+</ul>
+<p><img src="/2021/05/04/cn2/image-20201020114731024.png" alt="image-20201020114731024"></p>
+</li>
+</ul>
+<h4 id="4-3-1-经典以太网的MAC子层协议"><a href="#4-3-1-经典以太网的MAC子层协议" class="headerlink" title="4.3.1 经典以太网的MAC子层协议"></a>4.3.1 经典以太网的MAC子层协议</h4><ul>
+<li><p>802.3的数据帧格式：</p>
+<ul>
+<li>前导码是8个字节，7个字节是10101010，最后一个字节是SOF10101011</li>
+<li>目标地址和源地址都是6字节的长度<ul>
+<li>目标地址的第一位是0/1分别表示普通地址和组播地址</li>
+<li>目标地址全是1则是广播</li>
+</ul>
+</li>
+<li>类型用2个字节来标识，取决于协议的类型</li>
+<li>数据字段最多可以有1500个字节</li>
+<li>以太网要求有效帧的长度至少是64bit，因此需要有0-46字节的填充区<ul>
+<li>这是为了满足2t的传输时间</li>
+</ul>
+</li>
+<li>校验和是4字节，一般十32位的CRC</li>
+</ul>
+<p><img src="/2021/05/04/cn2/image-20201020114421387.png" alt="image-20201020114421387"></p>
+<ul>
+<li>采用曼切斯特编码的方式</li>
+</ul>
+</li>
+<li><p><strong>二进制指数后退算法</strong> <code>Binary Exponential Backoff</code>： </p>
+<ul>
+<li>在第i次的冲突之后，随即等待$0\rightarrow 2^i-1$ 个时间槽，但是最大不超过1023</li>
+<li>如果只有少量的站冲突可以确保比较低的延迟，但是冲突的站点比较多的时候也可以保证一个合理的时间来解决冲突</li>
+</ul>
+</li>
+<li><p>以太网的信道效率：假设每个时间槽的间隔时间是2t，并且传送一帧平均需要P秒，获得某个信道的概率为$A=kp(1-p)^{k-1}$ 则信道效率=$\frac{P}{P+2t/A}$</p>
+</li>
+</ul>
+<h4 id="4-3-2-交换式以太网"><a href="#4-3-2-交换式以太网" class="headerlink" title="4.3.2 交换式以太网"></a>4.3.2 交换式以太网</h4><ul>
+<li><p>以太网的结构</p>
+<ul>
+<li>集线器：在电气上简单地连接所有的连接线，比如用双绞线，但是集线器不能增加容量，逻辑上等于一根电缆组成的经典以太网</li>
+<li>交换机：包含一块连接所有端口的<strong>高速背板</strong>，其他的略</li>
+</ul>
+<p><img src="/2021/05/04/cn2/image-20201020233043714.png" alt="image-20201020233043714"></p>
+</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Zhang-Each</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://example.com/2021/05/04/cn2/">http://example.com/2021/05/04/cn2/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Zhang-Each</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">
+                                    <span class="chip bg-color">计算机系统</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                                    <span class="chip bg-color">计算机网络</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/05/04/cn3/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17-min.png" class="responsive-img" alt="计算机网络3:网络层和运输层">
+                        
+                        <span class="card-title">计算机网络3:网络层和运输层</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            2020-2021秋冬学期《计算机网络》的知识整理回顾3
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-04
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/CS%E6%A0%B8%E5%BF%83%E8%AF%BE%E7%A8%8B/" class="post-category">
+                                    CS核心课程
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">计算机系统</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">计算机网络</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/05/04/cn1/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13-min.png" class="responsive-img" alt="计算机网络1:OSI七层模型">
+                        
+                        <span class="card-title">计算机网络1:OSI七层模型</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            2020-2021秋冬学期《计算机网络》的知识整理回顾1
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/CS%E6%A0%B8%E5%BF%83%E8%AF%BE%E7%A8%8B/" class="post-category">
+                                    CS核心课程
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">计算机系统</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">计算机网络</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: zyc的旅行笔记<br />'
+            + '文章作者: Zhang-Each<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">Zhang-Each</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">138.6k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/zhang-each" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:740969824@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=740969824" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 740969824" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"superSample":2,"width":150,"height":300,"position":"right","hOffset":0,"vOffset":-20},"mobile":{"show":true,"scale":0.5},"log":false});</script></body>
+
+</html>

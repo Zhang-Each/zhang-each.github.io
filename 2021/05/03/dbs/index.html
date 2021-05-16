@@ -1,0 +1,3217 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="数据库系统整理, zyc的旅行笔记">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>数据库系统整理 | zyc的旅行笔记</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">zyc的旅行笔记</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">zyc的旅行笔记</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/26-min.png')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">数据库系统整理</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                <span class="chip bg-color">数据库</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/CS%E6%A0%B8%E5%BF%83%E8%AF%BE%E7%A8%8B/" class="post-category">
+                                CS核心课程
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-05-03
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-05-03
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    16.6k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    64 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="数据库系统复习整理"><a href="#数据库系统复习整理" class="headerlink" title="数据库系统复习整理"></a>数据库系统复习整理</h1><h4 id="RandomStar"><a href="#RandomStar" class="headerlink" title="RandomStar"></a>RandomStar</h4><h2 id="第一部分：基本概念和关系代数"><a href="#第一部分：基本概念和关系代数" class="headerlink" title="第一部分：基本概念和关系代数"></a>第一部分：基本概念和关系代数</h2><h3 id="1-0-课程绪论"><a href="#1-0-课程绪论" class="headerlink" title="1.0 课程绪论"></a>1.0 课程绪论</h3><ul>
+<li>Nothing important，主要是介绍课程的评分标准和瞎吹一通</li>
+</ul>
+<h3 id="1-1-关系型数据库-Relational-Database"><a href="#1-1-关系型数据库-Relational-Database" class="headerlink" title="1.1 关系型数据库 Relational Database"></a>1.1 关系型数据库 Relational Database</h3><h4 id="关系型数据的一些基本特点"><a href="#关系型数据的一些基本特点" class="headerlink" title="关系型数据的一些基本特点"></a>关系型数据的一些基本特点</h4><ul>
+<li>关系型数据库是一系列<strong>表的集合</strong> </li>
+<li>一张表是一个基本单位</li>
+<li>表中的一行表示一条关系</li>
+</ul>
+<h3 id="1-2-基本概念和结构"><a href="#1-2-基本概念和结构" class="headerlink" title="1.2  基本概念和结构"></a>1.2  基本概念和结构</h3><ul>
+<li>a relation r is a subset of $D_{1}\times D_{2}\times …\times D_{n}$，一条relation就是其中的一个n元的<strong>元组(tuple)</strong> </li>
+<li>attribute属性，指表中的<strong>列名</strong>  <ul>
+<li>attribution type 属性的类型</li>
+<li>attribute value 属性值，某个属性在某条relation中的值<ul>
+<li>关系型数据库中的属性值必须要是atomic的，即不可分割的</li>
+<li>domain：属性值的值域，null是所有属性的domain中都有的元素，但是null值会造成一些问题</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Relation Schema 关系模式<ul>
+<li>$R=(A_{1},A_{2},…,A_{n})$ 其中$A_i$是一系列属性，关系模式是对关系的一种<strong>抽象</strong> </li>
+<li>r(R)表示关系模式R中的一种关系，table表示这个关系当前的值(关系实例)<ul>
+<li>每个关系r中的元素是table中的一行</li>
+<li>不过经常用相同的名字命名关系模式和关系</li>
+</ul>
+</li>
+<li>关系是<strong>无序</strong>的，关系中行和列的顺序是irrelevant的</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-3-Keys键"><a href="#1-3-Keys键" class="headerlink" title="1.3 Keys键"></a>1.3 Keys键</h3><ul>
+<li>super key超键：能够<strong>唯一标识</strong>元组的属性集，即对于每一条关系而言超键的值是唯一的<ul>
+<li>超键可以是多个属性的组合</li>
+<li>如果A是关系R的一个超键，那么(A, B)也是关系R的一个超键</li>
+<li>超键的“唯一标识”各个元组是可以有冗余信息的</li>
+</ul>
+</li>
+<li>candidate key候选键：<strong>不含多余属性</strong>的超键<ul>
+<li>如果K是R的一个超键，而任何K的真子集不是R的一个超键，那么K就是R的一个候选键</li>
+</ul>
+</li>
+<li>primary key主键：<ul>
+<li>数据库管理员<strong>指定</strong>的元组标识的一个候选键，不能是null值</li>
+</ul>
+</li>
+<li>foreign key外键：用来描述两个表之间的关系，可以有空值<ul>
+<li>如果关系模式R1中的一个属性是另一个关系模式R2中的一个<strong>主键</strong>，那么这个属性就是R1的一个外键<ul>
+<li>a foreign key from r1 referencing r2</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-4-Relational-algebra关系代数"><a href="#1-4-Relational-algebra关系代数" class="headerlink" title="1.4 Relational algebra关系代数"></a>1.4 Relational algebra关系代数</h3><ul>
+<li>Select 选择：$\sigma_{p}(r)={t|t\in r \cap p(t) }$ <ul>
+<li>筛选出所有满足条件p(t)的元素t</li>
+</ul>
+</li>
+<li>Project投影：$\prod_{A_1,A_2,\cdots,A_k}(r)$<ul>
+<li>运算的结果是原来的关系r中各列只保留属性$A_1,A_2,\dots,A_k$ 后的关系</li>
+<li>会<strong>自动去掉重复</strong>的元素，因为可能投影的时候舍弃的属性是可以标识关系唯一性的属性</li>
+</ul>
+</li>
+<li>Union 并操作：$r \cup s={t|t\in r \cup t \in s}$  <ul>
+<li>两个关系的属性个数必须相同</li>
+<li>各属性的domain必须是可以比较大小的</li>
+</ul>
+</li>
+<li>Set difference 差操作：$r-s={t| t\in r \cap t \notin s}$ </li>
+<li>Cartesian-Product笛卡尔积：$r\times s={tq| t\in r\cap q\in s}$ <ul>
+<li>两个关系必须是不相交的，如果相交则需要对结果中重复的属性名进行重命名</li>
+<li>笛卡儿积运算的结果关系中元组的个数应该是rs的个数之乘积</li>
+</ul>
+</li>
+<li>Renaming重命名：$\rho_{X}(E)$ <ul>
+<li>将E重命名为x, 让一个关系拥有多个别名，同时X可以写为$X(A_1,A_2,\dots,A_n)$ 表示对属性也进行重命名</li>
+<li>类似于C++中的引用</li>
+</ul>
+</li>
+<li>扩展运算: 可以用前面的六种基本运算得到<ul>
+<li>Intersection 交运算$r \cap s={t|t\in r \cap t \in s}=r-(r-s)$   </li>
+<li>Natual-Join 自然连接：$r\Join s$ <ul>
+<li>两个关系中同名属性在自然连接的时候当作<strong>同一个属性</strong>来处理</li>
+<li><strong>Theta join</strong> 满足某种条件的合并：$r\Join_{\theta} s=\sigma_{\theta}(r\Join s)$  </li>
+</ul>
+</li>
+<li>Outer-Join外部连接，分为左外连接，右外连接，全外连接<ul>
+<li>用于应对一些<strong>信息缺失</strong>的情况(有null值)</li>
+<li>左外连接$\ltimes $ <ul>
+<li>左边的表取全部值按照关系和右边连接，右边不存在时为空值 </li>
+</ul>
+</li>
+<li>右外连接$\rtimes $ <ul>
+<li>右边的表取全部值按照关系和右边连接，不存在为空值</li>
+</ul>
+</li>
+<li>Full join左右全上，不存在对应的就写成空值</li>
+</ul>
+</li>
+<li>Division除法：$r\div s={t|t\in\prod_{R-S}(r)\cap \forall u \in s (tu\in r)}$<ul>
+<li>如果$R=(A_1,A_2,\dots,A_m,B_1,\dots,B_n)\cap S=(B_1,\dots,B_n)$ 则有$R- S=(A_1,A_2,\dots,A_m)$ </li>
+</ul>
+</li>
+<li>Assignment声明操作，类似于变量命名用$\leftarrow$  可以把一个关系代数操作进行命名 </li>
+</ul>
+</li>
+<li>Aggregation operations聚合操作<ul>
+<li>基本形式：$<em>{G_1,G_2,\dots,G_n}{\cal {G}}</em>{F_1(A_1),\dots,F_n(A_n)}(E)$ </li>
+<li>G是聚合的标准，对于关系中所有G值相同的元素进行聚合，F( )是聚合的运算函数</li>
+<li>常见的有SUM/MAX/MIN/AVG/COUNT</li>
+</ul>
+</li>
+</ul>
+<h2 id="第二部分：SQL"><a href="#第二部分：SQL" class="headerlink" title="第二部分：SQL"></a>第二部分：SQL</h2><h3 id="2-1-SQL基本概念"><a href="#2-1-SQL基本概念" class="headerlink" title="2.1 SQL基本概念"></a>2.1 SQL基本概念</h3><ul>
+<li><strong>SQL：结构化查询语言</strong>，分为DDL,DML,DCL几种类型，用的比较多的标准是SQL-92</li>
+<li><strong>非过程式的语言</strong> </li>
+</ul>
+<h3 id="2-2-SQL-创建，更新，删除"><a href="#2-2-SQL-创建，更新，删除" class="headerlink" title="2.2 SQL 创建，更新，删除"></a>2.2 SQL 创建，更新，删除</h3><ul>
+<li><p>SQL支持的数据类型</p>
+<ul>
+<li>char, varchar, int, numeric(p,d), null-value,  date, time, timestamp</li>
+<li>所有的数据类型都支持null作为属性值，可以在定义的时候声明一个属性的值not null</li>
+</ul>
+</li>
+<li><p>创建数据表create table</p>
+<ul>
+<li>创建表的语法<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">table</span> table_name<span class="token punctuation">(</span>
+		variable_name1 type_name1<span class="token punctuation">,</span>
+		variable_name2 type_name2<span class="token punctuation">,</span>
+    	<span class="token punctuation">(</span>integrity<span class="token operator">-</span>contraints<span class="token punctuation">)</span>
+		……<span class="token punctuation">,</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><code>integrity-contraint</code> 完整性约束：可以<strong>指定primary key</strong>, <strong>foreign key references xxx, not null</strong></li>
+</ul>
+</li>
+<li><p>删除数据表 <code>drop table</code> </p>
+</li>
+<li><p>更新数据表的栏目 <code>alter table</code> </p>
+<ul>
+<li><code>alter table R add A D</code>  添加一条新属性<ul>
+<li>其中A是属性名，D是A的domain</li>
+</ul>
+</li>
+<li><code>alter table R drop A</code>  删除A属性</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-3-SQL查询"><a href="#2-3-SQL查询" class="headerlink" title="2.3 SQL查询"></a>2.3 SQL查询</h3><ul>
+<li><p>事实上的最重要SQL语句，考试考的一般都是查询语句</p>
+</li>
+<li><p>SQL查询的基本形式：select语句</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> A1<span class="token punctuation">,</span>A2<span class="token punctuation">,</span>…<span class="token punctuation">,</span>An
+<span class="token keyword">from</span> r1<span class="token punctuation">,</span>r2<span class="token punctuation">,</span>…<span class="token punctuation">,</span>rn
+<span class="token keyword">where</span> P<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>上述查询等价于$\prod_{A_1,A_2,\cdots,A_k}(\sigma_{p}(r_1\times r_2\times \dots\times r_m))$ </li>
+<li>SQL查询的结果是一个关系</li>
+</ul>
+</li>
+<li><p>select子句的一些<strong>细节</strong> </p>
+<ul>
+<li><p><code>select * from xxx</code> 表示获取<strong>所有属性</strong>，事实上我怀疑*是正则表达式，表示可能有的所有内容，从后面的内容来看，select语句确实是支持正则表达式</p>
+</li>
+<li><p>SQL中的<strong>保留字</strong>对于<strong>大小写不敏感</strong> </p>
+</li>
+<li><p>去除重复：<code>select distinct</code>，防止重复丢失的办法<code>select all</code></p>
+</li>
+<li><p>select子句中的表达式支持基本的<strong>四则运算</strong>(加减乘除)，比如</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">select ID, name, salary&#x2F;2
+from instructor;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li><p>where子句中：</p>
+<ul>
+<li>支持<code>and or not</code>等逻辑运算</li>
+<li>支持<code>between and</code>来查询范围</li>
+</ul>
+</li>
+<li><p>from 子句：</p>
+<ul>
+<li>重命名操作，可以通过 <code>old_name as new_name</code>进行重命名</li>
+<li>from 可以选择多个表，此时会先将这些表进行笛卡儿积的运算，再进行select</li>
+<li>元组变量：可以从多个表中select满足一定条件的几个不同属性值的元组</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> instructor<span class="token punctuation">.</span>name <span class="token keyword">as</span> teacher<span class="token operator">-</span>name<span class="token punctuation">,</span> course<span class="token punctuation">.</span>title <span class="token keyword">as</span> course<span class="token operator">-</span>title
+<span class="token keyword">from</span> instructor<span class="token punctuation">,</span> teaches<span class="token punctuation">,</span> course
+<span class="token keyword">where</span> instructor<span class="token punctuation">.</span>ID <span class="token operator">=</span> teaches<span class="token punctuation">.</span>ID <span class="token operator">and</span>
+	teaches<span class="token punctuation">.</span>course_id <span class="token operator">=</span> course<span class="token punctuation">.</span>course_id <span class="token operator">and</span>
+	instructor<span class="token punctuation">.</span>dept_name <span class="token operator">=</span> <span class="token string">'Art'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>字符串支持<strong>正则表达式</strong>匹配，用<code>like regrex</code>的方式可以进行属性值的正则表达式匹配</p>
+<ul>
+<li>正则表达式的用法没怎么讲</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> name 
+<span class="token keyword">from</span> teacher
+<span class="token keyword">where</span> name <span class="token operator">like</span> <span class="token string">'%hihci%'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li><p>将输出的结果排序</p>
+<ul>
+<li><code>order by 属性名 asc/desc</code> </li>
+</ul>
+</li>
+<li><p>集合操作：</p>
+<ul>
+<li>可以用<code>union/intersect/except</code>等集合运算来<strong>连接两条不同的查询</strong></li>
+</ul>
+</li>
+<li><p>聚合操作：</p>
+<ul>
+<li>支持的操作有avg/min/max/sum/count，获取的是表中的统计量</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> dept_name<span class="token punctuation">,</span><span class="token function">avg</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span> <span class="token keyword">as</span> avg_salary
+<span class="token keyword">from</span> instructor
+<span class="token keyword">group</span> <span class="token keyword">by</span> dept_name<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><p>事实上SQL语句的聚合操作和关系代数中的聚合运算是完全对应的，关系代数中的聚合运算表达式$<em>{G_1,G_2,\dots,G_n}{\cal G}</em>{F_1(A_1),\dots,F_n(A_n)}(E)$对应的SQL语句是</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> G1<span class="token punctuation">,</span>G2<span class="token punctuation">,</span>…<span class="token punctuation">,</span>Gn<span class="token punctuation">,</span>F1<span class="token punctuation">(</span>A1<span class="token punctuation">)</span><span class="token punctuation">,</span>…<span class="token punctuation">,</span>Fn<span class="token punctuation">(</span>An<span class="token punctuation">)</span>
+<span class="token keyword">from</span> E
+<span class="token keyword">group</span> <span class="token keyword">by</span> G1<span class="token punctuation">,</span>G2<span class="token punctuation">,</span>…<span class="token punctuation">,</span>Gn<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li><p>聚合操作的SQL语句书写可以在末尾用<code>having xxx</code>来表示一些需要聚合操作来获得的条件，比如</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> cno
+<span class="token keyword">from</span> pos <span class="token keyword">natural</span> <span class="token keyword">join</span> detail
+<span class="token keyword">where</span> <span class="token keyword">year</span><span class="token punctuation">(</span>detail<span class="token punctuation">.</span>cdate<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">2018</span>
+<span class="token keyword">having</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> campus<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+</li>
+<li><p>Null values 空值</p>
+<ul>
+<li>属性值可以为null，当然也可以在定义数据表的时候规定哪些元素不能为空</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Nested Subquery 嵌套查询</p>
+<ul>
+<li><p>对于查询</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> A1<span class="token punctuation">,</span>A2<span class="token punctuation">,</span>…<span class="token punctuation">,</span>An
+<span class="token keyword">from</span> r1<span class="token punctuation">,</span>r2<span class="token punctuation">,</span>…<span class="token punctuation">,</span>rn
+<span class="token keyword">where</span> P<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>其中的A，r，P都可以被替换为一个<strong>子查询</strong> </p>
+</li>
+<li><p>集合关系：用 <code>in/not in +子查询</code>来判断否些属性是否属于特定的集合中</p>
+<ul>
+<li><code>some+子查询</code> 用于判断集合中是否存在满足条件的元组，用来判断存在性</li>
+<li><code>all+子查询</code> 可以用来筛选最值</li>
+<li><code>exists+子查询</code> 判断子查询的结果是否不为空</li>
+<li><code>not exists+子查询</code> 判断是否为空集</li>
+</ul>
+</li>
+<li><p>with子句：对子查询定义一个变量名，可以在之后调用</p>
+</li>
+<li><p>scalar子查询：用于需要一个值作为查询结果的时候</p>
+</li>
+<li><p>join子句：可以对若干张表进行各种join之后再查询</p>
+<ul>
+<li><code>natural join</code> 自然连接</li>
+<li><code>A join B on(xxx)</code> </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-4-SQL插入，删除，更新"><a href="#2-4-SQL插入，删除，更新" class="headerlink" title="2.4 SQL插入，删除，更新"></a>2.4 SQL插入，删除，更新</h3><ul>
+<li><p>插入: <code>insert into table_name values( );</code></p>
+<ul>
+<li>可以用select查询子句得到的结果作为values，此时可以同时插入多条结果</li>
+</ul>
+</li>
+<li><p>删除：<code>delete from table_name where xxxxxx</code></p>
+</li>
+<li><p>更新：<code>update table_name set xxx where xxxxx</code></p>
+<ul>
+<li>case 子句：用于分类讨论</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">update</span> instructor
+	<span class="token keyword">set</span> salary <span class="token operator">=</span> <span class="token keyword">case</span>
+					<span class="token keyword">when</span> salary <span class="token operator">&lt;=</span> <span class="token number">100000</span> <span class="token keyword">then</span> salary<span class="token operator">*</span><span class="token number">1.05</span>
+					<span class="token keyword">else</span> salary <span class="token operator">*</span><span class="token number">1.03</span>
+					<span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h3 id="2-5-SQL-view-视图-index-索引"><a href="#2-5-SQL-view-视图-index-索引" class="headerlink" title="2.5 SQL view 视图, index 索引"></a>2.5 SQL view 视图, index 索引</h3><ul>
+<li><p>视图：一种<strong>只显示数据表中部分属性值</strong>的机制</p>
+<ul>
+<li>不会在数据库中重新定义一张新的表，而是隐藏了一些数据</li>
+<li>创建视图的定义语句：<ul>
+<li>xxx是视图的名称，内容是从某个table中select出的</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">view</span> xxx <span class="token keyword">as</span> <span class="token punctuation">(</span>a subquery<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>视图的更新</p>
+<ul>
+<li>也需要使用insert语句更新视图</li>
+<li>可以更新的条件<ul>
+<li>创建时只使用了一张表的数据</li>
+<li>创建时没有进行distinct和聚合操作</li>
+<li>没有出现空值和default</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Domain创建新类型</p>
+<ul>
+<li><p> <code>create domain new_name + data type</code>(比如 char(20))</p>
+</li>
+<li><p>domain可以设置约束条件，比如下面这一段domain定义表示degree_level只能在这三个中进行选择</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">create</span> domain degree_level varvhar<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+<span class="token keyword">constraint</span> degree_level_test
+<span class="token keyword">check</span><span class="token punctuation">(</span><span class="token keyword">value</span> <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token string">'Bachelors'</span><span class="token punctuation">,</span> <span class="token string">'Masters'</span><span class="token punctuation">,</span> <span class="token string">'Doctorate'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li><p>Large-Object Types 大对象类型，分为blob(二进制大对象)和clob(文本大对象)两种，当查询需要返回大对象类型的时候，取而代之的是一个代表大对象的指针</p>
+</li>
+</ul>
+</li>
+<li><p>Index索引</p>
+<ul>
+<li>语法<code>create index index_name on table_name(attribute)</code></li>
+<li>在对应的表和属性中建立索引，加快查询的速度</li>
+</ul>
+</li>
+<li><p>Transactions 事务</p>
+<ul>
+<li>一系列查询等操作的集合</li>
+<li>Atomic transaction 原子事务：只能被完全执行或者回滚(roll back)</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-6-Integrity-完整性控制"><a href="#2-6-Integrity-完整性控制" class="headerlink" title="2.6 Integrity 完整性控制"></a>2.6 Integrity 完整性控制</h3><ul>
+<li>单个关系上的约束<ul>
+<li>主键 primary key， <strong>unique</strong>， not null</li>
+<li>check子句：写在数据表的定义中<ul>
+<li>check(P) 检查某个属性是否为特定的一些值</li>
+</ul>
+</li>
+<li>Domain constraints 值域的约束<ul>
+<li>在domain的定义中加入check</li>
+<li>语法 <code>create domain domain_name constraints check_name check(P)</code></li>
+</ul>
+</li>
+<li><strong>Referential Integrity</strong> 引用完整性<ul>
+<li>被引用表中主键和外键的关系</li>
+<li>其实PPT里这一段讲了半天就是在说要在定义表的时候定义主键和外键进行约束</li>
+</ul>
+</li>
+<li>Cascading action(不知道这一段在讲什么狗屁)<ul>
+<li>on update</li>
+<li>on delete</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>对于整个数据库的约束<ul>
+<li><p>Assertions(Mysql不支持)</p>
+<ul>
+<li><p>对于数据库中需要满足的关系的一种<strong>预先判断</strong> </p>
+</li>
+<li><p><code>create assertion &lt;assertion-name&gt; check &lt;predicate&gt;</code> 下面是一段例子</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">create</span> assertion credits_constaint <span class="token keyword">check</span>
+   <span class="token punctuation">(</span> <span class="token operator">not</span> <span class="token keyword">exists</span><span class="token punctuation">(</span>
+  <span class="token keyword">select</span> <span class="token operator">*</span>
+       <span class="token keyword">from</span> student S
+  <span class="token keyword">where</span> total_cred <span class="token operator">&lt;></span><span class="token punctuation">(</span>
+       	<span class="token keyword">select</span> <span class="token function">sum</span><span class="token punctuation">(</span>credits<span class="token punctuation">)</span>
+       	<span class="token keyword">from</span> takes nature <span class="token keyword">join</span> course
+       	<span class="token keyword">where</span> takes<span class="token punctuation">.</span>ID <span class="token operator">=</span> S<span class="token punctuation">.</span>ID <span class="token operator">and</span> grade <span class="token operator">is</span> <span class="token operator">not</span> <span class="token boolean">null</span> <span class="token operator">and</span> grade <span class="token operator">&lt;></span> <span class="token string">'F'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>   )<br>   )<br>)</p>
+<pre class="line-numbers language-none"><code class="language-none">
+- Trigger触发器
+
+  - 在修改了数据库时会自动执行的一些语句
+
+  - 时间节点的选择
+
+    - **referencing old row as** 对旧的行进行操作，用于删除和更新
+    - **referencing new row as** 对新的行进行操作，用于插入和更新
+  
+- trigger event触发事件
+  
+    - insert&#x2F;delete&#x2F;update等操作都可以触发设置好的trigger
+    - 触发的时间点可以是before和after，触发器的语法如下
+    
+  &#96;&#96;&#96;sql
+    create trigger trigger_name before&#x2F;after trigger_event of table_name on attribute
+    referencing xxx
+    for each row
+    when xxxx
+    begin 
+    xxxx(SQL operation)
+    end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-7-Authorization"><a href="#2-7-Authorization" class="headerlink" title="2.7 Authorization"></a>2.7 Authorization</h3><ul>
+<li>数据库中的四种权限 read,insert,update,delete</li>
+<li>Security specification in SQL 安全规范<ul>
+<li>grant语句可以赋予用户权限 <code>grant &lt;privilege list&gt; on &lt;relation name or view name&gt; to &lt;user list&gt;</code></li>
+<li><code>&lt;user list&gt;</code>可以是用户名，也可以是public(允许所有有效用户拥有这项权限)</li>
+<li>grant语句后面可以加<code>with grant option</code>，表示该用户拥有赋予其他用户这项权限的权力</li>
+<li>revoke 权力回收<ul>
+<li><code>revoke &lt;privilege list&gt; on &lt;relation/view name&gt; from &lt;user list&gt; [restrict|cascade]</code>从用户中回收权力</li>
+</ul>
+</li>
+<li>role语句<ul>
+<li><code>create role role_name</code></li>
+<li>允许一类用户持有相同的权限</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="第三部分：ER模型和Normal-Form-范式"><a href="#第三部分：ER模型和Normal-Form-范式" class="headerlink" title="第三部分：ER模型和Normal Form(范式)"></a>第三部分：ER模型和Normal Form(范式)</h2><h3 id="3-1-E-R模型"><a href="#3-1-E-R模型" class="headerlink" title="3.1 E-R模型"></a>3.1 E-R模型</h3><ul>
+<li><p>E-R模型由enitites(实体)和relation(关系)组成</p>
+</li>
+<li><p>Entity set 实体集</p>
+<ul>
+<li><p>实体是一系列独特的对象，用一系列属性来表示</p>
+</li>
+<li><p>同一类实体共享相同的Properties，实体集就是由同类型的实体组成的集合</p>
+</li>
+<li><p>表示方法</p>
+<ul>
+<li>长方形代表实体集合</li>
+<li>属性写在长方形中，<strong>primary key用下划线</strong>标注 </li>
+</ul>
+</li>
+<li><p>实体集中对于属性的定义和之前的几乎一样</p>
+<ul>
+<li><p>实体集中属性定义可以存在组合与继承的关系，下面是一个样例</p>
+<blockquote>
+<p>Instructor</p>
+<p><u>ID</u> </p>
+<p>name</p>
+<p>​    first_name</p>
+<p>​    last_name</p>
+<p>address</p>
+<p>​    street</p>
+<p>​        street_number</p>
+<p>​        street_name</p>
+<p>​        apt_number</p>
+<p>​    city</p>
+<p>​    state</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Relationship set 关系集</p>
+<ul>
+<li>一个relationship是几个实体之间的联系，关系集就是同类关系之间构成的集合</li>
+<li>一个relationship至少需要两个及以上的实体，一个关系集至少和两个实体集有关联<ul>
+<li>一个关系集所关联的实体集的个数称为degree，其中以二元关系集为主</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>E-R model constraints 约束</p>
+<ul>
+<li>mapping cardinalities <strong>映射基数</strong> <ul>
+<li>二元关系中映射基数只有一对一，一对多，多对一，多对多</li>
+<li>E-R模型中表示映射关系：箭头表示一，直线表示多</li>
+<li>三元关系中：<strong>箭头只能出现一次</strong>，否则会出现<strong>二义性</strong> </li>
+</ul>
+</li>
+<li>参与度约束<ul>
+<li>total participation： 若一个实体集全部参与到关系中，要用两条线</li>
+<li>partical participation 部分参与</li>
+</ul>
+</li>
+<li>key约束：和前面的基本一样</li>
+<li>弱实体集weak entity set：一些实体集的属性不足以形成主键，就是弱实体集，与之相对的是强实体集<ul>
+<li>用于表示一些关系中的依赖性，弱实体集需要和强实体集关联才有意义</li>
+<li>经常出现在一对多的关系中，在ER图中需要用<strong>双线方框</strong>表示，比如职工和职工家属，职工家属不能脱离于职工存在，所以职工家属就是一个弱实体集</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Aggregation 聚合</p>
+<ul>
+<li>可以把一部分E-R关系聚合成一个Entity进行操作</li>
+<li>在ER图中用方框将一些关系集和实体集括起来表示一个聚合后的实体集</li>
+</ul>
+</li>
+<li><p>Specialization 特殊化</p>
+<ul>
+<li>自顶向下的设计过程</li>
+<li>Attribute inheritance：overlapping，disjoint</li>
+<li>画图的方式就是从上往下画，Entity的内容逐渐细分，但是都继承了上一阶的所有attribute</li>
+</ul>
+</li>
+<li><p>Generalization 泛化</p>
+<ul>
+<li>自底向上的设计过程</li>
+<li>从下往上，下层的内容合成上层的内容</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-2-E-R-Diagram"><a href="#3-2-E-R-Diagram" class="headerlink" title="3.2 E-R Diagram"></a>3.2 E-R Diagram</h3><ul>
+<li>E-R图中的各种表述</li>
+</ul>
+<h3 id="3-3-Normal-Form-范式"><a href="#3-3-Normal-Form-范式" class="headerlink" title="3.3 Normal Form 范式"></a>3.3 Normal Form 范式</h3><h4 id="3-3-1-数据库设计的目标"><a href="#3-3-1-数据库设计的目标" class="headerlink" title="3.3.1 数据库设计的目标"></a>3.3.1 数据库设计的目标</h4><ul>
+<li>存储信息时没有不必要的冗余，检索信息的效率高</li>
+<li>这些设计方式通过各种范式(normal form)来实现</li>
+</ul>
+<h4 id="3-3-2-First-Normal-Form-第一范式"><a href="#3-3-2-First-Normal-Form-第一范式" class="headerlink" title="3.3.2 First Normal Form 第一范式"></a>3.3.2 First Normal Form 第一范式</h4><ul>
+<li><p>原子性atomic ：不能再继续拆分，属性不能再向下拆分</p>
+</li>
+<li><p>第一范式的定义：一个关系模式R的<strong>所有属性都是atomic的</strong>，这个关系模式R就是<strong>第一范式</strong> </p>
+</li>
+<li><p>存在的问题</p>
+<ul>
+<li>redundancy 冗余</li>
+<li>complicates updates 更新数据很复杂</li>
+<li>null-values—difficult to insert/remove</li>
+</ul>
+</li>
+<li><p>Decomposition 分解</p>
+<ul>
+<li>Lossy Decomposition 有损的分解：不能用分解后的几个关系重建原本的关系</li>
+<li>Lossless join 无损分解的定义：<ul>
+<li>R 被分解为(R1, R2)并且$R=R_1\cup R_2$  </li>
+<li>对于任何关系模式R上的关系r有 $r=\prod_{R_1}(r)\Join \prod_{R_2}(r)$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-3-3-Functional-dependency-函数依赖"><a href="#3-3-3-Functional-dependency-函数依赖" class="headerlink" title="3.3.3 Functional dependency 函数依赖"></a>3.3.3 Functional dependency 函数依赖</h4><ul>
+<li><strong>函数依赖</strong>的定义<ul>
+<li>对于一个关系模式E，如果$\alpha \subset R$ 并且$\beta\subset R$ 则函数依赖$\alpha \rightarrow\beta$ 定义在R上，当且仅当<ul>
+<li>如果对于R的任意关系r(R)  当其中的任意两个元组t1和t2，如果他们的$\alpha$属性值相同可以推出他们的$\beta$属性值也相同</li>
+</ul>
+</li>
+<li>如果某个属性集A可以决定另一个属性集B的值，就称$A\rightarrow B$是一个函数依赖</li>
+<li>函数依赖和键的关系：函数依赖实际上是键的概念的一种泛化<ul>
+<li>K是关系模式R的<strong>超键</strong>当且仅当 $K\rightarrow R$ </li>
+<li>K 是R上的<strong>候选主键</strong>当且仅当 $K\rightarrow R$ 并且不存在 $\alpha\sub K, \alpha\rightarrow R$ </li>
+</ul>
+</li>
+<li>一个平凡的的结论：子集一定对自己函数依赖</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-3-4-闭包"><a href="#3-3-4-闭包" class="headerlink" title="3.3.4 闭包"></a>3.3.4 闭包</h4><ul>
+<li><p>Closure 闭包</p>
+<ul>
+<li><p>闭包, 对于原始的函数依赖集合F可以推出的所有函数依赖关系产生的集合就是<strong>F的闭包</strong> </p>
+</li>
+<li><p>符号用$F^+$表示</p>
+</li>
+<li><p>函数依赖的性质</p>
+<ul>
+<li>reflexity：$\alpha$的子集一定关于$\alpha$函数依赖</li>
+<li>augmentation：如果$\alpha\rightarrow \beta$ 则有$\lambda\alpha\rightarrow \lambda\beta$ </li>
+<li>transitivity：如果$a\rightarrow \beta \cap \beta\rightarrow\gamma$ 则有$a\rightarrow \gamma$ </li>
+<li>union：如果$\alpha\rightarrow \beta\cap \alpha\rightarrow \gamma$ 则有$\alpha \rightarrow \beta\gamma$ </li>
+<li>decomposition：如果$\alpha \rightarrow \beta\gamma$ 则有$\alpha\rightarrow \beta\cap \alpha\rightarrow \gamma$ </li>
+<li>pseudotransitivity：如果$\alpha\rightarrow \beta\cap \beta\gamma\rightarrow \delta$ 则有$\gamma\alpha\rightarrow\delta$  </li>
+</ul>
+</li>
+<li><p>计算闭包的方法</p>
+<ul>
+<li>根据初始的函数依赖关系集合F和函数依赖的性质，计算出所有的函数依赖构成闭包</li>
+<li>可以用有向图表示属性之间的关系，通过图来写出所有的函数依赖</li>
+</ul>
+</li>
+<li><p>属性集的闭包</p>
+<ul>
+<li>闭包中所有关于$\alpha$函数依赖的属性集构成的集合<ul>
+<li>即如果$(\alpha\rightarrow \beta)\in F^+$则有$\beta\in\alpha^{+}$ </li>
+</ul>
+</li>
+<li>计算<strong>属性集闭包</strong>的算法</li>
+</ul>
+<pre class="line-numbers language-pseudocode" data-language="pseudocode"><code class="language-pseudocode">result&#x3D;&#123;a&#125;
+while result is changed do
+	for each b-&gt;c in F do
+		begin
+			if b is in result then push c into result
+		end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>属性集闭包的作用<ul>
+<li>测试是否为主键：如果$\alpha$的闭包包含了所有属性，则α就是主键</li>
+<li>测试函数独立：为了验证$\alpha\rightarrow \beta$是否存在只需要验证β是否在α的闭包中</li>
+<li>计算$F^+$：通过每个属性的闭包可以得到整个关系模式的闭包</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>判定是否为Lossless Join的办法</p>
+<ul>
+<li>当且仅当$R_1\cap R_2\rightarrow R_1$ 或者$R_1\cap R_2\rightarrow R_2$至少有一个$F^+$中</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-3-5-BCNF-3NF"><a href="#3-3-5-BCNF-3NF" class="headerlink" title="3.3.5 BCNF/3NF"></a>3.3.5 BCNF/3NF</h4><ul>
+<li><p>BC 范式(Boyee-Codd Normal Form) </p>
+<ul>
+<li>BC范式的条件是：闭包$F^+$中的所有函数依赖$\alpha \rightarrow \beta$ 至少满足下面的一条<ul>
+<li>$\alpha \rightarrow \beta$ 是平凡的(也就是β是α的子集)</li>
+<li>α是关系模式R的一个<strong>超键</strong>，即$\alpha \rightarrow R$ </li>
+</ul>
+</li>
+<li>如何验证BCNF：<ul>
+<li>检测一个非平凡的函数依赖$\alpha\rightarrow\beta$是否违背了BCNF的原则<ul>
+<li>计算α的属性闭包</li>
+<li>如果这个属性闭包包含了所有的元素，那么α就是一个<strong>超键</strong> </li>
+<li>如果α不是超键而这个函数依赖又不平凡，就打破了BCNF的原则</li>
+</ul>
+</li>
+<li>简化的检测方法：<ul>
+<li>只需要看关系模式R和已经给定的函数依赖集合<strong>F中的各个函数依赖</strong>是否满足BCNF的原则<ul>
+<li>不需要检查F闭包中所有的函数独立</li>
+</ul>
+</li>
+<li>可以证明如果F中没有违背BCNF原则的函数依赖，那么F的闭包中也没有</li>
+<li>这个方法不能用于检测R的分解</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>BC范式的分解算法伪代码</li>
+</ul>
+<pre class="line-numbers language-pseudocode" data-language="pseudocode"><code class="language-pseudocode">result&#x3D;&#123;R&#125;
+done&#x3D;false
+compute F+ by F
+while (!done) do
+	if exist Ri in result that is not a BCNF
+	then begin
+		let a-&gt;b be a non-trivial function dependency that holds on Ri such that a-&gt;Ri is not in F+ and (a and b)&#x3D;empty set
+		result&#x3D;(result-Ri)or(Ri-b)or(a,b);
+		end
+	else
+		done&#x3D;true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>当我们对关系模式R进行分解的时候，我们的目标是</p>
+<ul>
+<li><p>没有冗余，每个关系都是一个good form</p>
+</li>
+<li><p>无损分解</p>
+</li>
+<li><p>Denpendency preservation 独立性保护,把R和F的闭包按照关系的对应进行划分</p>
+<ul>
+<li>用$F_i$表示只包含在$R_i$中出现的元素的函数依赖构成的集合</li>
+<li>我们希望的结果是 $(F_1\cup F_2\cup\dots\cup F_n)^+=F^+$ <ul>
+<li>BCNF的分解一定是有独立性保护的</li>
+</ul>
+</li>
+<li>独立性保护的验证算法</li>
+<li>如果最终的结果result包含了所有属性，那么函数依赖$\alpha\rightarrow \beta$ 就是被保护的</li>
+</ul>
+<pre class="line-numbers language-pseudocode" data-language="pseudocode"><code class="language-pseudocode">result &#x3D; α
+while result changed do
+	for each Ri in the composition
+		t &#x3D; (result and Ri)+ and Ri
+		result &#x3D; result or t<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+</li>
+<li><p>Third normal form 第三范式</p>
+<ul>
+<li>第三范式的定义：对于函数依赖的闭包$F^+$中的所有函数依赖$\alpha\rightarrow\beta$ 下面三条至少满足一条<ul>
+<li>$\alpha\rightarrow\beta$ 是平凡的</li>
+<li>$\alpha$是关系模式R的超键</li>
+<li>每一个$\beta-\alpha$ 中的 属性A都包含在一个R的候选主键中 </li>
+</ul>
+</li>
+<li>BCNF一定是3NF，实际上3NF是为了保证独立性保护的BCNF</li>
+<li>3NF有冗余，某些情况需要设置一些空值</li>
+</ul>
+</li>
+<li><p>3NF的判定</p>
+<ul>
+<li>不需要判断闭包中的所有函数依赖，只需要对已有的F中的所有函数依赖进行判断</li>
+<li>用闭包可以检查$\alpha\rightarrow \beta$中的α是不是超键</li>
+<li>如果不是，就需要检查β中的每一个属性包含在R的候选键中</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-3-6-最小覆盖"><a href="#3-3-6-最小覆盖" class="headerlink" title="3.3.6 最小覆盖"></a>3.3.6 最小覆盖</h4><ul>
+<li><p>Canonical conver 最小覆盖问题</p>
+<ul>
+<li>函数依赖关系的最小集合(也就是没有冗余，和F等价可以推导出F+的关系集合)</li>
+<li>无关属性Extraneous Attributes：<ul>
+<li>定义：对于函数依赖集合F中的一个函数依赖$\alpha\rightarrow\beta$<ul>
+<li>α中的属性A是多余的，如果F逻辑上可以推出$(F-{\alpha\rightarrow\beta})\cup {(\alpha-A)\rightarrow\beta}$ </li>
+<li>β中的属性A是多余的，如果$(F-{\alpha\rightarrow\beta})\cup {\alpha\rightarrow(\beta-A)}$ 逻辑上可以推出F<ul>
+<li>更强的函数逻辑上可以推导出更弱的函数</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>判断$\alpha\rightarrow\beta$中的一个属性是不是多余的<ul>
+<li>测试α中的属性A是否为多余的<ul>
+<li>计算$(\alpha-A)^+$</li>
+<li>检查结果中是否包含β，如果有就说明A是多余的</li>
+</ul>
+</li>
+<li>测试β中的属性A是否为多余的<ul>
+<li>只用$(F-{\alpha\rightarrow\beta})\cup {\alpha\rightarrow(\beta-A)}$中优的依赖关系计算$\alpha^+$ </li>
+<li>如果结果包含A，就说明A是多余的</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>最小覆盖$F_c$的定义<ul>
+<li>和F可以互相从逻辑上推导出，并且最小覆盖中没有多余的信息</li>
+<li>最小覆盖中的每个函数依赖中左边的内容都是unique的</li>
+<li>如何计算最小覆盖：PPT-8的53页有一个例子<ul>
+<li>先令Fc=F</li>
+<li>用Union rule将Fc中所有满足$\alpha\rightarrow\beta_1 \cap \alpha\rightarrow\beta_2$的函数依赖替换为$\alpha\rightarrow\beta_1\beta_2$ </li>
+<li>找到Fc中的一个函数依赖去掉里面重复的属性</li>
+<li>重复2，3两个步骤直到Fc不再变化</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>下面这些部分看起来不太会考，先不管了，有空再看</p>
+<ul>
+<li><p>3NF decomposition algorithm</p>
+</li>
+<li><p>Multivalued denpendency</p>
+<ul>
+<li>多值依赖 a-&gt;-&gt;b，记作D，闭包记为D+</li>
+</ul>
+</li>
+<li><p>Fourth Normal Form</p>
+<ul>
+<li>对于D+中的所有a-&gt;-&gt;b有①是平凡的或者②a是一个超键</li>
+<li>4NF一定是BCNF</li>
+</ul>
+</li>
+</ul>
+<h2 id="第四部分-数据库设计理论"><a href="#第四部分-数据库设计理论" class="headerlink" title="第四部分: 数据库设计理论"></a>第四部分: 数据库设计理论</h2><h3 id="4-1-存储和文件结构"><a href="#4-1-存储和文件结构" class="headerlink" title="4.1 存储和文件结构"></a>4.1 存储和文件结构</h3><p>这一部分好像不怎么会考试，理论性的东西比较多，跟计原的存储器部分好像还有一部分交集</p>
+<ul>
+<li>存储的结构 storage hierarchy<ul>
+<li>primary主存储器<ul>
+<li>快而易失，常见的有主存和cache</li>
+<li>cache的存取效率最高，但是costly，主存访问快但是对于数据库而言空间太小</li>
+</ul>
+</li>
+<li>secondary 二级存储器<ul>
+<li>不容易丢失，访问较快，又叫在线存储</li>
+<li>常见的是闪存和磁盘</li>
+</ul>
+</li>
+<li>tertiary三级存储器<ul>
+<li>不容易丢失，访问慢，但是容量大而cheap，离线存储</li>
+<li>磁带，光存储器</li>
+</ul>
+</li>
+<li>总体的存储架构：cache–主存–闪存–磁盘–光盘–磁带</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-1-1-磁盘-Magnetic-Disks"><a href="#4-1-1-磁盘-Magnetic-Disks" class="headerlink" title="4.1.1 磁盘 Magnetic Disks"></a>4.1.1 磁盘 Magnetic Disks</h4><ul>
+<li>组成结构<ul>
+<li>read-write head 读写头<ul>
+<li>和磁盘表面靠得很近</li>
+<li>用于读写磁盘中的文件信息</li>
+</ul>
+</li>
+<li>tracks 磁道, 由磁盘表面划分，每个硬盘大概有50k到100k个磁道<ul>
+<li>sectors 扇区，由磁道划分而成<ul>
+<li>扇区是数据读写的最小单位</li>
+<li>每个扇区的大小是512字节，每个磁道有500-1000个扇区</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>磁盘控制器：计算机系统和磁盘之间的接口</li>
+<li>Disk subsystem 磁盘子系统：由disk controller操纵若干个磁盘组成的字系统</li>
+</ul>
+</li>
+<li>磁盘的性能评价标准<ul>
+<li>access time： 访问时间，包括<ul>
+<li>seek time：读写头的arm正确找到track的时间，平均的seek time是最坏情况的一半</li>
+<li>rotational latency：旋转造成的延迟，平均时间是最坏的一半</li>
+</ul>
+</li>
+<li>data-transfer rate 数据从磁盘读写的速度</li>
+<li>MTTF：出现failure之前的平均运行时间</li>
+</ul>
+</li>
+<li>磁盘访问的优化<ul>
+<li>block ：一个磁道中的若干连续扇区组成的序列</li>
+<li>buffering</li>
+<li>read-ahead</li>
+<li>disk-arm-scheduling</li>
+<li>file organization:  通过按照访问数据的方式来组织block优化访问时间</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-1-2-File-organization-文件组织"><a href="#4-1-2-File-organization-文件组织" class="headerlink" title="4.1.2 File organization 文件组织"></a>4.1.2 File organization 文件组织</h4><ul>
+<li><p>数据库存储在一系列的文件中，每个文件是一系列的记录，每条记录包含一系列的fields</p>
+<ul>
+<li><p>每个文件被划分为固定长度的block，block是数据存取/存储空间分配的基本单位</p>
+</li>
+<li><p>一个block有多条记录，在传统的数据库中</p>
+<ul>
+<li>记录的长度不能超过block</li>
+<li>每条记录一定都是完整的</li>
+</ul>
+</li>
+<li><p>Free List 用链表的形式来存储records</p>
+</li>
+<li><p>Variable-length records 变长记录</p>
+<ul>
+<li><p>典型的变长记录</p>
+<ul>
+<li>属性按照顺序存储</li>
+<li>变长的变量用offset+data的形式存储，空值用null-value bitmap存储</li>
+</ul>
+</li>
+<li><p>slotted page结构，它的header包含</p>
+<ul>
+<li>记录的总数</li>
+<li>block中的空闲区域的end</li>
+<li>每条记录所在的位置和大小</li>
+</ul>
+<p><img src="/2021/05/03/dbs/image-20200805110144890.png" alt="image-20200805110144890"></p>
+</li>
+</ul>
+</li>
+<li><p>文件中记录的组织方式</p>
+<ul>
+<li>heap</li>
+<li>sequential</li>
+<li>hashing</li>
+<li>nulti-table clustering file organization</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>存储缓冲区的管理</p>
+<ul>
+<li>通过将数据放到主存中来提高访问效率<ul>
+<li>buffer manager：用于管理缓冲区中的内存分配<ul>
+<li>当需要从磁盘读取block的时候，数据库会调用buffer mananger的功能</li>
+<li>如果block已经在buffer中了，就直接返回这个block的地址</li>
+<li>如果不在，则buffer manager 会动态分配buffer中的内存给block，并且可能会覆盖别的block，然后将磁盘中block中的内容写入buffer中<ul>
+<li>涉及到buffer的替换算法LRU strategy 即替换掉最近使用频率最低的block</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>pinned block 内存中的不允许写回磁盘的block，表示正在处理事务或者处于恢复接断</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-2-B-树索引"><a href="#4-2-B-树索引" class="headerlink" title="4.2 B+树索引"></a>4.2 B+树索引</h3><h4 id="4-2-1-索引"><a href="#4-2-1-索引" class="headerlink" title="4.2.1 索引"></a>4.2.1 索引</h4><ul>
+<li>数据库系统中引入索引机制，用于加快查询和访问需要的数据<ul>
+<li>search key 通过一个属性值查找一系列属性值，用于文件中查询</li>
+<li>Index file 索引文件包含一系列的search key和pointer(两者的组合被称为index entry)，查询方式是通过search key在index file中查询data的地址(pointer)，然后再从data file中查询数据<ul>
+<li>两种search key的排序方式：ordered index，hash index</li>
+<li>ordered index 顺序索引<ul>
+<li>index entry按照search key的值来进行排列</li>
+<li>primary key 指定文件顺序的索引 secondary key 次关键字</li>
+</ul>
+</li>
+<li>索引的不同方式<ul>
+<li>Dense index 密集的索引：每一条记录都有对应的索引</li>
+<li>Sperse index 稀疏的索引<ul>
+<li>需要的空间和插入删除新索引的开销较小，但是比密集的索引要慢</li>
+</ul>
+</li>
+<li>Secondary indice索引通过一个大的bucket来寻找所指向的地方</li>
+<li>Multilevel index 多级索引，分为outer index和inner index</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-2-2-B-树索引"><a href="#4-2-2-B-树索引" class="headerlink" title="4.2.2 B+树索引"></a>4.2.2 B+树索引</h4><ul>
+<li><p>B+树文件索引</p>
+<ul>
+<li>通过B+树的索引方式来寻找文件中数据的地址，B+树的定义和ads中的B+树基本相同，<ul>
+<li>树的非叶节点由指向儿子的指针和search-key相间组合而成</li>
+<li>两个search-key之间的指针指向的数据的值在这两个search-key之间</li>
+</ul>
+</li>
+<li>B+树上的查询的时间复杂度是logN级别，N是search key的总个数<ul>
+<li>查询的路径长度：不会超过$\log_{n/2}(K)$ + 1其中K是B+树中的索引的个数(即规模N)</li>
+<li>B+树的一个节点的大小和一个磁盘区块一样大(往往是4KB)而在n的规模一般在100左右</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>B+树的更新：插入和删除</p>
+<ul>
+<li>插入的算法：先找到该插入的位置直接插入，如果当前的节点数量超过了阶数M则拆成两个部分，并向上更新索引</li>
+<li>删除的算法: 直接把要删除的节点删除，然后把没有索引key了的非叶节点删除，从旁边找一个叶节点来合并出新的非叶节点</li>
+</ul>
+</li>
+<li><p>B+树的相关计算</p>
+<ul>
+<li><p>高度的估计：</p>
+<ul>
+<li>B+树高度最小的情况：所有的叶节点都满，此时的$h = \lceil \log_{N}(M)\rceil$ </li>
+<li>最大的情况，所有的叶节点都半满，此时的$h=\lfloor \log_{[N/2]}(\frac{M}{2})\rfloor+1$ </li>
+</ul>
+</li>
+<li><p>size大小的估计：也是两种极端情况</p>
+<p>  <img src="/2021/05/03/dbs/image-20200823175046650.png" alt="image-20200823175046650"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-2-3-文件索引"><a href="#4-2-3-文件索引" class="headerlink" title="4.2.3 文件索引"></a>4.2.3 文件索引</h4><ul>
+<li>Hash文件索引<ul>
+<li>静态哈希<ul>
+<li>使用一系列buckets来存储一系列的records，通过hash函数和search-key的运算来查找文件</li>
+<li>hash函数：将不同的search key映射到不同的bucket里面去</li>
+</ul>
+</li>
+<li>Hash indices 将hash用于索引结构中<ul>
+<li>A <strong>hash index</strong> organizes the search keys, with their associated record pointers, into a hash file structure.</li>
+<li>hash indices are always secondary indices </li>
+</ul>
+</li>
+<li>动态哈希<ul>
+<li>哈希函数会被动态地修改</li>
+<li>可扩展的哈希</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-2-4-总结：存储结构和B-树的计算"><a href="#4-2-4-总结：存储结构和B-树的计算" class="headerlink" title="4.2.4 总结：存储结构和B+树的计算"></a>4.2.4 总结：存储结构和B+树的计算</h4><ul>
+<li>记录的存储：<ul>
+<li>数据库的记录在block中存储，一个block中有大量的记录存储，有线性存储的，也有使用B+树索引的</li>
+<li>线性存储的记录：<ul>
+<li>假设一条记录的长度位L，block的大小为B，那么一条记录中最多有$\lfloor \frac{B}{L}\rfloor$ 条记录</li>
+<li>如果一共有N条记录，一个block中有M条记录，那么一共需要$\lceil\frac{N}{M}\rceil$ 个block，而 $M=\lfloor \frac{B}{L}\rfloor$ </li>
+</ul>
+</li>
+<li>B+树索引block的计算，假设block的大小为B，指针的大小是a，被索引的属性值大小是b<ul>
+<li>要注意指针节点比属性值多一个，所以一个块上的扇出率n(fan-out rate)是$\lfloor \frac{B-a}{a+b}\rfloor+1$ </li>
+<li>n也就是这个B+树的阶数，然后根据公式来估算B+树的高度，其中M应该是作为索引的值可以取到的个数</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-3-查询处理-QueryProcess"><a href="#4-3-查询处理-QueryProcess" class="headerlink" title="4.3 查询处理 QueryProcess"></a>4.3 查询处理 QueryProcess</h3><p>印象中这一部分的作业题以套公式算为主</p>
+<ul>
+<li><p>查询处理的基本步骤</p>
+<ul>
+<li>Parsing and translation 解析和翻译</li>
+<li>Optimization 优化<ul>
+<li>一种SQL查询可能对应了多种等价的关系代数表达式</li>
+<li>可以通过估计每种方式的cost来评判方法的好坏</li>
+<li>查询优化会选择最节约的方式进行查询</li>
+</ul>
+</li>
+<li>Evaluation</li>
+</ul>
+</li>
+<li><p>Query cost的计算</p>
+<ul>
+<li>主要的cost来源：disk access<ul>
+<li>seeks</li>
+<li>block read</li>
+<li>block written</li>
+</ul>
+</li>
+<li>cost计算的方式：在B个blocks中查询S次所消耗的时间=B*转移到一个block的时间+S*一次查询的时间：$B\times t_T+S\times t_S$ 其中$t_T$ 表示一次block transfer的时间<ul>
+<li>cost依赖于主存中<strong>缓冲区的大小</strong>：更多的内存可以减少disk access</li>
+<li>通常考虑最坏的情况：只提供最少的内存来完成查询工作</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-3-1-select的cost估计"><a href="#4-3-1-select的cost估计" class="headerlink" title="4.3.1 select的cost估计"></a>4.3.1 select的cost估计</h4><ul>
+<li><p>Select 操作的cost计算</p>
+<ul>
+<li><p>Algorithm1:线性搜索，查询每个block判断是否满足查询条件</p>
+<ul>
+<li><p>Cost =  br block transfers + 1 seek，其中$b_r$ 是关系r中<strong>存储了记录的block的数量</strong> </p>
+</li>
+<li><p>如果通过键来搜索，在找到的时候就停止，则 cost = (br /2) block transfers + 1 seek</p>
+</li>
+<li><p>二分搜索此时不起作用，因为数据不是连续存储的</p>
+</li>
+</ul>
+</li>
+<li><p>Index scan–使用索引进行搜索</p>
+</li>
+<li><p>Algorithm2: primary index，equality on key，搜索一条记录</p>
+<ul>
+<li>$cost = (h_i+1)\times(t_T+t_S)$ — hi是索引的高度</li>
+</ul>
+</li>
+<li><p>Algorithm3: primary index, equality on non-key 需要搜索多条记录</p>
+<ul>
+<li>想要的结果会存储在连续的block中(因为有主索引)</li>
+</ul>
+</li>
+<li><p>$cost =h_i (t_T + t_S) + t_S + t_T * b$ 其中b表示包含匹配记录的block总数</p>
+<ul>
+<li>当使用B+树作为索引时可以节约一次seek的时间，$cost =h_i (t_T + t_S)+ t_T * b$ </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>算法4：Secondary index</p>
+<ul>
+<li><p>用候选主键作为索引检索单条记录 $cost = (h_i + 1) \times (t_T + t_S)$ </p>
+</li>
+<li><p>用候选主键检索了n条记录(不一定在同一个block上面)</p>
+<p>$Cost = (h_i + n) \times (t_T + t_S)$ 有时候会非常耗时</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-3-2-sort和join的cost估计"><a href="#4-3-2-sort和join的cost估计" class="headerlink" title="4.3.2 sort和join的cost估计"></a>4.3.2 sort和join的cost估计</h4><ul>
+<li><p>Sort：<strong>external</strong> <strong>sort-merge</strong> 其实类似于ads里面的外部归并排序</p>
+<ul>
+<li>M表示内存的大小，$b_r$表示block的数量<ul>
+<li>基本步骤如下<ul>
+<li>create sorted runs</li>
+<li>merge the runs</li>
+</ul>
+</li>
+<li>需要的merge pass总数 $[ \log_{M-1}(b_r/M)]$ </li>
+<li>创建和每次run过程中的disk access数量 2<em>br</em></li>
+<li>外部排序中总的disk access次数 $(2[ \log_{M-1}(b_r/M)]+1)b_r$ </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Join 操作的cost估计</p>
+<ul>
+<li><p>nested-loop join</p>
+<ul>
+<li>计算theta-join表达式：$r\Join_{\theta} s$ 算法的伪代码如下</li>
+</ul>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">for</span> each tuple tr in r <span class="token keyword">do</span> begin	
+    <span class="token keyword">for</span> each tuple ts in s <span class="token keyword">do</span> begin	
+        test <span class="token function">pair</span> <span class="token punctuation">(</span>tr<span class="token punctuation">,</span>ts<span class="token punctuation">)</span> to see <span class="token keyword">if</span> they satisfy the join condition
+        <span class="token keyword">if</span> they <span class="token keyword">do</span><span class="token punctuation">,</span> add tr • ts to the result
+    end
+end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>block transfer次数: $n_r\times b_s+b_r$</li>
+<li>seeks的次数 $n_r+b_r$ </li>
+</ul>
+</li>
+<li><p>block nested-loop join $r\Join_{\theta} s$  </p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">for</span> each block Br of r <span class="token keyword">do</span> begin		
+    <span class="token keyword">for</span> each block Bs of s <span class="token keyword">do</span> begin			
+        <span class="token keyword">for</span> each tuple tr in Br  <span class="token keyword">do</span> begin				
+            <span class="token keyword">for</span> each tuple ts in Bs <span class="token keyword">do</span> begin								Check <span class="token keyword">if</span> <span class="token punctuation">(</span>tr<span class="token punctuation">,</span>ts<span class="token punctuation">)</span> satisfy the join condition 				<span class="token keyword">if</span> they <span class="token keyword">do</span><span class="token punctuation">,</span> add tr • ts to the result<span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>最坏情况的cost<ul>
+<li>block transfer $b_r\times b_s+b_r$</li>
+<li>seeks $2b_r$ </li>
+</ul>
+</li>
+<li>最好情况的cost<ul>
+<li>block transfers $b_r+b_s$ with 2 seeks</li>
+</ul>
+</li>
+<li>优化：使用M-2个block作为blocking unit(M是内存可以容纳的block数量)，此时的<ul>
+<li>block transfer次数=$\frac{b_r}{M-2}\times b_s+b_r$ </li>
+<li>seek次数= $\frac{2b_r}{M-2}$ </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Index nested-loop join</p>
+<ul>
+<li>索引一定程度上可以代替file scan</li>
+<li> $cost=b_r(t_T+t_s)+c\times n_r$ 其中c表示遍历索引和找到所有匹配的s中的tuple所消耗的时间，可以用<strong>一次s上的单个selection来估计s的值</strong> </li>
+</ul>
+</li>
+<li><p>Merge-Join</p>
+<ul>
+<li>只能在natural-join和equal-join中使用</li>
+<li>block transfer的次数=$b_r+b_s$，seek的次数=$[b_r/b_b]+[b_s/b_b]$ </li>
+</ul>
+</li>
+<li><p>Hash join：使用hash函数进行join</p>
+<ul>
+<li><em>h</em> maps JoinAttrs values to {0, 1, …, $n_h$},  将两个关系进行比较和同类型的匹配</li>
+<li>cost of hash-join<ul>
+<li>block transfer: $3(b_r+b_s)+4n_h$<ul>
+<li>partition: 读 $b_r+b_s$ blocks 写 $(b_r+b_s)+2n_h$ blocks</li>
+<li>join: 读$(b_r+b_s)+2n_h$</li>
+</ul>
+</li>
+<li>seeks: $2([b_r/b_b]+[b_s/b_b])$ </li>
+<li>如果所有东西都能放进主存里，则$n_h=0$ 并且不需要partition</li>
+<li>需要partition的时候 $cost=2(b_r+b_s[\log_{M-1}(b_s)-1])+b_r+b_s$ </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Evaluation of Expression 表达式求值</p>
+<ul>
+<li><strong>Materialization</strong> 实体化<ul>
+<li>依次进行表达式的计算，构建前缀树递归进行</li>
+</ul>
+</li>
+<li>Pipelining 流水线，同时评估多个操作<ul>
+<li>evaluate several operations simultaneously , passing the results of one operation on to the next.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-4-查询优化-Query-Optimization"><a href="#4-4-查询优化-Query-Optimization" class="headerlink" title="4.4 查询优化 Query Optimization"></a>4.4 查询优化 Query Optimization</h3><ul>
+<li>两种查询优化的办法<ul>
+<li>找到等价的查询效率最高的关系代数表达式</li>
+<li>指定详细的策略来处理查询</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-4-1-等价关系代数表达式"><a href="#4-4-1-等价关系代数表达式" class="headerlink" title="4.4.1 等价关系代数表达式"></a>4.4.1 等价关系代数表达式</h4><ul>
+<li><p>Equivalent Expressions 等价的关系代数表达式</p>
+<ul>
+<li><p><strong>evaluation plan</strong>：类似于算术表达式的前缀树，表示了每部操作进行的过程</p>
+</li>
+<li><p>Cost-based optimization基于cost的优化</p>
+<ul>
+<li>基本步骤<ul>
+<li>用运算法则找到逻辑上等价的表达式</li>
+<li>注释结果表达式来获得查询计划</li>
+<li>选择cost最低的表达式</li>
+</ul>
+</li>
+<li>cost的估算<ul>
+<li>统计信息量的大小，比如tuples的数量，一个属性不同取值的个数</li>
+<li>中间结果的数量，用于复杂表达式的优化</li>
+<li>算法的消耗</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>等价表达式的规则</strong></p>
+</li>
+</ul>
+</li>
+<li><p>合取选择和选两次等价：$\sigma_{\theta_1\cap\theta_2}(E)=\sigma_{\theta_1}(\sigma_{\theta_2}(E))$ </p>
+<ul>
+<li>选择两次的顺序可以交换；$\sigma_{\theta_1}(\sigma_{\theta_2}(E))=\sigma_{\theta_2}(\sigma_{\theta_1}(E))$ </li>
+<li>嵌套的投影只需要看最外层的：$\prod_{L_1}(\prod_{L_2}(\dots(E)))=\prod_{L_1}(E)$ </li>
+<li>选择可以变成笛卡尔积和theta join</li>
+<li>$\sigma_{\theta}(E_1\times E_2)=E_1\Join_{\theta}E_2$ <ul>
+<li>$\sigma_{\theta_1}(E_1\Join_{\theta_2}E_2)=E_1\Join_{\theta_1\cap\theta_2}E_2$ </li>
+<li>Theta-join和自然连接可以改变连接的两张表的顺序：$E_1\Join_{\theta}E_2=E_2\Join_{\theta}E_1$ </li>
+<li>自然连接满足结合律：$(E_1\Join E_2)\Join E_3=E_1\Join (E_2\Join E_3)$ </li>
+<li>Theta-join的结合规则</li>
+</ul>
+</li>
+<li>$(E_1\Join_{\theta_1} E_2)\Join_{\theta_2\cap\theta_3} E_3=E_1\Join_{\theta_1\cap\theta_3} (E_2\Join_{\theta_2} E_3)$ <ul>
+<li>选择操作的优化<ul>
+<li>当$\theta_1$ 中的属性都只出现在E1中的时候：$\sigma_{\theta_1}(E_1\Join_{\theta_2}E_2)=\sigma_{\theta_1}(E_1)\Join_{\theta_2}E_2$ </li>
+<li>当$\theta_1,\theta_2$ 分别只包含E1,E2中的属性时：$\sigma_{\theta_1\cap\theta_2}(E_1\Join_{\theta}E_2)=\sigma_{\theta_1}(E_1)\Join\sigma_{\theta_2}(E_2)$ </li>
+</ul>
+</li>
+<li>投影操作和Theta-join的混合运算</li>
+</ul>
+</li>
+<li>当θ只包含$L_1\cup L_2$ 中的属性的时候：$\prod_{L_1\cup L_2}(E_1\Join_{\theta}E_2)=(\prod_{L_1}(E_1))\Join_{\theta}(\prod_{L_2}(E_2))$ <ul>
+<li>集合运算中的交运算和并运算满足交换律和结合律</li>
+<li>选择操作中有集合的运算时满足分配律(比如进行差运算再选择等价于分别选择再差运算)</li>
+<li>投影操作中有并运算时满足分配律</li>
+</ul>
+</li>
+<li>Join的顺序优化：当有若干张表需要join的时候，<strong>先从join后数据量最小的开始</strong> </li>
+<li>可以通过共享相同的子表达式来减少表达式转化时的空间消耗，通过动态规划来减少时间消耗</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-4-2-cost的估计"><a href="#4-4-2-cost的估计" class="headerlink" title="4.4.2 cost的估计"></a>4.4.2 cost的估计</h4><ul>
+<li><p>基本的变量定义</p>
+<ul>
+<li>$n_r$ 表示关系r中元组的数量(也就是关系r的size)</li>
+<li>$b_r$ 包含r中元组的block数量</li>
+<li>$l_r$ r中一个元组的size</li>
+<li>$f_r$ block factor of r 比如可以选取一个block能容纳的r中元组的平均数量</li>
+<li>V(A, r) 关系r中属性A可能取到的不同的值的数量</li>
+<li>当关系r中的元组都存储在一个文件中的时候 $b_r=\frac{n_r}{f_r}$ </li>
+</ul>
+</li>
+<li><p>选择的估计</p>
+<ul>
+<li>从r中选择A属性=x的$cost = \frac{n_r}{V(A,r)}$ </li>
+<li>选择A属性小于x的cost<ul>
+<li>$cost=0$ if x &lt; min(A,r)</li>
+<li>$cost=n_r\times \frac{x-min(A,r)}{max(A,r)-min(A,r)}$</li>
+</ul>
+</li>
+<li>选择A属性大于x，和上面的表达式是对称的</li>
+</ul>
+</li>
+<li><p>complex selection 多重选择</p>
+<ul>
+<li>假设$s_i$是满足条件$\theta_i$的元组的个数</li>
+<li>conjunction $cost=n_r\times\frac{s_1\times s_2\times …\times s_n}{n_r^n}$</li>
+<li>disjunction  $cost=n_r\times(1-(1-\frac{s_1}{n_r})\times…\times(1-\frac{s_n}{n_r}))$ </li>
+<li>negation $cost=n_r-size(\delta_{\theta}(r))$ </li>
+</ul>
+</li>
+<li><p>join 的估计</p>
+<ul>
+<li>笛卡尔积的情况下，关系R,S的join最终元组的个数为$n_r\times n_s$ </li>
+<li>如果R∩S为空，则自然连接的结果和笛卡尔积的结果相同</li>
+<li>如果非空，且R∩S是R的key，则R,S的自然连接最终结果中的元组个数不会超过r</li>
+<li>如果R∩S的结果是S到R的外键，则最后的元组数和s中的元组数相同</li>
+<li>一般情况 自然连接的最终结果的size估计值为$\frac{n_r\times n_s}{max(V(A,r),V(A,s))}$  </li>
+</ul>
+</li>
+<li><p>其他操作的估计</p>
+<ul>
+<li><p>投影的size=V(A,r)</p>
+</li>
+<li><p>聚合操作的size=V(A,r)</p>
+</li>
+<li><p>集合操作：根据DNA里的高中数学知识自己编</p>
+</li>
+<li><p>外部连接：</p>
+<ul>
+<li>左外连接的size = 自然连接的size + r的size</li>
+<li>右外连接的size = 自然连接的size + s的size</li>
+<li>全连接的size = 自然连接的size + r的size + s 的size</li>
+</ul>
+</li>
+<li><p>不同值个数的估计</p>
+</li>
+</ul>
+</li>
+<li><p>基于cost的join顺序优化</p>
+<ul>
+<li>n个关系进行自然连接有$\frac{(2n-2)!}{(n-1)!}$种不同的join顺序</li>
+<li>找到最合适的join-tree的办法：递归地尝试,局部搜索的办法</li>
+<li>Left Deep Join Trees左倾树，当结合方式只考虑左倾树的时候，找到最优解的时间复杂度是$O(n2^n)$ </li>
+</ul>
+</li>
+<li><p><strong>Heuristic Optimization</strong> 探索式的优化</p>
+<ul>
+<li>尽早进行selection</li>
+<li>尽早进行projection</li>
+<li>选择最严格的selection和operations操作</li>
+</ul>
+</li>
+<li><p>用于查询优化的结构</p>
+<ul>
+<li>pipelined evaluation plan</li>
+<li>optimization cost budget</li>
+<li>plan catching</li>
+</ul>
+</li>
+</ul>
+<h2 id="第五部分：事务处理"><a href="#第五部分：事务处理" class="headerlink" title="第五部分：事务处理"></a>第五部分：事务处理</h2><ul>
+<li>这一部分感觉和操作系统关系比较密切</li>
+</ul>
+<h3 id="5-1-事务和并发控制"><a href="#5-1-事务和并发控制" class="headerlink" title="5.1 事务和并发控制"></a>5.1 事务和并发控制</h3><h4 id="5-1-1-基本的概念"><a href="#5-1-1-基本的概念" class="headerlink" title="5.1.1 基本的概念"></a>5.1.1 基本的概念</h4><ul>
+<li><p>事务的概念</p>
+<ul>
+<li>事务时程序执行的基本单位，会引起一些数据项的更新，需要解决的两个问题：<ul>
+<li>数据库系统的硬件问题和系统奔溃</li>
+<li>多事务的并行执行</li>
+</ul>
+</li>
+<li>事务开始和结束的时候数据库都必须是consistent的</li>
+<li>事物的四个性质ACDI：<ul>
+<li>事务的原子性 <strong>Atomicity</strong><ul>
+<li>事务中的所有步骤只能完全执行(commit)或者回滚(rollback)</li>
+</ul>
+</li>
+<li>事务的持久性 <strong>Durability</strong><ul>
+<li>更新之后哪怕软硬件出了问题，更新的数据也必须存在</li>
+</ul>
+</li>
+<li>事务的一致性 <strong>Consistency</strong></li>
+<li>单独执行事务可以保持数据库的一致性</li>
+<li>事务的独立性 <strong>Isolation</strong> <ul>
+<li>事务在并行执行的时候不能感知到其他事务正在执行，执行中间结果对于其他并发执行的事务是隐藏的</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>事务的状态</p>
+<ul>
+<li>active 初始状态，执行中的事务都处于这个状态</li>
+<li>partially committed 在最后一句指令被执行之后</li>
+<li>failed 在发现执行失败之后</li>
+<li>aborted 回滚结束，会选择是<strong>重新执行事务</strong>还是结束</li>
+<li>committed 事务被完整的执行</li>
+</ul>
+</li>
+</ul>
+<h4 id="5-1-2-事务的并发执行"><a href="#5-1-2-事务的并发执行" class="headerlink" title="5.1.2 事务的并发执行"></a>5.1.2 事务的并发执行</h4><ul>
+<li>同时执行多个事务，可以提高运行的效率，减少平均执行时间<ul>
+<li>并发控制处理机制：让并发的事务独立进行，控制并发事务之间的交流</li>
+<li>Schedules 调度<ul>
+<li>一系列用于指定并发事务的执行顺序的指令<ul>
+<li>需要包含事务中的所有指令</li>
+<li>需要保证单个事务中的指令的相对顺序</li>
+</ul>
+</li>
+<li>事务的最后一步<ul>
+<li>成功执行，最后一步是commit instruction</li>
+<li>执行失败最后一步是abort instruction</li>
+</ul>
+</li>
+<li>serial schedule 串行调度：一个事务调度完成之后再进行下一个</li>
+<li>equivalent schedule 等价调度：改变处理的顺序但是和原来等价</li>
+<li><strong>Serializability</strong>可串行化<ul>
+<li>基本假设：事务不会破坏数据库的一致性，只考虑读写两种操作</li>
+<li>冲突可串行化 conflict serializability<ul>
+<li>同时读不引发冲突，而读写并行或者同时写会引发冲突</li>
+<li><strong>conflict equivalent</strong>：两个调度之间可以通过改变一些不冲突的指令来转换，就叫做冲突等价</li>
+<li><strong>conflict serializable</strong>：冲突可串行化：当且仅当一个调度S可以和一个串行调度等价</li>
+<li><strong>Precedence graph</strong>  前驱图 <ul>
+<li>图中的顶点是各个事务，当事务$T_i, T_j$ 冲突并且$T_i$ 先访问出现冲突的数据的时候，就画一条边$T_i\rightarrow T_j$ </li>
+<li>一个调度是冲突可串行化的当且仅当前驱图是无环图</li>
+<li>对于无环图，可以使用<strong>拓扑逻辑排序</strong>获得一个合适的执行顺序</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Recoverable Schedules 可恢复调度<ul>
+<li>database must ensure that schedules are recoverable. 不然会出现dirty read</li>
+<li>如果一个事务$T_1$要读取某一部分数据，而$T_2$要写入同一部分的数据，则$T_1$必须在$T_2$commit之前就commit，否则就会造成dirty read</li>
+</ul>
+</li>
+<li><strong>Cascading Rollbacks</strong> 级联回滚<ul>
+<li>单个事务的fail造成了一系列的事务回滚</li>
+</ul>
+</li>
+<li><strong>Cascadeless Schedules</strong> 避免级联回滚的调度<ul>
+<li>对于每一组事务a和b并且b需要读入一个a写入的数据，那么a必须在b的读操作开始之前commit</li>
+<li><strong>Cascadeless Schedules</strong>也是可恢复的调度</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="5-1-3-Concurrency-Control-并发控制"><a href="#5-1-3-Concurrency-Control-并发控制" class="headerlink" title="5.1.3 Concurrency Control 并发控制"></a>5.1.3 Concurrency Control 并发控制</h4><ul>
+<li><p>Lock-Based Protocols 基于锁的协议</p>
+<ul>
+<li><p>lock是一种控制并发访问同一数据项的机制</p>
+</li>
+<li><p>两种lock mode </p>
+<ul>
+<li>exclusive(X) ：表示数据项可以读和写，用lock-X表示</li>
+<li>shared(S) ：表示数据项只能读，用lock-S 表示</li>
+</ul>
+</li>
+<li><p>两个事务的冲突矩阵：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>S</th>
+<th>X</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>S</td>
+<td>true</td>
+<td>flase</td>
+</tr>
+<tr>
+<td>X</td>
+<td>false</td>
+<td>false</td>
+</tr>
+</tbody></table>
+<ul>
+<li>如果请求的锁和其他事务对这个数据项已经有的锁不冲突，那么就可以给一个事务批准一个锁</li>
+<li>对于一个数据项，可以有任意多的事务持有S锁，但是如果有一个事务持有X锁，其他的事务都不可以持有这个数据项的锁</li>
+<li>如果一个锁没有被批准，就会产生一个请求事务，等到所有冲突的锁被release之后再申请 </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>锁协议中的特殊情况</p>
+<ul>
+<li><p>dead lock 死锁：两个事务中的锁互相等待造成事务无法执行，比如事务2的锁需要事务1先release，但是事务1的release步骤再事务2的申请锁后面，就会造成事务12的死锁</p>
+</li>
+<li><p>Starvation 饥荒：一个事务在等一个数据项的Xlock，一群别的事务在等他release，造成饥荒</p>
+</li>
+</ul>
+</li>
+<li><p>Two-Parse Locking Protocol 二阶段锁协议：确保冲突可串行化的调度</p>
+<ul>
+<li>两个阶段 growing和shrinking，growing只接受锁而不释放，shrinking反之</li>
+<li>无法解决死锁的问题</li>
+<li><strong>strict two-phase locking</strong><ul>
+<li>每个事务都要保持所有的exclusive锁直到结束</li>
+<li>为了解决级联回滚的问题</li>
+</ul>
+</li>
+<li><strong>Rigorous two-phase locking</strong> <ul>
+<li>所有的锁必须保持到事务commit或者abort</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Lock Conversions锁转换：提供了一种将S锁升级为X锁的机制</p>
+<ul>
+<li>两个阶段<ul>
+<li>第一个阶段可以设置S和X锁，也可以升级S锁</li>
+<li>第二个阶段可以释放S和X锁，也可以降级X锁</li>
+</ul>
+</li>
+<li>事务不需要显式调用所得请求，比如read和write的执行过程如下<ul>
+<li>所有的锁在事务commit或者abort之后再被释放</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">if</span> Ti has a lock on D
+	then <span class="token function">read</span><span class="token punctuation">(</span>D<span class="token punctuation">)</span> 
+<span class="token keyword">else</span>
+	begin 
+		<span class="token keyword">if</span> necessary wait until no other  
+		transaction has a lock<span class="token operator">-</span>X on D
+		grant Ti a  lock<span class="token operator">-</span>S on D<span class="token punctuation">;</span>
+		<span class="token function">read</span><span class="token punctuation">(</span>D<span class="token punctuation">)</span>
+	end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">if</span> Ti has a  lock<span class="token operator">-</span>X on D 
+    then 
+          <span class="token function">write</span><span class="token punctuation">(</span>D<span class="token punctuation">)</span>
+<span class="token keyword">else</span>
+    begin
+    	<span class="token keyword">if</span> necessary wait until no other trans<span class="token punctuation">.</span> has any lock on D<span class="token punctuation">,</span>
+        <span class="token keyword">if</span> Ti has a lock<span class="token operator">-</span>S on D
+        	then
+            	upgrade lock on D  to lock<span class="token operator">-</span>X
+        	<span class="token keyword">else</span>
+            	grant Ti a lock<span class="token operator">-</span>X on D
+        	<span class="token function">write</span><span class="token punctuation">(</span>D<span class="token punctuation">)</span>
+    end<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>锁的实现：Lock Manager可以被作为一个独立的进程来接收事务发出的锁和解锁请求</p>
+<ul>
+<li>Lock Manager会回复申请锁的请求</li>
+<li>发出请求的事务会等待请求被回复再继续处理</li>
+<li>lock manager维护一个内存中的数据结构lock-table来记录已经发出的批准<ul>
+<li>Lock table 是一个<strong>in-memory的hash表</strong></li>
+<li>通过被上锁的数据项作为索引，黑框代表上锁，而白框表示在等待</li>
+<li>新的上锁请求被放在队列的末端，并且在和其他锁兼容的时候会被授权上锁</li>
+<li>解锁的请求会删除对应的请求，检查后面的请求是否可以被授权</li>
+<li>如果一个事务aborts了，所有该事务的请求都会被删除</li>
+<li>lock-manager会维护一个记录每个事务上锁情况的表来提高操作的效率</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Deadlock prevention protocols 死锁保护协议，保证系统不会进入死锁</p>
+<ul>
+<li><p>predeclaration 执行之前先检查会不会出现死锁，保证一个事务开始执行之前对涉及到的所有的数据项都上锁</p>
+</li>
+<li><p>graph-based protocol：使用偏序来确定数据项上锁的顺序</p>
+</li>
+<li><p><strong>wait-die</strong> scheme 被动</p>
+<ul>
+<li>老的事务等待新事务释放，但是新的事务不等老的而是直接回滚</li>
+</ul>
+</li>
+<li><p><strong>wound-wait</strong> scheme  主动</p>
+<ul>
+<li>老的事务强制让新的事务回滚而不等待其释放，新的事务会等老的事务结束</li>
+</ul>
+</li>
+<li><p>Timeout-Based Schemes</p>
+<ul>
+<li>只等待一段时间，过了时间就回滚</li>
+<li>容易实现，但是会导致starvation</li>
+</ul>
+</li>
+<li><p>Deadlock Detection 死锁检测</p>
+<ul>
+<li>wait-for 图: 所有的事务表示图中的点，如果事务i需要j释放一个data item则图中画一条点i到点j的有向边，如果图中有环，说明系统存在一个死锁——跟前驱图很相似</li>
+<li>死锁恢复<ul>
+<li>total rollback 将事务abort之后重启</li>
+<li>partial rollback 不直接abort而实仅回滚到能解除死锁的状态</li>
+</ul>
+</li>
+<li>同一个事务经常发生死锁会导致starvation，因此避免starvation的过程中cost要考虑回滚的次数</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Multiple Granularity</strong> 多粒度</p>
+<ul>
+<li><p>允许数据项具有不同的大小，并定义数据粒度的层次结构，其中小粒度嵌套在大粒度中</p>
+</li>
+<li><p>可以用树形结构来表示</p>
+</li>
+<li><p>锁的粒度 (level in tree where locking is done)</p>
+<ul>
+<li>fine granularity(lower in tree) 高并发，高开销</li>
+<li>coarse granularity(higher in tree) 低并发，低开销</li>
+<li>最高等级的是整个DB</li>
+<li>最低等级的是区域，文件和记录</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>扩展的Lock Modes</p>
+<ul>
+<li><p><strong>intention-shared</strong> (IS): indicates explicit locking at a lower level of the tree but only with shared locks.</p>
+</li>
+<li><p><strong>intention</strong>-exclusive (IX): indicates explicit locking at a lower level with exclusive or shared locks</p>
+</li>
+<li><p><strong>shared and intention</strong>-exclusive (SIX): the subtree rooted by that node is locked explicitly in shared mode and explicit locking is being done at a lower level with exclusive-mode locks.</p>
+</li>
+<li><p>冲突矩阵如下</p>
+</li>
+<li><p>这部分感觉不太像会考的样子，先不管了</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-2-Recovery-System-事务恢复"><a href="#5-2-Recovery-System-事务恢复" class="headerlink" title="5.2 Recovery System 事务恢复"></a>5.2 Recovery System 事务恢复</h3><ul>
+<li><p>故障的分类</p>
+<ul>
+<li>Transaction failure 事务错误：包含逻辑错误和系统错误，死锁属于系统错误</li>
+<li>System crash 系统崩溃导致的故障(磁盘没出事)</li>
+<li>Disk failure 磁盘中的问题导致磁盘存储被销毁</li>
+</ul>
+</li>
+<li><p>恢复算法：保持数据库的一致性，事务的原子性和持久性</p>
+<ul>
+<li>在普通事务处理中要保证有足够的信息保证可以从故障中恢复</li>
+<li>在故障发生之后要保持数据库的一致性，事务的原子性和持久性</li>
+</ul>
+</li>
+<li><p>Data Access 数据访问回顾</p>
+<ul>
+<li>物理block是磁盘上的区分</li>
+<li>缓冲block是在主存中的block</li>
+<li>磁盘和主存之间的数据移动依赖input和output操作</li>
+<li>每个事务$T_i$ 在内存中有自己的work-area，并且拷贝了一份该事务要用到的全部数据</li>
+<li>事务通过read和write操作把数据在自己的工作区域和buffer blocks区间之间进行传递</li>
+</ul>
+</li>
+<li><p>如何在事务failure的情况下仍然保证原子性</p>
+<ul>
+<li>先把数据存储在磁盘上，而不是直接存到数据库中</li>
+<li>然后在提交点对数据库进行修改，如果发生错误就立马回滚<ul>
+<li>但这个方法效率太低了，是世上没有被采用</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="5-2-1-log-based-Recovery基于日志的恢复"><a href="#5-2-1-log-based-Recovery基于日志的恢复" class="headerlink" title="5.2.1 log-based Recovery基于日志的恢复"></a>5.2.1 log-based Recovery基于日志的恢复</h4><ul>
+<li><p>日志(log)被存储在稳定的存储中，包含一系列的日志记录</p>
+<ul>
+<li>事务开始<code>&lt;T start&gt;</code></li>
+<li>写操作之前之前的日志记录<code>&lt;Ti,X,V1,V2&gt;</code>(X)是写的位置，V1，V2分别是写之前和之后的X处的值</li>
+<li>事务结束的时候写入<code>&lt;Ti commit&gt;</code></li>
+</ul>
+</li>
+<li><p>更新事务导致的不一致性</p>
+<ul>
+<li>新的数据在提交的时候不一定是安全的：错误发生时难以保护改变后的值不变</li>
+<li>旧的数据在提交之前不一定是安全的：在commit之前发生错误将无法回滚到原来的值</li>
+<li>对于更新事务的两条规则<ul>
+<li>commit rule：新的数据在commit之前必须被写在<strong>非易失性</strong>的存储器中</li>
+<li>logging rule：旧的值在新的写入之前需要被写在日志里</li>
+</ul>
+</li>
+<li>日志中写入commit的时候视为一个事务被提交了，但此时buffer中可能还在进行write操作，因为log的写入先于操作</li>
+</ul>
+</li>
+<li><p><strong>deferred database modification</strong> 延迟数据库更新：先把所有的更新写在日志里，在写入commit之后再开始写入数据库</p>
+<ul>
+<li>假设事务是串行执行的</li>
+<li>事务开始的时候要写入<code>&lt;Ti start&gt;</code> </li>
+<li> <strong>write</strong>(<em>X</em>) 操作对应的日志是 <code>&lt;Ti, X, V&gt;</code> ，V表示X新的值</li>
+<li>事务partially commits的时候需要写入commit</li>
+<li>然后根据日志来实际执行一些write的操作<ul>
+<li>当错误发生时，当且仅当日志中start和commit都有的时候，事务需要redo</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>immediate database modification</strong> 直接修改数据库</p>
+<ul>
+<li><p>先要写好日志记录，假设日志记录直接output到稳定的存储中</p>
+</li>
+<li><p>block的输出可以发生在任何时间点，包括事务commit前和commit后，block输出的顺序和write的顺序不一定相同</p>
+</li>
+<li><p>恢复的过程中有两种操作</p>
+<ul>
+<li>undo：撤回，将事务$T_i$ 中已经更新的值变回原本的值</li>
+</ul>
+</li>
+<li><p>redo：从事务$T_i$ 的第一步开始重新做，将所有值设定为新的值</p>
+<ul>
+<li>两种操作都需要<strong>idempotent</strong>——也就是操作执行多次和执行一次的效果相同</li>
+</ul>
+</li>
+<li><p>undo的条件：日志中包含这个事务的start而不包含commit，即事务进行到一半中断了</p>
+<ul>
+<li>redo的条件：日志中包含这个事务的start和commit</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>并行控制和恢复</p>
+<ul>
+<li>所有事务共用一个日志和disk buffer</li>
+<li>基本的假设<ul>
+<li>如果一个事务改变了某个数据项，其他的事务直到这个事务commit或者abort之前都不能改变这个数据项的值</li>
+<li>没有commited的事务引起的更新不能被其他事务更新</li>
+</ul>
+</li>
+<li>日志中不同事务的日志可能会相交</li>
+</ul>
+</li>
+<li><p>check point</p>
+<ul>
+<li><p>通过定期执行checkpoint操作来完成简化的恢复</p>
+<blockquote>
+<p>1.将内存中的记录都写到稳定的存储中</p>
+<p>2.将所有更改过的block写入磁盘中</p>
+<p>3.写入日志记录&lt; **checkpoint** **L**&gt; ，其中L是一个在checkpoint时依然处于进行状态的事务</p>
+</blockquote>
+</li>
+<li><p>通过checkpoint，在日志处理的时候就不需要处理所有的日志，只需要关注异常时正在活跃的事务，恢复的步骤如下</p>
+<ul>
+<li>从日志的末尾向前扫描，直到发现最近的checkpoint记录</li>
+<li>只有L中记录的，或者在L之后发生的事务需要redo或者undo</li>
+<li>checkpoint之前的记录已经生效并保存在了稳定的存储中</li>
+</ul>
+</li>
+<li><p>日志中更早的部分<strong>或许需要</strong>undo，但一定不需要redo</p>
+<ul>
+<li>继续向前扫描直到发现一个事务的start日志</li>
+<li>最早的start之前的日志不需要进行恢复操作，并且可以清除</li>
+</ul>
+</li>
+<li><p>在上面这个图中 T1 ignored，T2，T3需要redo，T4 undo</p>
+</li>
+</ul>
+</li>
+<li><p>恢复算法</p>
+<ul>
+<li><p>单个事务回滚时的基本操作</p>
+<ul>
+<li>从后往前扫描，当发现记录$&lt;T_i,X_i,V_1,V_2&gt;$ 的时候</li>
+<li>将X的值修改为原本的值</li>
+<li>在日志的末尾写入记录$&lt;T_i,X_i,V_1&gt;$ </li>
+<li>发现start记录的时候，停止扫描并在日志中写入abort记录</li>
+</ul>
+</li>
+<li><p>恢复的两个阶段：redo和undo</p>
+</li>
+<li><p>redo需要先找到最后一个check point并且设置undo-list</p>
+<blockquote>
+<p>1.从checkpoint开始往下读</p>
+<p>2.当发现修改值的记录的时候，redo一次将X设置为新的值</p>
+<p>3.当发现start的时候将这个事务加入undo-list</p>
+<p>4.当发现commit或者abort的时候将对应的事务从undo-list中移除</p>
+</blockquote>
+</li>
+<li><p>undo</p>
+<blockquote>
+<p>1.从日志的末尾开始往回读</p>
+<p>2.当发现记录 &lt;Ti, Xj,  V1,  V2&gt;并且Ti在undo-list中的时候，进行一次回滚</p>
+<p>3.当发现Ti start并且Ti在undo-list中的时候，写入abort日志并且从undo-list中移除Ti</p>
+<p>4.当undo-list空了的时候停止undo</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>log record buffering 缓冲日志记录</p>
+<ul>
+<li><p>日志记录一开始在主存的缓冲区中，当日志在block中满了的时候或者进行了log force操作(上面提到的checkpoint)时写入稳定的存储中</p>
+</li>
+<li><p>需要遵守的规则</p>
+<ul>
+<li>写入稳定存储中的时候日志记录按照原本的顺序写入<ul>
+<li>在commit记录被写入稳定存储的时候，Ti才算进入commit状态</li>
+</ul>
+</li>
+<li>WAL(write-ahead logging)规则：在数据block写入数据库之前，必须先把日志写入稳定的存储中</li>
+</ul>
+</li>
+<li><p>中间有几页先留着慢慢学习，这几页看起来不太像考试内容，buffer这一部分应该了解就好</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="5-2-2-ARIES-Recovery-Algorithm——Aries恢复算法"><a href="#5-2-2-ARIES-Recovery-Algorithm——Aries恢复算法" class="headerlink" title="5.2.2 ARIES Recovery Algorithm——Aries恢复算法"></a>5.2.2 ARIES Recovery Algorithm——Aries恢复算法</h4><ul>
+<li><p>和普通恢复算法的区别：</p>
+<ul>
+<li>最核心的区别——Aries算法考试考到的概率很高</li>
+<li>使用LSN(log sequence number)来标注日志<ul>
+<li>以页的形式来存储LSN来标注数据库页表中进行了哪些更新</li>
+</ul>
+</li>
+<li>生理redo(?)</li>
+<li>使用脏页表(dirty page table) 来避免不必要的redo</li>
+<li>模糊的checkpoint机制，只记录脏页信息和相关的信息，不需要把脏页写入磁盘</li>
+</ul>
+</li>
+<li><p>ARIES中的数据结构</p>
+<ul>
+<li>Log sequence number (LSN) <ul>
+<li>用于标识<strong>每一条记录</strong>，需要是线性增长的</li>
+<li>其实是一个offset，方便从文件的起点开始访问</li>
+</ul>
+</li>
+<li><strong>Page LSN</strong> 每一页的LSN<ul>
+<li>是每一页中<strong>最后一条</strong> <strong>起作用</strong>的日志记录的LSN编号</li>
+<li>每当一个更新的操作在某一页发生的时候，Page LSN就变成对应的Page LSN</li>
+<li> 在恢复的撤销阶段，LSN值不超过PageLSN的日志记录将<strong>不会在该页上执行</strong>，因为其动作已经在该页上了</li>
+<li>可以避免重复的redo</li>
+</ul>
+</li>
+<li>log record 日志记录<ul>
+<li>每一条日志记录包含自己的LSN和<strong>同一个事务中前一步操作</strong>的LSN——PreLSN</li>
+<li>CLR：在恢复期间不需要undo，是redo-only的日志记录<ul>
+<li>有一个UndoNextLSN区域用于记录下一个(更早,往前搜索)的需要undo的记录</li>
+<li>在这之间的记录应该早就已经undo了</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Dirty Page Table 脏页表<ul>
+<li>存储在缓冲区的，记录已经被更新过的page的表</li>
+<li>包含以下内容<ul>
+<li>每个页的PageLSN</li>
+<li>每个页的RecLSN，表示这一页的日志记录中，LSN在这之前的记录已经<strong>都被写入磁盘中</strong>了<ul>
+<li>当page被插入脏页表的时候，<strong>初始化为当前的PageLSN</strong> </li>
+<li>记录在checkpoint中，用于减少redo的次数</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>只要页被写入磁盘，就从脏页表中移除该页</li>
+</ul>
+</li>
+<li>checkpoint处的日志记录<ul>
+<li>包含：脏页表和当前活跃的所有事务</li>
+<li>对每一个活跃的事务，记录了LastLSN，即这个事务在日志中写下的<strong>最后一条记录</strong> </li>
+<li>在checkpoint的时间点，脏页的信息不会写入磁盘</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>ARIES算法的恢复操作</p>
+<ul>
+<li><p>分为三个阶段：分析阶段，redo阶段和undo阶段</p>
+<ul>
+<li>RedoLSN 记录了从哪一条开始需要redo</li>
+</ul>
+</li>
+<li><p>分析阶段：需要决定哪些事务undo，哪些页是脏页</p>
+<ul>
+<li><p>从<strong>最后一条完整的checkpoint日志记录</strong>开始</p>
+</li>
+<li><p>读取脏页表的信息</p>
+<ul>
+<li>设置RedoLSN = min RecLSN(脏页表中的)，如果脏页表是空的就设置为checkpoint的LSN</li>
+<li>设置undo-list：checkpoint中记录的事务</li>
+<li>读取undo-list中每一个事务的最后一条记录的LSN</li>
+</ul>
+</li>
+<li><p>从checkpoint开始正向扫描</p>
+<ul>
+<li>如果发现了不在undo-list中的记录就写入undo-list</li>
+<li>当发现一条<strong>更新记录</strong>的时候，如果这一页<strong>不在脏页表</strong>中，用该记录的LSN作为RecLSN写入脏页表中</li>
+<li>如果发现了标志事务<strong>结束</strong>的日志记录(commit, abort) 就从undo-list中<strong>移除</strong>这个事务</li>
+<li>搜索直到undo-list中的每一个事务都到了最后一条</li>
+</ul>
+</li>
+<li><p>分析结束之后</p>
+<ul>
+<li>RedoLSN决定了从哪里开始redo</li>
+<li>所有undo-list中的事务都需要回滚</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Redo阶段</p>
+<ul>
+<li>从RedoLSN开始<strong>正向扫描</strong>，当发现更新记录的时候<ul>
+<li>如果这一页不在脏页表中。或者这一条记录的LSN小于页面的RecLSN就忽略这一条</li>
+<li>否则从磁盘中读取这一页，如果磁盘中得到的这一页的PageLSN比这一条要小，就redo，否则就忽略这一条记录</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Undo阶段</p>
+<ul>
+<li>从日志末尾先前向前搜索，undo所有undo-list中有的事务</li>
+<li>符合如下条件的记录可以<strong>跳过</strong> <ul>
+<li>用分析阶段的最后一个LSN来找到每个日志最后的记录</li>
+<li>每次选择一个最大的LSN对应的事务undo</li>
+<li>在undo一条记录之后<ul>
+<li>对于普通的记录，将NextLSN设置为PrevLSN</li>
+<li>对于CLR记录，将NextLSN设置为UndoNextLSN</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>如何undo：当一条记录undo的时候<ul>
+<li>生成一个包含执行操作的CLR</li>
+<li>设置CLR的UndoNextLSN 为更新记录的LSN</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Aries算法的其他特性</p>
+<ul>
+<li>Recovery Independence 恢复的独立性</li>
+<li>Savepoints 存档点</li>
+<li>Fine-grained locking 细粒度的锁</li>
+<li>Recovery optimizations 恢复的优化</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="第六部分-XML"><a href="#第六部分-XML" class="headerlink" title="第六部分 XML"></a>第六部分 XML</h2><h4 id="6-1-XML的定义和基本结构"><a href="#6-1-XML的定义和基本结构" class="headerlink" title="6.1 XML的定义和基本结构"></a>6.1 XML的定义和基本结构</h4><ul>
+<li>XML：Extensible Markup Language 一种可扩展的标记语言<ul>
+<li>区别于HTML(Hyper-Text Markup Language)</li>
+<li>XML可以有任意名称的标记，HTML的标记名是有限的</li>
+<li>XML已经成为一种信息交互的基本结构，适合数据库之间的交互</li>
+</ul>
+</li>
+<li>XML的结构<ul>
+<li>Tag 标签，表明一种数据类型</li>
+<li>Element 被标签所括起来的内容，正确的格式应该是<code>&lt;tag&gt;element&lt;/tag&gt;</code> <ul>
+<li>标签必须要正确嵌套，可以嵌套是XML相比于关系代数的优势</li>
+</ul>
+</li>
+<li>XML文档需要有一个root</li>
+<li>一个元素可以有多个<strong>属性</strong>，但是<strong>属性名不能重复</strong>，用<code>attr_name=value</code>的形式内嵌在起始tag上面</li>
+<li>命名空间namespaces<ul>
+<li>同一个标签名在不同的地方可能代表不同的意思，需要在tag前面加上<code>namespace:</code>标识这个tag是被谁定义的</li>
+</ul>
+</li>
+<li>没有子元素的元素可以只用一个tag标识：<code>&lt;tag /&gt;</code> </li>
+<li>当tag表示字符串时可以用<code>CDATA[ ]</code> 括起来表示</li>
+</ul>
+</li>
+</ul>
+<h4 id="6-2-XML-Document-Schema"><a href="#6-2-XML-Document-Schema" class="headerlink" title="6.2 XML Document Schema"></a>6.2 XML Document Schema</h4><ul>
+<li><p>Document Type Definition (DTD) 使用较为广泛，定义了XML文档结构的一种标准</p>
+<ul>
+<li><p><strong>不限制数据的种类</strong>，标签不预先规定有多少种，可以自由定义，但是限制XML中数据的结构</p>
+<ul>
+<li>有什么元素可以出现</li>
+<li>元素必须有哪些属性</li>
+<li>每个元素中可以出现哪些子元素</li>
+</ul>
+</li>
+<li><p>基本的语法结构 </p>
+<pre class="line-numbers language-xml-dtd" data-language="xml-dtd"><code class="language-xml-dtd">&lt;!ELEMENT element (subelements-specification) &gt;
+&lt;!ATTLIST element (attributes) &gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ul>
+<li><p>子元素可以声明为</p>
+<ul>
+<li>子元素的名称</li>
+<li><code>#PCDATA(parsed character data)</code> 被解析的字符数据</li>
+<li>EMPTY 或者 ANY 表示没有子元素或者任何东西都可以作为子元素</li>
+</ul>
+</li>
+<li><p>子元素的声明可以使用<strong>正则表达式</strong> </p>
+<ul>
+<li>“ | ” 表示可以互相替代</li>
+<li>“ + ” 至少出现一个</li>
+<li>“ * ” 出现0个或多个</li>
+<li>“ ？” 不出现或者出现一个</li>
+</ul>
+</li>
+<li><p>比如说下面这一段</p>
+<pre class="line-numbers language-xml-dtd" data-language="xml-dtd"><code class="language-xml-dtd">&lt;!DOCTYPE note [
+  &lt;!ELEMENT note (to,from,heading,body)&gt;
+  &lt;!ELEMENT to      (#PCDATA)&gt;
+  &lt;!ELEMENT from    (#PCDATA)&gt;
+  &lt;!ELEMENT heading (#PCDATA)&gt;
+  &lt;!ELEMENT body    (#PCDATA)&gt;
+]&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>这一段DTD中，第一行表示文档类型叫note，里面有若干个元素，其中note元素有四个子元素，都是被解析的字符数据</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Attribute声明，对每一个属性，声明</p>
+<ul>
+<li><p>属性名name</p>
+</li>
+<li><p>属性种类type</p>
+<ul>
+<li>CDATA</li>
+<li>ID or IDREF(id的索引) or IDREFS(多重id索引)<ul>
+<li>每个元素最多一个属性作为ID，并且必须是不同的值</li>
+<li>IDREF类型的属性必须包含ID的值</li>
+</ul>
+</li>
+<li>其他内容<ul>
+<li> <code>#REQUIED</code> 属性是必须的</li>
+<li>是否有默认值</li>
+<li><code>#IMPLIED</code>属性不是必须的</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-xml-dtd" data-language="xml-dtd"><code class="language-xml-dtd">&lt;!ATTLIST course course_id CDATA #REQUIRED&gt;, 或者
+&lt;!ATTLIST course
+    	course_id     ID          #REQUIRED
+        dept_name  IDREF   #REQUIRED
+    	instructors    IDREFS #IMPLIED   &gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+</li>
+<li><p>DTD的一些限制</p>
+<ul>
+<li>元素和属性没有类型</li>
+<li>IDs和IDREFs是untyped，每个元素的ID属性值必须是唯一的</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>XML Schema——不常用</p>
+<ul>
+<li>解决了DTD的缺点，更复杂，支持<ul>
+<li>值的类型，包括integer，string等</li>
+<li>用户定义类型，更复杂的类型</li>
+<li>更多功能包括 unique和foreign key的限制</li>
+<li>但比DTD模式更加冗余</li>
+</ul>
+</li>
+<li>语法规则<ul>
+<li>可以使用xs的namespace</li>
+<li>属性被xs:attribute的tag所定义</li>
+<li>键约束， 外键约束：通过xpath进行查询</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="6-3-XML-查询"><a href="#6-3-XML-查询" class="headerlink" title="6.3 XML 查询"></a>6.3 XML 查询</h4><ul>
+<li><p>XML 数据的查询和传输</p>
+<ul>
+<li><p>可以用于XML查询和传输的语言</p>
+<ul>
+<li>XPath</li>
+<li>XSLT</li>
+<li>XQuery</li>
+</ul>
+</li>
+<li><p>查询和交换基于XML的<strong>树模型</strong></p>
+<ul>
+<li>树模型中的节点是XML文档中的元素，节点分为元素、属性、文本、命名空间、处理指令、注释以及文档（根）节点，元素下的节点是属性或者子元素，上面的则是父元素</li>
+<li>根节点只有一个儿子，就是XML文档的根元素</li>
+</ul>
+</li>
+<li><p>XPath </p>
+<ul>
+<li>用类似于文件路径的表达式来进行查询，用斜杠进行连接</li>
+<li>第一个斜杠的意思表示根目录，路径中<strong>可以添加查询条件</strong>，需要用<code>[]</code>括起来<ul>
+<li>比如<code>//title[@lang]</code> 可以选取所有拥有属性名lang的元素title</li>
+<li>比如<code>/bookstore/book[1]</code> 表示选取bookstore下面第一个查询到的book元素</li>
+</ul>
+</li>
+<li>访问<strong>属性</strong>需要使用<code>@</code>标记(注意标签的属性和值的区别)</li>
+<li>可以使用通配符来查询：<ul>
+<li>*可以表示所有的元素节点，比如<code>//*</code>  可以获取文档中的所有元素</li>
+<li>@*可以表示所有的属性节点</li>
+</ul>
+</li>
+<li>可以用 | 来连接两个查询</li>
+</ul>
+</li>
+<li><p><code>//</code> 可以跳过多层node直奔要找的目标</p>
+<ul>
+<li>查询路径不仅能往下查询，也可以往上查询，既可以搜索子节点，也可以搜索父节点</li>
+</ul>
+</li>
+<li><p>XPath中提供了一些可以使用的函数</p>
+<ul>
+<li>count函数可以用来计算某个路径下的元素个数，比如<code>/university-2/instructor[count(./teaches/course)&gt; 2]</code> 可以表示获取所有上课数目超过2的老师</li>
+<li>布尔函数and和or和not() 可以使用</li>
+<li>IDREFs可以使用id()引用</li>
+</ul>
+</li>
+<li><p>使用doc来返回文档的名称</p>
+</li>
+<li><p>XQuery：XML文档的信息查询</p>
+<ul>
+<li>XQuery使用的语法是<ul>
+<li><code>for xxx let xxx where xxx order by xxx return</code></li>
+<li>for相当于SQL中的<code>select</code>，let允许使用<strong>临时变量</strong> </li>
+</ul>
+</li>
+<li>一个简单的案例，对<code>&lt;course_id&gt;..&lt;/course_id&gt;</code>中的内容进行查询</li>
+</ul>
+<pre class="line-numbers language-xquery" data-language="xquery"><code class="language-xquery">  <span class="token keyword">for</span> <span class="token variable">$x</span> <span class="token keyword">in</span> <span class="token punctuation">/</span>university<span class="token punctuation">/</span>course
+  <span class="token keyword">let</span> %courseid<span class="token operator">:=</span><span class="token variable">$x</span><span class="token punctuation">/</span><span class="token operator">@</span>course_id
+<span class="token keyword">where</span> <span class="token variable">$x</span><span class="token punctuation">/</span>credits <span class="token operator">></span> <span class="token number">3</span>
+  <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>course_id</span><span class="token punctuation">></span></span><span class="token punctuation">&#123;</span><span class="token variable">$courseid</span><span class="token punctuation">&#125;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>course_id</span><span class="token punctuation">></span></span>
+  
+  <span class="token punctuation">/</span><span class="token punctuation">/</span> 可以进行如下的化简
+  <span class="token keyword">for</span> <span class="token variable">$x</span> <span class="token keyword">in</span> <span class="token punctuation">/</span>university-<span class="token number">3</span><span class="token punctuation">/</span>course<span class="token punctuation">[</span>credits <span class="token operator">></span> <span class="token number">3</span><span class="token punctuation">]</span>   
+  <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>course_id</span><span class="token punctuation">></span></span> <span class="token punctuation">&#123;</span> <span class="token variable">$x</span><span class="token punctuation">/</span><span class="token operator">@</span>course_id <span class="token punctuation">&#125;</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>course_id</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>join操作：在where后面用逻辑关系连接若干个条件</li>
+<li>嵌套查询：用法是将一个XQeury语句当作return的结果用tags包起来</li>
+<li>聚合操作 可以使用sum等聚合函数，比如<code>fu:sum()</code></li>
+<li>使用order by进行排序</li>
+<li>可以使用自定义函数来进行某些操作</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Zhang-Each</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://example.com/2021/05/03/dbs/">http://example.com/2021/05/03/dbs/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Zhang-Each</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                    <span class="chip bg-color">数据库</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/05/03/ads/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/29-min.png" class="responsive-img" alt="高级数据结构与算法分析">
+                        
+                        <span class="card-title">高级数据结构与算法分析</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            浙江大学2019-2020学年《高级数据结构与算法分析》课程笔记，主讲教师杨洋
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-03
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/CS%E6%A0%B8%E5%BF%83%E8%AF%BE%E7%A8%8B/" class="post-category">
+                                    CS核心课程
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="chip bg-color">数据结构</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/05/03/dbs/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/26-min.png" class="responsive-img" alt="数据库系统整理">
+                        
+                        <span class="card-title">数据库系统整理</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            2019-2020春夏学期《数据库系统》的知识整理回顾
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/CS%E6%A0%B8%E5%BF%83%E8%AF%BE%E7%A8%8B/" class="post-category">
+                                    CS核心课程
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: zyc的旅行笔记<br />'
+            + '文章作者: Zhang-Each<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">Zhang-Each</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">138.6k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/zhang-each" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:740969824@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=740969824" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 740969824" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"superSample":2,"width":150,"height":300,"position":"right","hOffset":0,"vOffset":-20},"mobile":{"show":true,"scale":0.5},"log":false});</script></body>
+
+</html>

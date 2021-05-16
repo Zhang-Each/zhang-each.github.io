@@ -1,0 +1,1774 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Java应用技术2:类和对象, zyc的旅行笔记">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Java应用技术2:类和对象 | zyc的旅行笔记</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">zyc的旅行笔记</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">zyc的旅行笔记</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7-min.png')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Java应用技术2:类和对象</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">
+                                <span class="chip bg-color">编程语言</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/CS%E6%A0%B8%E5%BF%83%E8%AF%BE%E7%A8%8B/" class="post-category">
+                                CS核心课程
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-05-04
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-05-04
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6.1k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    22 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="Java应用技术2：类和对象"><a href="#Java应用技术2：类和对象" class="headerlink" title="Java应用技术2：类和对象"></a>Java应用技术2：类和对象</h1><h4 id="RandomStar"><a href="#RandomStar" class="headerlink" title="RandomStar"></a>RandomStar</h4><h2 id="Chapter-3-Java-OOP"><a href="#Chapter-3-Java-OOP" class="headerlink" title="Chapter 3. Java OOP"></a>Chapter 3. Java OOP</h2><h3 id="3-1-类和对象"><a href="#3-1-类和对象" class="headerlink" title="3.1 类和对象"></a>3.1 类和对象</h3><h4 id="3-1-1-类的定义和初始化"><a href="#3-1-1-类的定义和初始化" class="headerlink" title="3.1.1 类的定义和初始化"></a>3.1.1 类的定义和初始化</h4><ul>
+<li><p>一个对象拥有状态(state)和行为(behavior)两个属性，状态定义了对象的内容，表现定义了对象可以进行哪些操作，类就是用于定义同一类对象的</p>
+<ul>
+<li>Java中用变量定义状态，用方法定义行为</li>
+<li>Java中的类也有<strong>构造函数</strong>，在对象构造的时候调用，但是对象的定义也可以不需要构造函数，当类定义里<strong>没有显式声明的构造函数</strong>时Java编译器会自动调用一个default constructor</li>
+</ul>
+</li>
+<li><p>Java中方法和成员变量的引用方式：<code>objectRefVar.methodName(arguments)</code> </p>
+<ul>
+<li><p>Reference Data Fields有<strong>默认值</strong> </p>
+<ul>
+<li>String类型是null，数值类型是0，布尔类型是false，char类型是<code>\u0000</code> ，但是Java对于<strong>方法中的局部变量</strong>不会赋予默认值</li>
+<li>比如<code>int x</code> 后直接对其进行print会发生编译错误，因为变量没有初始化</li>
+</ul>
+</li>
+<li><p>和C++的区别</p>
+<ul>
+<li>Java编译器会为这些数据成员进行默认初始化，实际上是把刚分配的对象内存都置0</li>
+<li>在对象里定义一个引用，并且没有初始化的时候，默认为null</li>
+<li>Java中<strong>在默认的初始化动作之后才进行指定初始化</strong>，比如下面这段代码中，创建一个对象的时候变量i先变成0在被赋值为999<ul>
+<li>也就是说一定会有用默认值去初始化类成员变量的这个过程</li>
+<li>并且C++不支持直接在类定义里给成员变量赋值，但是Java可以</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class Value &#123;
+    int i &#x3D; 999;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><p>Java中数据成员的初始化过程是</p>
+<ul>
+<li>先进行<strong>默认的初始化</strong></li>
+<li>在进行<strong>类定义里的初始化</strong></li>
+<li>构造函数初始化</li>
+</ul>
+</li>
+<li><p>对象和基本变量类型的区别</p>
+<ul>
+<li>基本变量类型在拷贝的时候只是拷贝一个值</li>
+<li>对象在拷贝中改变的是变量对于对象的<strong>引用</strong> <ul>
+<li>比如c1=c2的赋值导致c1也指向了c2指向的对象，而c1指向的对象不再被引用，会触发JVM的<strong>垃圾回收</strong>机制 </li>
+</ul>
+</li>
+<li>对于不需要使用的对象可以给它赋值为null，这样就会触发JVM的垃圾回收机制释放内存空间</li>
+</ul>
+</li>
+</ul>
+<h4 id="⭐3-1-2-JVM–垃圾回收机制"><a href="#⭐3-1-2-JVM–垃圾回收机制" class="headerlink" title="⭐3.1.2 JVM–垃圾回收机制"></a>⭐3.1.2 JVM–垃圾回收机制</h4><ul>
+<li><p><strong>Java的垃圾回收机制</strong> </p>
+<ul>
+<li><p>对于不再被引用的对象和被赋值为null的对象就会触发Java的垃圾回收机制</p>
+</li>
+<li><p>一般而言如果类自己管理内存，程序员就应该警惕<strong>内存泄漏</strong>的问题</p>
+<ul>
+<li><p>内存泄漏是指没有指针/引用指向一段存内存，导致这部分内存无法被调用和修改</p>
+</li>
+<li><p>内存泄漏的另一个常见的来源是缓存，把对象引用到了缓存中就容易内存泄漏</p>
+</li>
+<li><p>缓存可以用<strong>软引用</strong>来实现</p>
+<ul>
+<li><p>Java提供了强引用，软引用，弱引用和虚引用4种引用方式</p>
+</li>
+<li><p>平时我们用的是<strong>强引用</strong>，强引用<strong>只要存在就不会被当作垃圾回收</strong>，真不行了就抛出OOM异常</p>
+<ul>
+<li><code>object = null;</code> 就会导致原本是强引用被垃圾回收</li>
+</ul>
+</li>
+<li><p>用软引用关联的对象在即将发生内存异常之前会被列入垃圾回收的范围而被回收，如果内存还是不够才会抛出内存异常(OOM, out of memory)的问题</p>
+</li>
+<li><p>软引用主要应用于内存敏感的高速缓存，在安卓系统中经常用到</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-1-3-其他特性"><a href="#3-1-3-其他特性" class="headerlink" title="3.1.3 其他特性"></a>3.1.3 其他特性</h4><ul>
+<li><p>instance 和 staic——和C++相同</p>
+<ul>
+<li>instance是变量的实例，instance variable属于特定的实例，instance method由类的一个实例调用</li>
+<li>static类型的变量和方法被一个类的所有成员<strong>共享</strong> </li>
+</ul>
+</li>
+<li><p>值传递和引用传递</p>
+<ul>
+<li>Java本质上是一种值传递</li>
+<li>对象中的一个数组实际上是一个reference variable的数组</li>
+</ul>
+</li>
+<li><p>不可变类 Immutable class</p>
+<ul>
+<li><p>Java自带了很多不可变的类，比如String和一些基本的<strong>包装类</strong> </p>
+<ul>
+<li>不可变类的优点：更加容易设计，实现和使用，更加安全</li>
+</ul>
+</li>
+<li><p>编写不可变类的原则</p>
+<ul>
+<li>不提供可以修改对象状态的方法(mutator)</li>
+<li>保证类不会被扩展，具体的做法是声明为<code>final</code> 类型<ul>
+<li>不可变类使所有的state都是final和private的</li>
+</ul>
+</li>
+<li>确保对于任何可变组件的互斥访问</li>
+<li>必要时可以进行拷贝保护</li>
+</ul>
+</li>
+<li><p>不可变对象，只有一种状态，也就是在创建的时候的状态</p>
+<ul>
+<li>本质上是<strong>线程安全</strong>的</li>
+<li>可以提供<strong>静态工厂</strong>，把频繁被请求的实例缓存起来</li>
+<li><strong>缺点</strong>是对于每一个不同的值都需要一个单独的对象</li>
+</ul>
+</li>
+<li><p>为了确保不可变性，类不允许自己被子类化，除了使类成为final之外，还可以让类的所有构造函数都变为私有的或者**包级私有的(protected)**，并添加公共的静态工厂来代替公有的constructor </p>
+<ul>
+<li>用到了<strong>常量池技术</strong> </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class Complex &#123;
+    private final double re;
+    private final double im;
+    private Complex(double re, double im) &#123;
+        this.re &#x3D; re;
+        this.im &#x3D; im;
+    &#125;
+    public static Complex valueOf(double re, double im) &#123;
+        return new Complex(re, im);
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><p>this关键字：和C++相同</p>
+<ul>
+<li>是<strong>对象本身的引用</strong>的名字，用于访问hidden data fields</li>
+<li>一个常见的用法是在类的constructor中去调用其他的constructor</li>
+</ul>
+</li>
+<li><p>对象构建的TIPS</p>
+<ul>
+<li>基于Builder构造<ul>
+<li>遇到多个constructor参数时可以考虑用Builder，可以解决类定义中的参数过多导致需要重载很多次的问题(导致代码的可读性变差，代码质量也下降)<ul>
+<li>另一种方案是设置无参数的构造方法，通过setter方法来设置参数，但是这样不能保证对象的一致性</li>
+<li>这种方法也使得类不能设置为不可变类</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>静态工厂方法代替构造器：代码的可读性更高，不必再每次调用的时候创建一个新的对象，可以返回原类型的任何子类型对象</li>
+<li>单例对象构建：通常用于那些本质上唯一的对象，如文件系统、窗口管理器等<ul>
+<li>有特权的客户端可以通过反射机制调用私有构造器，要抵御这种攻击可以修改构造器，要求创建第二个实例的时候抛出异常</li>
+<li>枚举类方法：编写包含单个元素的枚举</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="⭐3-1-4-包-Package-和包管理"><a href="#⭐3-1-4-包-Package-和包管理" class="headerlink" title="⭐3.1.4 包(Package)和包管理"></a>⭐3.1.4 包(Package)和包管理</h4><ul>
+<li><p>package可以方便管理和组织java文件的目录结构，防止不同文件之间的命名冲突</p>
+<ul>
+<li>作为Java代码源文件的第一条语句，如果缺省则指定为无名包</li>
+<li>编译器在编译源文件阶段不检查目录结构</li>
+</ul>
+</li>
+<li><p>类的导入</p>
+<ul>
+<li>可以在每个类前面添加完整的包名</li>
+<li>也可以使用import语句导入整个包，比如<code>import java.time.*</code> </li>
+<li>也可以只导入包中的特定类</li>
+</ul>
+</li>
+<li><p>package静态导入</p>
+<ul>
+<li>不仅可以导入类，也可以导入静态的方法和静态域，比如<code>import static java.lang.System.*;</code>之后就可以使用<code>out.println</code> </li>
+</ul>
+</li>
+<li><p>Java的import和C++的include的<strong>区别</strong></p>
+<ul>
+<li>C++中要用#include把外部声明加载进来，C++编译器只能查看正在编译的文件和#include的文件，Java编译器可以查看其他文件，只是告诉编译器要去哪里查看</li>
+<li>Java中显式地给出包名的时候不需要import，而C++要引用别的文件一定要#include</li>
+<li>package和import更类似于namespace和using</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-2-包装类"><a href="#3-2-包装类" class="headerlink" title="3.2 包装类"></a>3.2 包装类</h3><ul>
+<li>类和类之间的关系<ul>
+<li>Association 关联</li>
+<li>Aggregation 聚合</li>
+<li>Composition 组合<ul>
+<li>组合的关系比聚合更加紧密</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Wrapper class 包装类<ul>
+<li>实现了对Java中的各类基本数据类型的包装</li>
+<li>对象是immutable的，创建之后就不能改变</li>
+<li>包装类的构造函数有多种<ul>
+<li>比如整型的包装类Integer可以用一个int类型来构造，也可以用String类型来构造</li>
+</ul>
+</li>
+<li>数值包装类<ul>
+<li>每个<strong>数值型</strong>的包装类中有常数<code>MAX_VALUE</code>和<code>MIN_VALUE</code> 分别代表这个数据类型中的<strong>可能的最大值和最小值</strong></li>
+<li>所有的<strong>数值型包装类</strong>实现了向其他数值类型转换的方法，比如doubleValue，intValue等等<ul>
+<li>静态方法valueOf：参数是一个字符串，产生对应的数值类型的值</li>
+<li>JDK1.5以上的版本允许包装类和原本的内置类型进行自动转换</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>BigInteger类和BigDecimal类<ul>
+<li>用于处理大数值的包装类</li>
+</ul>
+</li>
+<li><strong>String类</strong>的语法特性<ul>
+<li><code>immutable</code> 不可修改类，需要通过<code>charAt( )</code>方法访问字符串中的单个元素<ul>
+<li>比如<code>String s = &quot;Hello&quot;; s = &quot;Java&quot;;</code> 此时只是新构造出了一个“Java”的String对象并让s指向这个对象，原来的“Hello”对象并没有消失</li>
+</ul>
+</li>
+<li>有连接，比较，获取子串，查找元素和子串等多种操作</li>
+</ul>
+</li>
+<li>自动装箱：AutoBoxing<ul>
+<li>基本类型在运算的时候，JVM会将其装箱成安全的包装类来使用</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-3-Constant-Pool-常量池"><a href="#3-3-Constant-Pool-常量池" class="headerlink" title="3.3 Constant Pool 常量池"></a>3.3 Constant Pool 常量池</h3><ul>
+<li><p>Java Constant Pool <strong>常量池</strong>技术</p>
+<ul>
+<li><p>可以方便快捷地创建某些对象，当需要的时候就从池里取出来，常量池实际上就是一个<strong>内存空间</strong>存在于方法区中</p>
+</li>
+<li><p>JVM将源代码编译成class文件之后，会用一部分字节分类存储常量，集中在class中的一个区域存放，包含了关于类方法接口中的常量，也包括字符串常量</p>
+<ul>
+<li>比如<code>String s = &quot;java&quot;</code> 则在编译期可以识别为和java是同一个字符串的，都会自动优化成常量，也就是说如果有多个字符串的值为java则他们都会引用自同一String对象</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">String s1 &#x3D; &quot;Hello&quot;;
+String s2 &#x3D; &quot;Hello&quot;;
+String s3 &#x3D; &quot;Hel&quot; + &quot;lo&quot;;
+String s4 &#x3D; &quot;Hel&quot; + new String(&quot;lo&quot;);
+String s5 &#x3D; new String(&quot;Hello&quot;);
+String s6 &#x3D; s5.intern();
+String s7 &#x3D; &quot;H&quot;, s8 &#x3D; &quot;ello&quot;;
+String s9 &#x3D; s7 + s8;
+s1 &#x3D;&#x3D; s2 true;
+s1 &#x3D;&#x3D; s3 true; &#x2F;&#x2F; 编译期进行了一定的优化
+s1 &#x3D;&#x3D; s4 false;
+s1 &#x3D;&#x3D; s5 false;
+s1 &#x3D;&#x3D; s9 false; &#x2F;&#x2F; s9是两个变量拼起来的
+s1 &#x3D;&#x3D; s6 true;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre><code>- 对于上面这一段代码，s1，s2和s3是相同的(因为常量池技术)而s1和s4是不同的，s1和s9也是不同的，因为s4和s9不是常量，在编译期没有确定是不是常量
+     - 而s1和s6是相等的，和s5是不同的，因为s5位于堆中，**intern方法会试图将Hello这个值加入常量池中**，而此时常量池中已经有了Hello所以直接返回了其地址
+</code></pre>
+<ul>
+<li><p>Java中定义的<strong>包装类大部分实现了常量池技术</strong>，只有<strong>浮点数类型的包装类没有实现</strong></p>
+<ul>
+<li><p>其中Byte,Short,Integer,Long,Character只对-128-127的对象使用常量池 </p>
+<ul>
+<li>Double类型是没有缓存的，所以就会有如下结果</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">Double x &#x3D; 1.1;
+Double y &#x3D; 1.1;
+x &#x3D;&#x3D; y &#x2F;&#x2F; -&gt; false!<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre><code>- Integer利用**缓存**机制实现了常量池，缓存了256个对象，主要是常用的证书
+</code></pre>
+<h3 id="3-4-String的语法特性"><a href="#3-4-String的语法特性" class="headerlink" title="3.4 String的语法特性"></a>3.4 String的语法特性</h3><ul>
+<li>String的intern方法<ul>
+<li>需要1.7以上的JDK</li>
+<li>intern方法设计的初衷就是要重用String对象，节约内存消耗</li>
+<li>Java的运行时Data Area<ul>
+<li>堆heap中存放创建的实例对象</li>
+<li>方法区中存储了已经被JVM加载的类的信息和静态变量，编译器编译的代码</li>
+<li>JDK1.7之后常量池被放入到堆空间中，导致intern的功能发生了变化</li>
+</ul>
+</li>
+<li>这里有一部分比较重要的，等开学之后再看</li>
+</ul>
+</li>
+<li>String的其他语法<ul>
+<li>String的匹配，代替和分割split，支持正则表达式匹配</li>
+<li>包装类大多都有<code>toString()</code>的<strong>静态方法</strong>用来将其转换成String类型</li>
+<li>String的format方法：根据指定的格式生成String，比如<code>String s = String.format(“%7.2f%6d-4s”,45.556, 14, “AB”);</code> </li>
+<li>关于Java中string的一些细节<ul>
+<li>Java中的String**不是以空字符’\0’**结尾的</li>
+<li>Java中的String不可改变，是<strong>final类型</strong></li>
+<li>在String池中维护</li>
+<li>比较是否相同的时候要用equals方法，不要用==</li>
+<li>使用indexOf等方法去查询元素的位置</li>
+<li>使用subString方法去获取子串，因为==比较的是引用的对象，equals比较的是String所代表的值</li>
+<li>+运算完成了对String的重载</li>
+<li>使用trim方法删除首尾空格</li>
+<li>split方法支持正则表达式</li>
+<li>不要<strong>存储敏感信息</strong>在String中</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="⭐StringBuilder和StringBuffer"><a href="#⭐StringBuilder和StringBuffer" class="headerlink" title="⭐StringBuilder和StringBuffer"></a>⭐StringBuilder和StringBuffer</h4><ul>
+<li>是String的以一种替代品，String可以使用的地方一定也能用这两个，但是更加灵活<ul>
+<li>Builder和Buffer拥有toString，capacity，length，setLength和charAt等方法</li>
+</ul>
+</li>
+<li>三者的比较<ul>
+<li>在执行速度上，<code>StringBuilder&gt;StringBuffer&gt;String</code> <ul>
+<li>比如对于String s = “abcd”，如果我们执行s = s + 1实际上执行之后的<strong>s跟原本的s不是同一个对象</strong>而是生成了一个新的对象(因为String是不可变的)，<strong>原来的对象被垃圾回收了</strong>，导致String的执行效率非常低</li>
+</ul>
+</li>
+<li>线程安全<ul>
+<li>Builder是<strong>线程非安全</strong>的，Buffer是线程安全的，当有多个线程区使用某个字符串时，StringBuilder不安全</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>⭐正则表达式</p>
+<p><img src="/static/image-20201022162510596.png" alt="image-20201022162510596"></p>
+<ul>
+<li>其实我只记得*和+这几个符号</li>
+</ul>
+<h3 id="3-5-枚举类-Enum"><a href="#3-5-枚举类-Enum" class="headerlink" title="3.5 枚举类 Enum"></a>3.5 枚举类 Enum</h3><ul>
+<li>JDK1.5才有的新类型，采用enum关键字定义，所有的枚举类型都继承自Enum类型<ul>
+<li>通常常量用<code>public final static </code>来定义，在枚举类中可以用如下方式定义</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">enum</span> <span class="token class-name">Light</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">static</span> RED <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> GREEN <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> YELLOW <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><p>Java的枚举<strong>本质上是int值</strong></p>
+<ul>
+<li>通过公有的final静态域为每个枚举常量导出实例的类</li>
+<li>由于没有constructor，枚举类型是真正的final，是实例受控的，是单例的泛型化</li>
+<li>比如上面这个枚举类的定义，如果定义了一个Light类型的变量，那么任何非空对象一定属于Light的三个值之一</li>
+</ul>
+</li>
+<li><p>枚举类的特性</p>
+<ul>
+<li>枚举类是final，不能被继承</li>
+<li>含有<code>values()</code>的静态方法，可以<strong>按照声明顺序返回其值数组</strong> </li>
+<li><code>ordinal()</code>方法，返回<strong>枚举值在枚举类中的顺序</strong>，根据声明时候的顺序决定(从0开始)</li>
+<li>可以用valueOf来得到枚举实例，用toString将枚举转化为可以打印的字符串</li>
+<li>比如<code>Light L =  Light.valueOf(&quot;RED&quot;);</code> </li>
+<li>枚举类型也支持switch语句直接对实例进行选择</li>
+<li>enum类型可以可以关联不同的数据，也可以<strong>添加任意的方法和域来增强枚举类型</strong>,比如添加构造函数来丰富枚举类的结构</li>
+<li><strong>特定于常量</strong>的方法实例<ul>
+<li>缺点是难以共享代码，可以借助策略枚举，将处理委托给另一个枚举类型</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public enum Operation&#123;
+    PLUS&#123;
+        double apply(double x, double y)&#123;
+            return x+y;
+        &#125;
+    &#125;,
+    MINUS&#123;
+        double apply(double x, double y)&#123;
+            return x-y;
+        &#125;
+    &#125;;
+    abstract double apply(double x, double y);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>这一部分听说期末考会考编程题，需要练练</li>
+</ul>
+<p>🐀🐂🐅🐇🐉🐍🐎🐏🐒🐓🐕🐖</p>
+<h3 id="3-6-继承和多态"><a href="#3-6-继承和多态" class="headerlink" title="3.6 继承和多态"></a>3.6 继承和多态</h3><h4 id="3-6-1-继承"><a href="#3-6-1-继承" class="headerlink" title="3.6.1 继承"></a>3.6.1 继承</h4><ul>
+<li>Java中继承的关键词是<code>extends </code> </li>
+<li>super方法：<ul>
+<li>子类没有继承基类的构造函数，但是子类中可以用关键字<code>super</code>去调用基类的构造函数</li>
+<li>如果不显式地声明super，则会<strong>自动调用基类的无参数的构造函数</strong></li>
+<li>super关键字可以调用基类的构造方法</li>
+</ul>
+</li>
+<li>override：覆写父类的方法<ul>
+<li>子类会继承父类所有的方法，但是可以在子类中对父类的方法进行重载，此时调用子类的该方法就会调用新定义的，覆写了原本的方法</li>
+<li><strong>private类型的方法不能被覆写</strong> </li>
+<li>static类型的方法也不能被覆写，如果在子类中被重定义了，那么父类的该静态方法就会被hidden</li>
+<li>JDK1.5开始增加了<code>@override</code>注解来声明一个覆写——不要忘了写override<ul>
+<li>每个类都会有一个equals的方法，要注意区分重载和覆写  </li>
+</ul>
+</li>
+<li>方法的覆写发生在继承的子类中，而<strong>重载在继承的子类和基类中都会发生</strong> </li>
+</ul>
+</li>
+<li>Object类是java.lang.Object中定义的基本类型，如果一个类没有声明继承自何处，那么就是继承自Object类<ul>
+<li>Object中有toString方法，默认情况下会显示一个实例的类名和@符号后面跟一个代表这个实例的数字</li>
+<li><del>万物起源Object</del> </li>
+</ul>
+</li>
+</ul>
+<h4 id="3-6-2-多态-Polymorphism"><a href="#3-6-2-多态-Polymorphism" class="headerlink" title="3.6.2 多态 Polymorphism"></a>3.6.2 多态 Polymorphism</h4><ul>
+<li><p>多态意味着基类可以被引用作为一个子类来使用</p>
+</li>
+<li><p>Java的动态绑定(dynamic binding)特性</p>
+<ul>
+<li>假如一系列类的继承关系如下(其中Cn在Java中式Object类)</li>
+</ul>
+<p><img src="/static/image-20200714164229166.png" alt="image-20200714164229166"></p>
+<ul>
+<li>JVM会从C1开始寻找某个方法P直到找到一个具体的实现为止，然后搜索停止，调用第一个找到的方法</li>
+<li>method match方法匹配，在<strong>编译期</strong>按照参数类型和个数来进行匹配，而动态绑定是在运行时寻找对应的方法</li>
+</ul>
+</li>
+<li><p>Generic Programming 元编程</p>
+<ul>
+<li>当一个方法的参数是superclass的时候，可以用他的任意一个子类作为参数，但是具体的调用会动态地决定</li>
+</ul>
+</li>
+<li><p>Casting objects</p>
+<ul>
+<li>可以在有继承结构中的类型之间互相切换，比如对一个参数要求为Object的方法，可以用new Student()作为其参数，此时会发生从Student到Object的隐式转换</li>
+<li>当从基类转换到子类的时候必须有显示的声明，但不一定总是能成功<ul>
+<li><code>instanceof</code>操作符可以测试一个对象是不是某个类的实例</li>
+</ul>
+</li>
+<li>Java和C++的区别<ul>
+<li>Java转换失败的时候会抛出异常，而C++转换失败会产生一个nullptr，这样就会在一个操作中完成测试和类型转换</li>
+<li>Java中的类型转换需要和instanceof结合使用，先用instanceof判断，然后来进行转换</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>equals方法</p>
+<ul>
+<li>默认的equals方法在Object中是这样定义的</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public boolean equals(Object obj) &#123;
+    return this &#x3D;&#x3D; obj;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>可以在自定义类中override这个equals方法</li>
+<li>== 比 equals的要求更高，会检测两个引用变量是不是引用的同一个对象，而equals只要求内容相同</li>
+</ul>
+<h3 id="3-7-Java的内置模板类"><a href="#3-7-Java的内置模板类" class="headerlink" title="3.7 Java的内置模板类"></a>3.7 Java的内置模板类</h3><ul>
+<li>ArrayList 任意长度的任意类型数组<ul>
+<li>可以用<code>ArrayList&lt;typename&gt;</code> 来定义一个typename类型的任意长数组</li>
+<li>相比于普通数组，拥有更多功能比如add，remove和clear，和普通数组之间可以互相转换</li>
+<li>ArrayList可以用<code>java.util.Collections.max</code>和<code>min</code>方法来获取其中的最大值</li>
+<li>此外java.util.Collections中还有sort和shuffle等方法</li>
+</ul>
+</li>
+<li>MyStack类<ul>
+<li>一个内置的Stack结构，支持栈的pop，push，peek等多种操作</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-8-关键词protected和final"><a href="#3-8-关键词protected和final" class="headerlink" title="3.8 关键词protected和final"></a>3.8 关键词protected和final</h3><h4 id="3-8-1-protected"><a href="#3-8-1-protected" class="headerlink" title="3.8.1 protected"></a>3.8.1 protected</h4><ul>
+<li>protected关键词表示一个类或者数据或者方法可以<strong>被同一个包或者子类任意访问</strong> </li>
+<li>Java中状态和方法可访问的范围从小到大是private，default，protected，public<ul>
+<li>private只能在同个类中访问</li>
+<li>default可以在private的基础上同个包中访问</li>
+<li>protected在此基础上可以被子类访问</li>
+<li>public可以被随便访问</li>
+</ul>
+</li>
+<li>继承的时候子类在覆写方法的时候不能把Accessibility弱化，只能往上调</li>
+</ul>
+<h4 id="3-8-2-final"><a href="#3-8-2-final" class="headerlink" title="3.8.2 final"></a>3.8.2 final</h4><ul>
+<li>含有final关键字的类不能被继承</li>
+<li>含有final关键字的变量是常量</li>
+<li>含有final关键字的方法不能被覆写</li>
+</ul>
+<h3 id="3-9-嵌套类"><a href="#3-9-嵌套类" class="headerlink" title="3.9 嵌套类"></a>3.9 嵌套类</h3><h4 id="3-9-1-复合优先于继承"><a href="#3-9-1-复合优先于继承" class="headerlink" title="3.9.1 复合优先于继承"></a>3.9.1 复合优先于继承</h4><ul>
+<li>继承打破了代码的封装性，子类依赖于基类中特定功能的实现，如果基类随着版本变化会破坏子类</li>
+<li>复合composition就是不继承而是在新的类中增加一个private state并引用现有类的一个实例</li>
+</ul>
+<h4 id="3-9-2-嵌套类-nested-class"><a href="#3-9-2-嵌套类-nested-class" class="headerlink" title="3.9.2 嵌套类 nested class"></a>3.9.2 嵌套类 nested class</h4><ul>
+<li>可以在<strong>类的内部再定义一个类</strong>，分为<strong>静态嵌套类</strong>和<strong>非静态嵌套类</strong><ul>
+<li>其中非静态嵌套类最重要，也被称为内部类inner，分为<ul>
+<li>在一个类中直接定义的内部类</li>
+<li>在方法中定义的局部类 <code>local class</code> </li>
+<li>匿名内部类 <code>anonymous class</code> </li>
+</ul>
+</li>
+<li>内部类的作用：内部类之间的<strong>private方法可以共享</strong>因此经常被作为辅助类</li>
+<li>public内部类可以在外部类之外调用，但是对于非静态类，必须要使用一个外部类的对象来创建</li>
+<li>内部类如果在外部类可以直接new，但是在外部类的外面使用需要<strong>先new出一个外部类，在用外部类new出一个内部类</strong></li>
+<li>静态内部类不需要通过外部类的对象来创建，外部类的变量和非静态方法都不能调用</li>
+<li>有内部类的时候在编译成class文件的时候会产生多个class文件，<strong>每有一个类定义就会产生一个class文件</strong> </li>
+</ul>
+</li>
+<li>Local class局部类<ul>
+<li>定义在一个方法内部，只能在方法的内部实例化</li>
+<li>方法内部类的对象不能使用该内部类所在方法的非final局部变量</li>
+<li>方法的局部变量位于栈上，只存在于该方法的生命期内<ul>
+<li>但是该方法结束之后，在方法你创建的内部类对象可能仍然存在于堆中</li>
+</ul>
+</li>
+<li>只有final和abstract可以用来修饰方法内部类</li>
+<li>静态方法内的方法内部类只能放为外部类的静态成员</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-10-抽象类和接口-Abstract-class-and-Interfaces"><a href="#3-10-抽象类和接口-Abstract-class-and-Interfaces" class="headerlink" title="3.10 抽象类和接口 Abstract class and Interfaces"></a>3.10 抽象类和接口 Abstract class and Interfaces</h3><ul>
+<li>Interface 接口：用来定义各种类的表现</li>
+</ul>
+<h4 id="3-10-1-Abstract-class-抽象类"><a href="#3-10-1-Abstract-class-抽象类" class="headerlink" title="3.10.1 Abstract class 抽象类"></a>3.10.1 Abstract class 抽象类</h4><ul>
+<li>抽象类的语法特性<ul>
+<li>抽象类<strong>不能实例化出对象</strong>，抽象方法<strong>不能在非抽象类中使用</strong> </li>
+<li>抽象类不能使用new操作符，但是依然可以定义构造方法并在子类中调用<ul>
+<li>抽象类的非抽象子类可以创建对象</li>
+<li>可以作为一种数据类型</li>
+</ul>
+</li>
+<li>Java中的抽象类表示一种继承关系，一个类<strong>只能继承一个抽象类</strong> </li>
+<li>抽象方法一定属于抽象类，抽象类不一定需要有抽象方法</li>
+<li>子类也可以是抽象类，不管是继承了一个抽象类还是一个具体的类</li>
+</ul>
+</li>
+<li>抽象方法<ul>
+<li>只有方法体，没有方法名</li>
+<li>继承了抽象方法的子类必须override这个方法，否则这个子类也必须声明为抽象类，最终必须有子类override这个方法，否则这些类定义都不能实例化出对象</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-10-2-Interface-接口"><a href="#3-10-2-Interface-接口" class="headerlink" title="3.10.2 Interface 接口"></a>3.10.2 Interface 接口</h4><ul>
+<li>接口只包含常数和抽象方法，用于指定对象的通用行为，定义的方法如下<ul>
+<li>接口是抽象方法的集合</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public interface InterfaceName &#123;
+	constant declarations;
+	abstract method signatures;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><p>接口也不能实例化出一个对象，但是接口名<strong>可以作为变量类型</strong>来使用</p>
+<ul>
+<li>抽象类中所有的数据都是<code>public final static</code>类型，所有的方法都是<code>public abstract</code>类型</li>
+<li>接口中的方法不是在接口中实现的，只能由实现接口的类来具体实现接口中的方法</li>
+<li>JDK1.8以后接口里可以写静态方法和方法体</li>
+<li>接口可以继承其他的接口</li>
+</ul>
+</li>
+<li><p>实现接口的关键字：用<code>implements</code>关键字来<strong>让一个类实现接口中的方法</strong></p>
+<ul>
+<li>如果实现接口的类是抽象类，就可以先不用实现</li>
+<li>一个类可以有多个接口，但是只能继承自一个类</li>
+</ul>
+</li>
+<li><p>marker interface 标记接口</p>
+<ul>
+<li><strong>没有任何方法和属性</strong>的接口，仅仅表明它的类属于某个特定的类型，这个接口只起到了标记作为</li>
+<li>主要用于<ul>
+<li>建立一个公共的父接口</li>
+<li>向一个类添加数据类型</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>接口和抽象类的区别</p>
+<ul>
+<li>抽象类的方法可以有方法体</li>
+<li>抽象类中的成员变量可以实各种类型的，接口中只能是<code>public static final</code>类型</li>
+<li>接口中不能含有静态代码块和静态方法</li>
+<li>一个类只能继承一个抽象类，但是可以实现多个接口</li>
+</ul>
+</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Zhang-Each</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://example.com/2021/05/04/java2/">http://example.com/2021/05/04/java2/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Zhang-Each</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">
+                                    <span class="chip bg-color">编程语言</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/05/04/java3/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20-min.png" class="responsive-img" alt="Java应用技术3:高级语法">
+                        
+                        <span class="card-title">Java应用技术3:高级语法</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            2020-2021秋冬学期《Java应用技术》的知识整理回顾3
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-04
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/CS%E6%A0%B8%E5%BF%83%E8%AF%BE%E7%A8%8B/" class="post-category">
+                                    CS核心课程
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">
+                        <span class="chip bg-color">编程语言</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/05/04/java1/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11-min.png" class="responsive-img" alt="Java应用技术1:基础语法">
+                        
+                        <span class="card-title">Java应用技术1:基础语法</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            2020-2021秋冬学期《Java应用技术》的知识整理回顾1
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/CS%E6%A0%B8%E5%BF%83%E8%AF%BE%E7%A8%8B/" class="post-category">
+                                    CS核心课程
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">
+                        <span class="chip bg-color">编程语言</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: zyc的旅行笔记<br />'
+            + '文章作者: Zhang-Each<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">Zhang-Each</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">138.6k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/zhang-each" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:740969824@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=740969824" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 740969824" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"superSample":2,"width":150,"height":300,"position":"right","hOffset":0,"vOffset":-20},"mobile":{"show":true,"scale":0.5},"log":false});</script></body>
+
+</html>
