@@ -471,7 +471,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-06
+                    2021-06-07
                 </div>
                 
 
@@ -553,17 +553,17 @@
 <p><img src="/2021/06/06/reading1/image-20210531163300321.png" alt="平移距离模型总结"></p>
 <h3 id="语义匹配度模型"><a href="#语义匹配度模型" class="headerlink" title="语义匹配度模型"></a>语义匹配度模型</h3><p>语义匹配度模型通常使用基于相似度的打分函数，通过计算实体和关系在向量空间中的潜在语义匹配度来评估嵌入向量的plausibility</p>
 <h4 id="RESCAL系列模型"><a href="#RESCAL系列模型" class="headerlink" title="RESCAL系列模型"></a>RESCAL系列模型</h4><p>RESACAL系列模型是非常经典的语义匹配度模型，其中RESCAL模型使用一个参数矩阵M来计算语义匹配度，即：</p>
-<p>$$<br>f_{r}[h, t]={h}^{\top} {M}<em>{r} {t}=\sum</em>{i=0}^{d-1} \sum_{j=0}^{d-1}\left[{M}<em>{r}\right]</em>{i j} \cdot[{h}]<em>{i} \cdot[{t}]</em>{j}<br>$$</p>
+<p>$$<br>f_{r}[h, t]={h}^{\top} {M_r}{t}=\sum_{i=0}^{d-1} \sum_{j=0}^{d-1}\left[{M}<em>{r}\right</em>{ij}]\cdot[{h}<em>i]\cdot[{t}]</em>{j}<br>$$</p>
 <p>而DistMult是对RESACAL的简化和改进，使用一个对角向量来计算打分函数，即：</p>
-<p>$$<br>f_{r}[h, t]={h}^{\top} \operatorname{diag}[{r}] {t}=\sum_{i=0}^{d-1}[{r}]<em>{i} \cdot[{h}]</em>{i} \cdot[{t}]_{i}<br>$$</p>
+<p>$$<br>f_{r}[h, t]={h}^{\top} \operatorname{diag}[{r}] {t}=\sum_{i=0}^{d-1}[{r}_i]{i} \cdot[{h}<em>i]\cdot[{t}]</em>{i}<br>$$</p>
 <p>而HolE即保留了RESACAL的表示能力，也和DistMult一样效率高而简单，它定义了一种循环式的计算方式：</p>
-<p>$$<br>f_{r}[h, t]=\mathbf{r}^{\top}[\mathbf{h} \star \mathbf{t}]=\sum_{i=0}^{d-1}[\mathbf{r}]<em>{i} \sum</em>{k=0}^{d-1}[\mathbf{h}]<em>{k} \cdot[\mathbf{t}]</em>{[k+i] \bmod d}<br>$$</p>
+<p>$$<br>f_{r}[h, t]=\mathbf{r}^{\top}[\mathbf{h} \star \mathbf{t}]=\sum_{i=0}^{d-1}[\mathbf{r}<em>i] \sum</em>{k=0}^{d-1}[\mathbf{h}<em>k] \cdot[\mathbf{t}]</em>{[k+i] \bmod d}<br>$$</p>
 <p>另外还可以使用复数进行嵌入表示，即用复向量来表示实体和关系</p>
 <p><img src="/2021/06/06/reading1/image-20210531165326902.png" alt="RESCAL家族"></p>
 <h4 id="基于神经网络的模型"><a href="#基于神经网络的模型" class="headerlink" title="基于神经网络的模型"></a>基于神经网络的模型</h4><p>使用神经网络来评估语义匹配度也是一种非常常见的方法，语义匹配能量模型[SME]使用神经网络的架构，首先在输入层中将实体和关系映射到嵌入空间中，然后通过一系列神经网络层的线性变换之后计算其点积作为score，即：</p>
 <p>$$<br>f_{r}[h, t]=g_{u}[\mathbf{h}, \mathbf{r}]^{\top} g_{v}[\mathbf{t}, \mathbf{r}]<br>$$</p>
 <p>神经张量模型[NTN]是另一种神经网络架构，每一个关系r都有一个对应的张量$M_r$将输入的head和tail投影到隐层中，其打分函数比较复杂：</p>
-<p>$$<br>f_{r}[h, t]=\mathbf{r}^{\top} \tanh \left[\mathbf{h}^{\top} \underline{\mathbf{M}}<em>{r} \mathbf{t}+\mathbf{M}</em>{r}^{1} \mathbf{h}+\mathbf{M}<em>{r}^{2} \mathbf{t}+\mathbf{b}</em>{r}\right]<br>$$</p>
+<p>$$<br>f_{r}[h, t]=\mathbf{r}^{\top} \tanh \left[\mathbf{h}^{\top} \underline{\mathbf{M}<em>r}\mathbf{t}+\mathbf{M_r}^{1} \mathbf{h}+\mathbf{M_r}^{2} \mathbf{t}+\mathbf{b}</em>{r}\right]<br>$$</p>
 <p>多层感知机[MLP]也是一种非常常见的神经网络架构，并且在将每个关系对应一个张量简化成了每个关系对应一个向量，减少了参数量：</p>
 <p>$$<br>f_{r}[h, t]=\mathbf{w}^{\top} \tanh \left[\mathbf{M}^{1} \mathbf{h}+\mathbf{M}^{2} \mathbf{r}+\mathbf{M}^{3} \mathbf{t}\right]<br>$$</p>
 <p>神经联合模型[NAM]使用<strong>深度</strong>神经网络进行语义匹配度的计算，即使用了很多隐层，每一层都使用ReLU作为激活函数。上面提到的这几种神经网络模型可以用下面的图来总结：</p>
@@ -685,18 +685,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/06/06/reading1/">
+                <a href="/2021/06/06/reading2/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/24-min.png" class="responsive-img" alt="论文阅读笔记1：知识图谱嵌入">
+                        <img src="/medias/featureimages/11-min.png" class="responsive-img" alt="论文阅读笔记2：关系抽取">
                         
-                        <span class="card-title">论文阅读笔记1：知识图谱嵌入</span>
+                        <span class="card-title">论文阅读笔记2：关系抽取</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -706,9 +705,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-06
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-06
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -721,7 +720,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -733,8 +731,8 @@
                         <span class="chip bg-color">深度学习</span>
                     </a>
                     
-                    <a href="/tags/%E5%9B%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">图机器学习</span>
+                    <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">
+                        <span class="chip bg-color">自然语言处理</span>
                     </a>
                     
                 </div>
@@ -1038,7 +1036,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">145.4k</span>&nbsp;字
+                class="white-color">152.1k</span>&nbsp;字
             
             
             
