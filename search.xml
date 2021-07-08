@@ -4,6 +4,62 @@
   
     
     <entry>
+      <title>图机器学习3：链接分析：PageRank算法</title>
+      <link href="2021/07/08/gml3/"/>
+      <url>2021/07/08/gml3/</url>
+      
+        <content type="html"><![CDATA[<h2 id="链接分析：PageRank算法"><a href="#链接分析：PageRank算法" class="headerlink" title="链接分析：PageRank算法"></a>链接分析：PageRank算法</h2><p>​        这一节的内容主要从矩阵的角度来进行图的分析和学习，我们可以将互联网看成一张巨大的图，里面的网页就是图中的一个个节点，而网页可以通过超链接可以跳转到别的网页，称为链接link，可以把这种关系作为图中的有向边，因此互联网中的网页构成一张<strong>大而稀疏的有向图</strong>，可以用一个邻接矩阵来表示。类似的结构有论文引用图等等。</p><p>​        但是图中每个节点并不都是同等重要的，可以通过一系列链接分析的方法来分析出不同节点的重要性，一般认为一个网站如果有很多链接，那么它往往就比较重要。而出链接和入链接又是两种不同的链接，又应该有不同的考虑。PageRank算法认为<strong>被重要的网页指向的网页</strong>也往往更重要。</p><h3 id="PageRank算法模型"><a href="#PageRank算法模型" class="headerlink" title="PageRank算法模型"></a>PageRank算法模型</h3><h4 id="节点的权重"><a href="#节点的权重" class="headerlink" title="节点的权重"></a>节点的权重</h4><p>​        我们可以在网络图中定义$d_i$是一个节点的出度，而节点的权重就可以表示为：<br>$$<br>r_j=\sum_{i\rightarrow j}\frac{r_i}{d_i}<br>$$<br>我们可以将这种表示形式矩阵化，用一个矩阵M来表示各个节点之间的权重关系，那么根据上面的定义可以得知：<br>$$<br>M_{ij}=\frac{1}{d_j}<br>$$<br>这个矩阵M每一列的和都是1，我们可以用一个向量r来表示每个网页的重要程度，那么就有：<br>$$<br>r=Mr<br>$$</p><h4 id="图中的随机游走"><a href="#图中的随机游走" class="headerlink" title="图中的随机游走"></a>图中的随机游走</h4><p>​        在任何一个时间t时假设访问到了网页i中，下一个时刻t+1则访问i指向的其中一个网页j，这样就构成了一次随机游走，用$p(t)$向量来表示t时刻每个网页被访问到的概率，那么这样一来就有：<br>$$<br>p(t+1)=Mp(t)<br>$$<br>我们发现矩阵的权重向量r也可以表示随机游走的分布情况，进一步我们发现r其实就是矩阵M的<strong>特征向量</strong>，因此PageRank实际上就是矩阵M最大的的特征向量，我们一般用幂法可以得到矩阵M的最大特征向量。</p><h3 id="如何求解PageRank"><a href="#如何求解PageRank" class="headerlink" title="如何求解PageRank"></a>如何求解PageRank</h3><ul><li><p>可以给pagerank赋予一定的初始值，然后通过公式$r=Mr$不断迭代直到r的变化小于一定的阈值之后才结束，得到最终的pagerank的结果，这种方法也就是幂法，求出的结果实际上是M的特征之中范数最大的那一个</p></li><li><p>问题在于：</p><ul><li>有一些页面时dead end，没有跳转到其他网页的链接，这可能会导致“泄漏”</li><li>Spider-Trap问题：所有的外部链接都在一个组内，即随机游走会陷入一个循环中</li><li>这些情况都会导致上述计算方法最后不收敛，因此要想办法解决这个问题</li></ul></li><li><p>解决方法：</p><ul><li><p>对于dead end问题，可以重新调整矩阵M中的内容：</p><img src="image-20210323203140803.png" alt="image-20210323203140803" style="zoom:33%;" /></li><li><p>对于Spider-Trap问题，可以在每次做选择的过程中以一定的概率跳转到随机的网页中去，这样就可以从循环中跳出来</p></li></ul></li></ul><p>$$<br>r_j=\beta\sum_{i\rightarrow j}\frac{r_i}{d_i}+(1-\beta)\frac 1N<br>$$</p><ul><li>Google矩阵上面的spider-trap问题的迭代形式</li></ul><p>$$<br>G=\beta M+(1-\beta)[\frac{1}n]_{n\times n}<br>$$</p><h3 id="个性化的PageRank"><a href="#个性化的PageRank" class="headerlink" title="个性化的PageRank"></a>个性化的PageRank</h3><ul><li>通过<strong>几个特定的节点来衡量所有节点的rank</strong>，可以用带restart的随机游走高效计算，这是考虑到了不同用户之间的浏览偏好往往不同，不能用全局的所有节点作为衡量标准，这样一来可以实现个性化的推荐</li></ul><h2 id="消息传递和节点分类"><a href="#消息传递和节点分类" class="headerlink" title="消息传递和节点分类"></a>消息传递和节点分类</h2><ul><li>这一节内容主要关注对于一个给定的网络结构，一些节点已经做好了标注，那么我们如何对图中的剩余节点进行标准，就比如一张图中已知部分节点是可疑的，另一部分节点是可信的，那么我们应该如何判定剩下那些没有标注的节点是否可信呢？<ul><li>这类任务被称为半监督的节点分类问题</li><li>之前已经介绍了节点嵌入的方法可以识别相似的节点，而这一节主要介绍的方法是<strong>消息传递</strong></li></ul></li><li>一般我们认为网络中的关系是具有相关性的，也就是说相似的节点会互相连接，并且相近的节点可能属于相同的类型<ul><li>同质性Homophily：指的就是相同或者类似的节点个体会和其他的节点相互连接</li><li>影响：网络中的连接关系可能会影响到单个节点，即节点可能会被与之相互连接的节点给带偏</li></ul></li><li>这样的半监督学习经常被用在：<ul><li>文本分类</li><li>语音标记</li><li>连接预测</li><li>光学字符识别</li><li>图像和3D分割</li><li>节点异常检测</li></ul></li><li>这一节内容将主要介绍三种实现上述半监督图学习的技术：<ul><li>关系分类Relational classification</li><li>可迭代分类Iterative classification</li><li>信任传播Belief propagation</li></ul></li></ul><h3 id="关系分类"><a href="#关系分类" class="headerlink" title="关系分类"></a>关系分类</h3><p>​        关系分类的基本想法：节点v的类概率$Y_v$是一个节点附近节点的类别的<strong>加权平均</strong>(这里我们只考虑二分类问题，正反类别的标签分别用1和0来表示)，而对于已经有标记的节点v，其$Y_v$可以<strong>直接设置成其真实类别</strong>，而对于没有标记的节点可以将其初始化为$Y_v=0.5$，然后对所有的节点进行类似于加权平均的更新知道收敛或者达到最大迭代次数上限。<br>$$<br>P(Y_v=c)=\frac{1}{\sum_{(v,u)\in E}A_{v,u}}\sum_{(v,u)\in E}A_{v,u}P(Y_v=c)<br>$$</p><ul><li>其中A表示每条边的权重</li><li>问题在于：收敛是没有保证的，并且模型没有用到节点的特征信息</li></ul><h3 id="迭代分类"><a href="#迭代分类" class="headerlink" title="迭代分类"></a>迭代分类</h3><p>​        相比于关系分类，迭代分类会使用节点v的一系列特征构成的特征向量$f_v$和邻近节点的标签$z_v$，而这种分类方式需要训练两个分类器：</p><ul><li><p>$\phi_1(f_v)$通过节点的特征来预测节点的标签</p></li><li><p>$\phi_2(f_v,z_v)$通过特征向量和邻近节点的标记来共同预测节点的标签</p><p>​    训练两个分类器只是第一阶段，第二阶段需要进行迭代训练直到结果收敛或者训练结束，但是结果是否收敛依然没有保证。</p></li></ul><h4 id="举例：网页分类"><a href="#举例：网页分类" class="headerlink" title="举例：网页分类"></a>举例：网页分类</h4><ul><li>首先训练一个基于二维特征向量的分类器，用邻近节点(区分出和入节点)的特征向量作为$z_v$</li><li>然后按照步骤训练出两个分类器，然后用测试集来测试分类器的效果，并对关系特征$z_v$和标签进行更新</li><li>进行迭代更新，直到收敛或者达到次数上限</li></ul><h3 id="协作分类：信任传播机制"><a href="#协作分类：信任传播机制" class="headerlink" title="协作分类：信任传播机制"></a>协作分类：信任传播机制</h3><p>​        信任传播机制是一种动态规划算法，通过一个节点和节点之间互相“通信”和传递消息的迭代过程，当节点直接达到共识的时候就可以计算出最后的结果</p><h4 id="一个简单的消息传播的例子"><a href="#一个简单的消息传播的例子" class="headerlink" title="一个简单的消息传播的例子"></a>一个简单的消息传播的例子</h4><p>​        举一个简单的例子来说明消息传递的作用，比如我们需要在一个图中计算节点总数，并且每个节点只能和与之相邻的节点之间进行通信，简单的消息传递算法的实现如下：</p><ul><li>定义节点的顺序形成一条完整的路径</li><li>每次向下一个节点来传播当前统计到的节点个数，最后一个节点要发送出去的数据就是结果</li><li>这样的算法也可以在树状的结构中进行，区别就是要从<strong>叶节点将信息汇总到根节点</strong> </li></ul><h4 id="循环消息传递算法"><a href="#循环消息传递算法" class="headerlink" title="循环消息传递算法"></a>循环消息传递算法</h4><p>​        加入一个节点i指向j，那么i将会给j传递消息，而传递什么消息需要根据i从指向i的节点中获得的信息来决定，循环消息传递算法中定义了这样几个关键的变量：</p><ul><li><p>标签<strong>势能</strong>矩阵，$\Phi(Y_i,Y_j)$表示对于一个节点j，如果给定它的邻居节点i属于类别$Y_i$时，节点j属于类别$Y_j$的概率</p></li><li><p>先验信任 $\phi(Y_i)$表示节点i属于$Y_i$类别的概率</p></li><li><p>i向j传递的消息可以记成$m_{i\rightarrow j}(Y_j)$，这表示i估计j的最终类型是$Y_j$在循环消息传递算法中，传递的消息可以表示为：</p></li></ul><p>$$<br>m_{i\rightarrow j}(Y_j)=\sum_{Y_i\in \mathcal L}\Phi(Y_i,Y_j)\phi(Y_i)\prod_{k\in N_i,k\not=j}m_{k\rightarrow i}(Y_i)<br>$$</p><ul><li><p>这种计算方式的意思是，如果i预测j的最终标签是$Y_j$，那么就需要考虑节点i所有可能的标签，并且对于每一个标签计算节点i收到的信息是节点i属于类别$Y_i$进行求和，我们可以记<br>$$<br>b_i(Y_i)=\phi(Y_i)\prod_{k\in N_i,k\not=j}m_{k\rightarrow i}(Y_i)<br>$$</p><ul><li>是先验概率和所有从邻居节点收到消息的和的乘积</li></ul></li><li><p>如果我们遇到的图是有环的，那么这样一来节点就不存在一个确定的顺序，但我们依然可以用上述算法来计算信任的传播。当有顺序的时候可以从任意一个节点开始，然后依次更新其邻居节点的信息，但是当图有环的时候，从不同的子图中获得的信息就不是独立的了，这个时候信任传递依然可以使用，但是会出现循环传递的情况，可能会导致不收敛的情况，但是在实际操作中，这个算法依然比较好用</p></li></ul><img src="image-20210325161712112.png" alt="image-20210325161712112" style="zoom:33%;" />]]></content>
+      
+      
+      <categories>
+          
+          <category> 图机器学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 机器学习 </tag>
+            
+            <tag> 数据挖掘 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>图机器学习2：节点嵌入Node Embedding</title>
+      <link href="2021/07/08/gml2/"/>
+      <url>2021/07/08/gml2/</url>
+      
+        <content type="html"><![CDATA[<h2 id="节点嵌入-Node-Embedding"><a href="#节点嵌入-Node-Embedding" class="headerlink" title="节点嵌入 Node Embedding"></a>节点嵌入 Node Embedding</h2><ul><li><strong>图表示学习</strong>的目标是提供一个统一的图特征提取方式，对于不同的图机器学习任务都可以使用，而节点嵌入就是指将图中的节点映射到嵌入空间中，用一个稠密的向量来表示不同的节点，而向量的相似度又决定了节点在图中的相似度，也就是说将整个网络进行了编码。</li></ul><h3 id="编码器和解码器"><a href="#编码器和解码器" class="headerlink" title="编码器和解码器"></a>编码器和解码器</h3><ul><li><p>节点嵌入的目标就是对节点进行编码并映射到嵌入空间中，使得两个节点在嵌入空间中的相似度近似于节点在图中的相似度，而<strong>相似度和嵌入向量的形式都是需要定义</strong>的</p><ul><li>因此节点嵌入的两个关键的组件就是编码器和相似度函数</li></ul><p>$$<br>\mathrm{similarity}(u,v)=z_u^Tz_v<br>$$</p></li></ul><img src="image-20210322102505885.png" alt="节点嵌入" style="zoom: 33%;" /><h4 id="浅编码Shallow-Encoder"><a href="#浅编码Shallow-Encoder" class="headerlink" title="浅编码Shallow Encoder"></a>浅编码Shallow Encoder</h4><p>​        最简单的编码器的形式就是一个简单的嵌入映射，即将节点通过矩阵运算直接转化成对应的嵌入向量，可以表示为：<br>$$<br>\mathrm{ENC}(v)= Zv<br>$$</p><ul><li>其中Z就是一个$d\times |V|$维度的矩阵，存储了每个节点的d维嵌入向量，而v就是一个0-1向量，除了对应的节点那一列是1以外都是0</li><li>我们需要学习的就是Z矩阵，这种编码器下面每个节点都映射到一个单独的嵌入向量中</li></ul><h3 id="随机游走Random-Walk"><a href="#随机游走Random-Walk" class="headerlink" title="随机游走Random Walk"></a>随机游走Random Walk</h3><h4 id="什么是随机游走"><a href="#什么是随机游走" class="headerlink" title="什么是随机游走"></a>什么是随机游走</h4><p>​        随机游走是一种用来定义图节点相似度的方法， $z_u$表示图节点u的嵌入向量，而概率$P(v|z_u)$表示在节点u的随机游走中遇到节点v的概率。</p><p>​        随机游走的过程即每次<strong>随机选择</strong>当前节点的一个邻居并“走”到这个邻居的位置上不断重复的过程，这个过程中将产生一个随机的节点序列，称为图的随机游走。而用随机游走定义的相似度就是<strong>u和v出现在同一个随机游走中的概率</strong>。这种方式计算相似度需要以下几个步骤：</p><ul><li>使用一定的决策策略R来计算从u出发的随机游走经过v的概率</li><li>根据随机游走的结果优化嵌入函数并进行编码</li></ul><h4 id="为什么需要随机游走"><a href="#为什么需要随机游走" class="headerlink" title="为什么需要随机游走"></a>为什么需要随机游走</h4><ul><li>可表达性：随机游走是一种灵活并且随机的相似度定义，并且包含了局部信息和更高阶的图中节点关系</li><li>高效性：不需要在训练的过程中考虑所有的节点对，只需要考虑在随机游走中出现的节点对</li><li>随机游走是一种无监督的特征学习</li></ul><h4 id="随机游走的优化"><a href="#随机游走的优化" class="headerlink" title="随机游走的优化"></a>随机游走的优化</h4><p>​        随机游走的目标是让学习到的嵌入向量中，相近的向量在图中更接近，对于一个节点u可以定义它在某种选择策略R下的随机游走中发现的邻居节点构成的集合是$N_R(u)$，对于一个给定的图$G=(V,E)$，我们的目标是学习出一个映射函数$f(u)=z_u$，根据极大似然估计，我们的目标函数可以确定为：<br>$$<br>\max_f\sum_{u\in V}\log P(N_R(u)|z_u)<br>$$<br>​        即对于给定的节点u，我们希望通过随机游走中的表现来学习其特征的表示，而虽有游走可以进行一系列的优化，包括：</p><ul><li>进行一个较短的固定长度的随机游走</li><li>对于每个节点u的邻居节点，允许邻居节点集合中出现重复的节点，出现的越多表明相似度越高,因此最大化上述目标函数可以等价于最小化下面的表达式：</li></ul><p>$$<br>\mathcal L=\sum_{u\in V}\sum_{v\in N_R(u)}-\log (P(v|z_u))<br>$$</p><p>​        而概率$P(v|z_u)$可以用<strong>sotfmax函数</strong>来进行参数化，选用softmax函数的原因是因为指数运算避免了负概率的出现，并且使得不同节点的相似度区分变得更加明显<br>$$<br>P(v|z_u)=\frac{\exp(z_u^Tz_v)}{\sum_{n\in V}\exp(z_u^Tz_n)}<br>$$<br>​        但是用上述办法来计算目标函数的话复杂度是非常高的，，可以采用负采样的方式来近似计算损失函数，这里用到了sigmoid函数来近似计算：<br>$$<br>\log (\frac{\exp(z_u^Tz_v)}{\sum_{n\in V}\exp(z_u^Tz_n)})\approx\log (\sigma(z_u^Tz_v))-\sum_{i=1}^k\log(\sigma(z_u^Tz_{n_i}))<br>$$</p><ul><li><p>这种近似方法不计算全部节点而是只采样了K个随机的负样本，并且用sigmoid函数来近似指数运算，这里的k个negative nodes按照其度数成正比的概率进行选取</p></li><li><p>在得到了目标函数的近似形式之后，我们可以采用<strong>随机梯度下降法</strong>来对目标函数进行优化，定义<br>$$<br>\mathcal L^{(u)}=\sum_{v\in N_R(u)}-\log (P(v|z_u))<br>$$</p><ul><li><p>对于一个节点i，和所有的节点j，计算其导数$\frac{\partial\mathcal L^{(i)}}{\partial z_j}$</p></li><li><p>更新每一个向量j直到收敛<br>$$<br>z_j=z_j-\eta\frac{\partial\mathcal L^{(i)}}{\partial z_j}<br>$$</p></li></ul></li></ul><h3 id="node2vec"><a href="#node2vec" class="headerlink" title="node2vec"></a>node2vec</h3><p>​        现在的问题就变成了如何确定随机游走的策略，上面已经提到的策略有固定长度，没有偏见的选择策略，而node2vec是一种有偏见的随机游走策略，这种策略更加灵活并且达到了局部和全局的平衡</p><ul><li>常见的采样邻近节点的方式有BFS和DFS，而BFS更注重局部的邻居结构，DFS则更偏向于全局</li></ul><h4 id="有偏见的随机游走"><a href="#有偏见的随机游走" class="headerlink" title="有偏见的随机游走"></a>有偏见的随机游走</h4><p>​        有偏见的定长随机游走策略R有两个参数，一个是返回参数p，代表了返回到前一个节点，另一个参数是出入(in-out)参数q，代表了随机游走过程中的BFS和DFS的比例</p><ul><li>有偏见的随机游走需要记录当前的游走路径是从那里来的，在参数p中表示</li><li>每次走到新的节点的时候计算邻近节点的权重，选择权重最高(这里的权重其实也就是代表了走到这个节点的概率，当然是没有标准化的概率)的节点作为游走的下一个目的地</li></ul><h4 id="node2vec算法框架"><a href="#node2vec算法框架" class="headerlink" title="node2vec算法框架"></a>node2vec算法框架</h4><ul><li>计算随机游走的概率分布</li><li>对每个节点u，找到r条从u出发的不同的长度为l的随机游走</li><li>使用随机梯度下降法来优化node2vec</li></ul><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><ul><li>这里其实还没太搞懂node2vec的真正含义，应该有时间去阅读一下提出node2vec的论文，虽然我觉得大概率没什么时间</li><li>node2vec拥有线性的时间复杂度，并且上述算法框架中的三个步骤是可以<strong>并行</strong>的</li></ul><h3 id="图嵌入"><a href="#图嵌入" class="headerlink" title="图嵌入"></a>图嵌入</h3><ul><li>图嵌入是将整张图或者子图映射到嵌入空间中，用一个向量来表示</li></ul><h4 id="两种简单的approach"><a href="#两种简单的approach" class="headerlink" title="两种简单的approach"></a>两种简单的approach</h4><ul><li>方法1:将图嵌入等价于图中所有节点的嵌入向量之和</li></ul><p>$$<br>Z_G=\sum_{v\in G}z_v<br>$$</p><ul><li>方法2:在途中引入一个虚拟节点代表整个图(子图)并进行嵌入</li><li>方法3:匿名游走嵌入<ul><li>想法1:对匿名游走进行采样并且用每种匿名游走的发生次数来表示一个图，也就是说用这些随机游走发生的概率来表示整张图，选定一个长度L之后，建立一个向量代表所有长度为L的随机游走发生的概率来代表这张图</li><li>想法2:将匿名游走的嵌入结果进行合并</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 图机器学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 机器学习 </tag>
+            
+            <tag> 数据挖掘 </tag>
+            
+            <tag> 人工智能 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>论文阅读笔记5：TransE</title>
       <link href="2021/06/27/reading5/"/>
       <url>2021/06/27/reading5/</url>
