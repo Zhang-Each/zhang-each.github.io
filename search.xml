@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>图机器学习6：GNN的训练和应用</title>
+      <link href="2021/07/19/gml6/"/>
+      <url>2021/07/19/gml6/</url>
+      
+        <content type="html"><![CDATA[<h2 id="GNN的训练和应用"><a href="#GNN的训练和应用" class="headerlink" title="GNN的训练和应用"></a>GNN的训练和应用</h2><p><img src="/2021/07/19/gml6/image-20210627214638152.png" alt="GNN的pipeline"></p><h3 id="GNN面对的任务"><a href="#GNN面对的任务" class="headerlink" title="GNN面对的任务"></a>GNN面对的任务</h3><ul><li>prediction head有多种类型，包括节点级别的，边级别的和图级别的任务</li></ul><p><img src="/2021/07/19/gml6/image-20210627214808190.png" alt="不同级别的任务"></p><h4 id="节点级别的任务"><a href="#节点级别的任务" class="headerlink" title="节点级别的任务"></a>节点级别的任务</h4><p>​     节点级别的任务可以直接使用节点嵌入来完成，假设我们通过GNN得到了d维的节点嵌入向量$h_v^{(l)}$，并且需要做k路的prediction(在分类问题中是k类的多分类任务，在回归问题中是k个目标的回归)，这个过程可以表示为：<br><img src="/2021/07/19/gml6/P1.png" alt="节点级别的任务"></p><ul><li>这里的W是一个$k\times d$的矩阵而$h_v$是一个d维的向量</li></ul><h4 id="边级别的任务"><a href="#边级别的任务" class="headerlink" title="边级别的任务"></a>边级别的任务</h4><p>边级别的任务可以使用2个节点的嵌入来进行k-way prediction，这个过程可以表示为<br><img src="/2021/07/19/gml6/P3.png"><br>而head的选取有如下多种方式：</p><ul><li>Concatenation + Linear，将两个节点嵌入进行拼接再进行线性变换</li></ul><p><img src="/2021/07/19/gml6/P2.png"></p><p><img src="/2021/07/19/gml6/image-20210628184320025.png" alt="image-20210628184320025"></p><ul><li>点积运算，即<br><img src="/2021/07/19/gml6/p4.png"><br>不过只能用于1-way的prediction，可以使用multi-head的注意力机制来实现k-way prediction</li></ul><h4 id="图级别的任务"><a href="#图级别的任务" class="headerlink" title="图级别的任务"></a>图级别的任务</h4><p>​      图级别的任务可以使用所有节点的嵌入向量来完成，</p><p> 这里的head和GNN中的聚合函数一样，可以使用max，mean和sum等函数将节点嵌入转化成图嵌入。这种操作也叫做图池化(Graph Pooling)，但是这种方法很容易丢失图中的信息。</p><p>​      解决这个问题的方法是使用层级化的池化(Hierarchically pool)，也就是使用激活函数+聚合函数作为head，将节点划分成若干组进行池化之后再将所得结果进行池化，这一过程可以表示为：</p><p><img src="/2021/07/19/gml6/image-20210628185401871.png" alt="image-20210628185401871"></p><h3 id="监督学习和无监督学习"><a href="#监督学习和无监督学习" class="headerlink" title="监督学习和无监督学习"></a>监督学习和无监督学习</h3><p>​      图学习任务中，有监督的任务是有label的，这些label来自于外部，而无监督的学习任务只能使用节点自身的一些信号，很多时候二者的差别是很模糊的，比如我们如果使用GNN来预测节点的聚类系数，看起来是一个无监督的任务，实际上监督信息已经蕴含了图结构中(因为对于一个确定的图而言，其聚类系数已经可以确定，虽然没有直接计算这些聚类系数作为监督标签，但是聚类系数所带来的局部特性仍然表现在图结构中，很难说GNN有没有学到这些隐含的监督信息)，因此很多时候将无监督学习用“自监督学习”(self-supervised)来代替。</p><p>​      监督学习中的label可以分为节点的label，边的label和图的label，因此最好将要解决的问题规约到这三类label的监督学习中，因为这三类任务最容易把握。</p><p>​      无监督学习中没有标签，但是我们可以使用图中隐含的各类信息来帮助我们完成任务。</p><h3 id="损失函数和评价标准的选取"><a href="#损失函数和评价标准的选取" class="headerlink" title="损失函数和评价标准的选取"></a>损失函数和评价标准的选取</h3><h4 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h4><p>​      对于分类和回归任务，需要视情况选择不同的损失函数和评价标准，分类任务的label是离散的数值，而回归得到的是连续的数值，因此分类任务中常常使用交叉熵作为loss，即：</p><p>$$<br>Loss =\sum_{i=1}^{N} {CE}\left(\boldsymbol{y}^{(i)}, \widehat{\boldsymbol{y}}^{(i)}\right)=\sum_{i=1}^{N}\sum_{j=1}^k y_j^{(i)}\log \hat y_j^{(i)}<br>$$</p><p>这里的$y_i,\hat y_i$分别代表真实的标签和预测得到的结果，真实的标签是一个one-hot的向量，而预测结果是一个softmax后的概率分布。<br>而对于回归问题一般采用最小平方损失(MSE)作为损失函数，即：</p><p>$$<br>\text { Loss }=\sum_{i=1}^{N} {MSE}\left(\boldsymbol{y}^{(i)}, \widehat{\boldsymbol{y}}^{(i)}\right)=\sum_{i=1}^{N}\sum_{j=1}^k (y_j^{(i)}-\hat y_j^{(i)})^2<br>$$</p><h4 id="评估标准"><a href="#评估标准" class="headerlink" title="评估标准"></a>评估标准</h4><p>​      GNN对于回归任务的评估标准往往采用RMSE和MAE，而对于分类任务，如果是分类任务可以使用准确率，对于二分类问题还可以使用查准率和召回率以及F1-Score</p><h3 id="数据集的划分"><a href="#数据集的划分" class="headerlink" title="数据集的划分"></a>数据集的划分</h3><p>​      训练GNN的过程中，需要对数据集进行一定的划分，将数据集分成训练集，测试集和验证集在图像的任务中，而图数据集的划分是比较特殊的。在CNN处理图像的任务中，一张图像就是一个数据点，并且图像和图像之间是互相独立的，而在图任务中，以节点分类任务为例，每个节点是一个数据点，但是数据点之间不是完全独立的，因此图数据集在划分的过程中有一定的讲究。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 图机器学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 机器学习 </tag>
+            
+            <tag> 数据挖掘 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>图机器学习5：图神经网络</title>
       <link href="2021/07/13/gml5/"/>
       <url>2021/07/13/gml5/</url>
