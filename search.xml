@@ -4,6 +4,91 @@
   
     
     <entry>
+      <title>图机器学习9：知识图谱推理</title>
+      <link href="2021/07/20/gml9/"/>
+      <url>2021/07/20/gml9/</url>
+      
+        <content type="html"><![CDATA[<h2 id="知识图谱推理"><a href="#知识图谱推理" class="headerlink" title="知识图谱推理"></a>知识图谱推理</h2><p>​      知识图谱中一个很常见的任务是知识图谱补全，也就是给定一个head和realtion，我们预测出对应的tail，这是知识图谱推理中的推理任务(Reasoning)</p><p><img src="/2021/07/20/gml9/image-20210629142130549.png" alt="image-20210629142130549"></p><h3 id="Reasoning和query"><a href="#Reasoning和query" class="headerlink" title="Reasoning和query"></a>Reasoning和query</h3><p>​      知识图谱推理的任务就是在知识图谱上进行multi-hop的推理，也就是在图上的多条路径中进行连续的推理，比如下面的生物医学知识图谱中通过症状进行疾病的推理：</p><p><img src="/2021/07/20/gml9/image-20210629142543061.png" alt="image-20210629142543061"></p><p>而知识图谱具体的推理任务需要根据一系列的query来表述，也就是说在给定的不完整并且大规模的知识图谱中对输入的自然语言形式的query进行推理并返回结果，而query可以分为One-hop Queries，Path Queries和Conjunctive Queries三种，分别是单次跳转的推理，多次跳转的推理和联合推理，可以用下面的图来表示三种query之间的关系：</p><p><img src="/2021/07/20/gml9/image-20210629143115673.png" alt="image-20210629143115673"></p><h3 id="query的形式化表述"><a href="#query的形式化表述" class="headerlink" title="query的形式化表述"></a>query的形式化表述</h3><h4 id="one-hop-query"><a href="#one-hop-query" class="headerlink" title="one-hop query"></a>one-hop query</h4><p>​      one-hop query实际上就是一个head和一个relation组成的，可以写成$(h,(r))$，然后判断一个tail是否为答案，转化成知识图谱补全的问题就是判断一个三元组$(h,r,t)$是否存在于知识图谱中。</p><h4 id="path-query"><a href="#path-query" class="headerlink" title="path query"></a>path query</h4><p>​      path query实际上就是一系列的one-hop query，可以写成$q=(v_a,(r_1,r_2,\dots,r_n))$，然后需要在知识图谱中进行遍历来得到最终的结果，比如输入的path query是What proteins are associated with adverse events caused by Fulvestrant，那么经过分析就可以得到$v_a$就是Fulvestrant，而caused，associated就是一系列关系，然后就可以开始在知识图谱中进行一步步的查询。</p><p>​      虽然看起来很容易，然而知识图谱往往是不完整的，可能有很多实体和关系是缺失的，因此在推理的过程中我们很可能不能获得所有可能的结果实体。但是我们又不能把知识图谱补全之后再进行推理，因为完整的知识图谱是一个非常稠密的图，大部分三元组都会有一定概率存在，而知识图谱推理的复杂度是指数级别的，因此完整的知识图谱上的query的时间复杂度非常高。</p><p>​      因此我们希望能在不完整的知识图谱上完成基于路径的查询，同时我们希望可以隐式地对知识图谱做出一定的解释，这实际上是一种泛化后的链接预测任务。</p><h3 id="知识图谱推理和问答"><a href="#知识图谱推理和问答" class="headerlink" title="知识图谱推理和问答"></a>知识图谱推理和问答</h3><p>​      接下来就需要研究如何在知识图谱中进行query的问答，上一章的内容中已经提到知识图谱中的实体和关系都可以表示在向量空间中，也就是知识图谱嵌入，因此我们可以考虑将知识图谱上的问答转化到向量空间中进行，而具体的方法就是将query也转换成一个向量，并使用嵌入模型的打分函数来评估结果。一个查询 $q=(v_a,(r_1,r_2,\dots,r_n))$ 在向量空间中可以表示为：</p><img src="image-20210629150727581.png" alt="image-20210629150727581" style="zoom: 33%;" /><p>​      这样一来上一章提到的各种知识图谱嵌入方法，比如TransE，TransR，DisMult和ComplEx等等就可以使用到知识图谱的问答中，而上述方法中，只有TransE可以刻画传递关系(composition relations)其他几个方法都不行，因此最终用于知识图谱推理问答的只有TransE，而如果是更复杂的conjunctive query，比如“What are drugs that cause Short of Breath and treat diseases associated with protein ESR2?”，它可以表示为<code>((e:ESR2, (r:Assoc, r:TreatedBy)), (e:Short of Breath, (r:CausedBy))</code> 而查询的过程可以表示为：</p><p><img src="/2021/07/20/gml9/image-20210629153622220.png" alt="image-20210629153622220"></p><h3 id="Query2Box"><a href="#Query2Box" class="headerlink" title="Query2Box"></a>Query2Box</h3><p>​      这一节的内容将着重介绍一种新提出的知识图谱推理方式：使用Box Embedding进行推理。这种方法中，一系列的query被表示成了一系列超矩形(hyper-rectangles)，也叫做box，采用center和offset两个量来描述一个query，依然用上面那张生理医学知识图谱为例，我们可以将Fulvestrant(一种药)的所有不良反应都<strong>嵌入到一片矩形的区域</strong>内：</p><img src="image-20210629154928968.png" alt="image-20210629154928968" style="zoom: 33%;" /><p>Box embedding使我们在遍历KG进行查询的时候，每一步都可以得到一系列reachable的实体组成的集合，并且box的交集(Intersection)是良好定义的。Box是一种很强的抽象，可以通过将中心节点进行投影并控制offset，将相关的实体包含在内，将无关的实体排除在外。在Query2Box中，</p><ul><li>每个实体用d维的向量来表示，并且被视为一种没有容积(zero-volume)的box</li><li>每个关系用一个box来描述，包含center和offset两个量来描述</li><li>交集运算符f，可以计算一系列box的<strong>交集</strong></li></ul><h4 id="投影操作"><a href="#投影操作" class="headerlink" title="投影操作"></a>投影操作</h4><p>​        利用已有的关系嵌入，将输入的一个box投影成另一个box，即$Box \times Relation\rightarrow Box$ 这个过程可以用下面的图来描述：</p><p><img src="/2021/07/20/gml9/image-20210701233741887.png" alt="image-20210701233741887"></p><h4 id="取交集-Intersection-操作"><a href="#取交集-Intersection-操作" class="headerlink" title="取交集(Intersection)操作"></a>取交集(Intersection)操作</h4><p>​        求交集是Query2Box的另一种基本操作，这种操作可以求出输入的一系列box的交集，也是一个box，根据基本常识，这个新的box的中心应该接近于输入的box的中心，并且offset不能超过输入box中的最小值。新的交集box计算方式如下：<br>$$<br>Cen(q_{inter })=\sum w_i \odot {Cen}(q_{i})<br>$$<br>这里的$w_i$是权重参数，可以通过如下方式计算得到，<strong>本质上是一种注意力机制</strong>：<br>$$<br>w_i=\frac{\exp (f_{cen}({Cen}(q_{i})))}{\sum_{j} \exp (f_{cen}({Cen}(q_{j})))}<br>$$<br>而offset可以用如下方式计算：<br>$$<br>\text { Off } (q_{inter})=\min({Off}(q_1),\dots,{Off}(q_n))\odot \sigma(f_{off}({Off}(q_1),\dots,{Off}(q_n)))<br>$$<br>这里的函数f是一个神经网络，可以提取输入box的特征，增强表达能力，并用sigmoid函数归约到(0,1)区间内</p><h4 id="Query2Box详解"><a href="#Query2Box详解" class="headerlink" title="Query2Box详解"></a>Query2Box详解</h4><p>​        依然用What are drugs that cause Short of Breath and treat diseases associated with protein ESR2?这样的一个query作为例子，我们可以先将这个query处理为：<code>((e:ESR2, (r:Assoc, r:TreatedBy)), (e:Short of Breath, (r:CausedBy))</code>，然后我们就可以使用投影，从head实体开始一步步投影进行投影，得到如下结果：</p><p><img src="/2021/07/20/gml9/image-20210701234133658.png" alt="image-20210701234133658"></p><p>然后在进行求交集的操作，得到最终的结果(阴影部分)</p><p><img src="/2021/07/20/gml9/image-20210702001130830.png" alt="image-20210702001130830"></p><h4 id="打分函数"><a href="#打分函数" class="headerlink" title="打分函数"></a>打分函数</h4><p>​      Query2Box的知识图谱推理框架中，使用实体到box的负距离来定义打分函数，对于一个查询q和一个嵌入空间中的实体v，我们定义其距离函数为：<br>$$<br>d_{\text {box }}({q}, {v})=d_{\text {out }}({q}, {v})+\alpha \cdot d_{\text {in }}({q}, {v})<br>$$<br>这里的距离被分成了外部距离和内部距离两个部分，外部距离就是到box的边界的距离，而内部距离是box的边界到中心点的距离，而当一个实体在box内部的时候，其而内部距离应该定义成负权重的，因此打分函数可以定义为：<br>$$<br>f_q(v)=-d_{\mathrm{box}}(q,v)<br>$$<br>和知识图谱嵌入一样，我们希望这个打分函数对于正确的$(q,v)$而言分数更高，而对错误的分数更低，因此训练的时候需要用到负样本。</p><h4 id="Union操作的扩展"><a href="#Union操作的扩展" class="headerlink" title="Union操作的扩展"></a>Union操作的扩展</h4><p>​      在Query2Box的框架下，交集的操作已经有了良好的定义，而并集操作是否也可以使用低维的向量来表示呢？一系列析取(disjunction)的连续查询又被叫做Existential Positive First-order (EPFO) queries，这类查询可以分解为一系列AND-OR操作。</p><p>​      然而AND-OR查询不能用低维的向量来表示，比如有3个不同的query和对应的结果，可以使用2维空间表示，而如果有4个不同的query，当下面这种情况出现的时候就需要3维的空间：</p><img src="image-20210704105528406.png" alt="image-20210704105528406" style="zoom:67%;" /><p>这是为了保证任意两个query的并集中不能包含其他的query，而对于M个组合的query，表示出所有的OR操作至少需要$O(M)$规模的嵌入空间，因此数据规模一大就不能用低维向量来表示所有的并集操作。</p><p>​      但这个问题也不是完全没有解决的办法，论文中提出的一个key idea就是<strong>改变处理一个联合查询时候的顺序</strong>，到最后一步再做union</p><p><img src="/2021/07/20/gml9/image-20210704124001196.png" alt="image-20210704124001196"></p><p>​      具体的做法是，任何一个AND-OR查询可以转变成一个等价的**析取范式(DNF)**，即$q=q_1\or q_2\or\dots q_m$，这样一来我们来处理一个查询的时候就可以先求出所有$q_i$的嵌入，到最后一步再进行union操作。在最后计算距离作为score的时候，容易得到有：<br>$$<br>d_{\text {box }}({q}, {v})=\min (d_{\text {box }}({q}<em>{1}, {v}), \ldots, d</em>{\text {box }}({q}_{m}, {v}))<br>$$</p><h4 id="Query2Box的训练"><a href="#Query2Box的训练" class="headerlink" title="Query2Box的训练"></a>Query2Box的训练</h4><p>​      在Query2Box模型中，需要训练的参数主要有所有的实体的嵌入向量，所有的关系的嵌入向量和Intersection运算中的各种参数。</p><p>​      一个很直观的想法是，在训练Qeury2Box模型的过程中，对于一个查询q的嵌入向量，我们要让属于q中的实体v对应的打分函数最大化，而要让不在其中的打分函数最小化，为此需要用到负采样，也就是在训练的过程中，对于每个正样本v随机选取一个负样本与之对应，具体的训练过程可以分为以下几个步骤：</p><ul><li>对输入的样本进行负采样</li><li>计算查询q的box embedding</li><li>计算正负样本的打分函数$f_q(v),f_q(v’)$</li><li>计算损失函数并进行优化，每个样本训练过程中的loss是</li></ul><p>$$<br>\ell=-\log \sigma(f_{q}(v))-\log (1-\sigma(f_{q}(v^{\prime})))<br>$$</p><h4 id="query的生成"><a href="#query的生成" class="headerlink" title="query的生成"></a>query的生成</h4><p>​      在训练之前我们需要提取出一系列查询，而这个过程称为Query Generation，可以通过一系列模板生成：</p><p><img src="/2021/07/20/gml9/image-20210704132959992.png" alt="image-20210704132959992"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 图机器学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 机器学习 </tag>
+            
+            <tag> 数据挖掘 </tag>
+            
+            <tag> 知识图谱 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>图机器学习8：知识图谱</title>
+      <link href="2021/07/20/gml8/"/>
+      <url>2021/07/20/gml8/</url>
+      
+        <content type="html"><![CDATA[<h2 id="知识图谱Knowledge-Graph-Embeddings"><a href="#知识图谱Knowledge-Graph-Embeddings" class="headerlink" title="知识图谱Knowledge Graph Embeddings"></a>知识图谱Knowledge Graph Embeddings</h2><ul><li>到目前为止图机器学习研究的对象的都还是只有一种类型边的图，而对于边的类型有很多种的图(也叫做异构图，Heterogeneous Graph，边代表了关系，多种边就代表了多种更复杂的关系)，常见的异构图有：<ul><li>关系型GCNs(RGCN)</li><li>知识图谱，用于知识图谱补全的嵌入</li></ul></li><li>一个异构图可以定义为$G=(V,E,R,T)$，其中V和E分别代表节点和边的集合，T和R分别代表节点和关系的类型</li></ul><h3 id="关系型图卷积网络RGCN"><a href="#关系型图卷积网络RGCN" class="headerlink" title="关系型图卷积网络RGCN"></a>关系型图卷积网络RGCN</h3><p>​        图卷积网络GCN可以在进行一定的扩展之后可以用来处理异构图，这样的网络叫做关系型图卷积网络RGCN，可以先回忆一下对于一个单层的GNN，有message和aggregation两个步骤来进行节点的表示，而当图中存在多种关系，变成异构图之后，RGCN仍然可以进行图节点嵌入的学习，处理的方式是：</p><ul><li>对不同的关系类型使用不同的权重矩阵$W_{r_k}$，分成多种关系来收集message<ul><li>GCN中的更新公式是：</li></ul></li></ul><p>$$<br>h_{v}^{(l+1)}=\sigma(\sum_{r\in R}\sum_{u\in N(v)}\frac 1{C_{v,r}}W_r^{(l)}h_u^{(l)}+W_0^{(l)}h_v^{(l)})<br>$$</p><ul><li>上面的这个表达式也可以拆分成message和aggregation两个部分，还是比较容易看出来的，<strong>每个关系都有L个对应的权重矩阵W</strong>，因此参数数量随着关系的变多增长的很快，经常会出现过拟合的现象，可以采取对权重矩阵W进行正则化的方式来避免过拟合<ul><li>方法1:使用块对角矩阵block diagonal matrices来降低参数的维数</li><li>方法2:基学习，在不同的关系之间共享权重，将W矩阵表示称一系列基础的transformations的组合，这样一来所有的关系</li></ul></li><li>可以完成一系列实体识别，连接预测等任务</li></ul><h3 id="知识图谱"><a href="#知识图谱" class="headerlink" title="知识图谱"></a>知识图谱</h3><ul><li>知识图谱是用图的形式来保存一些知识，用节点来表示实体，并且用实体的种类作为标签，用边来表示实体之间的关系。现实生活中有不少知识图谱的具体案例，知识图谱也是异构图的一种。</li><li>知识图谱中比较重要的一个任务是做图谱的补全，也就是找到知识图谱中缺失的连接关系。<ul><li>我们要注意到知识图谱中的关系也是有很多种类的，主要有对称的关系和可你关系</li></ul></li><li>知识图谱的关键idea在于知识图谱的表示，知识图谱中的一条边可以表示为一个<strong>三元组</strong>$(h,r,t)$，分别表示头节点，关系和尾节点<ul><li>实体和关系可以建模成一个d维空间中的嵌入向量</li><li>对于一个给定的三元组，我们的目标是$(h,r)$的嵌入向量必须要和$t$的嵌入向量尽可能接近，因此问题也就变成了如何对$(h,r)$进行嵌入与如何定义“接近”</li></ul></li></ul><h4 id="TransE"><a href="#TransE" class="headerlink" title="TransE"></a>TransE</h4><ul><li>一种最简单的评估接近程度的方式，评估函数是</li></ul><p>$$<br>f_r(h,t)=-|| h+ r- t||<br>$$</p><ul><li>TransE的学习方式为：</li></ul><img src="image-20210401215425258.png" alt="TransE算法伪代码" style="zoom:33%;" /><h4 id="关系模式"><a href="#关系模式" class="headerlink" title="关系模式"></a>关系模式</h4><p>​    知识图谱中有一系列各式各样的关系，比如：</p><ul><li>对称关系：$r(h,t)\rightarrow r(t,h)$，同样的还有<strong>反对称关系</strong></li><li>可逆关系：$r_1(h,t)\rightarrow r_2(t,h)$</li><li>组合关系(可传递关系)：$r_1(x,y)\cap r_2(y,z)\rightarrow r_3(x,z)$</li><li>一对多关系，一个实体对应多个实体</li></ul><h4 id="TransR"><a href="#TransR" class="headerlink" title="TransR"></a>TransR</h4><ul><li>TransE模型可以将任意的关系转换到相同的嵌入空间，而TransR可以将节点转换成d维的嵌入向量，必将每个关系转换成k维的关系空间向量，并给出一个从实体空间到关系空间的投影空间M<ul><li>同样地也可以对对称关系，反对称关系，1对多关系，可逆关系进行建模</li><li>但是TransR不能对组合关系(可传递关系)进行建模</li></ul></li></ul><h4 id="Bilinear-Modeling"><a href="#Bilinear-Modeling" class="headerlink" title="Bilinear Modeling"></a>Bilinear Modeling</h4><ul><li>TransE和TransR的知识图谱建模方式都是用距离作为scoring function的，而Bilinear建模中，将实体和关系都表示称k维的向量，称为DistMult，并采用向量乘积来作为scoring function<ul><li>事实上这个score function类似于hr和t的cosine相似度</li></ul></li></ul><p>$$<br>h_r(h,t)=&lt;h,r,t&gt;=\sum_{i=1}^k h_ir_it_i<br>$$</p><ul><li>这种建模方式支持：<ul><li>一对多模型的建模：向量的投影相等即可</li><li>对称关系：向量的内积可以换</li><li>问题是不能表示反对称关系、逆关系和组合关系</li></ul></li></ul><h4 id="DisMult"><a href="#DisMult" class="headerlink" title="DisMult"></a>DisMult</h4><ul><li>一种使用语义匹配度作为打分函数的KGE方法，其打分函数为：</li></ul><p>$$<br>f_r(h, t)=&lt;{h}, {r}, {t}&gt;=\sum_{i} h_i \cdot r_i \cdot t_i<br>$$</p><ul><li>这种打分函数可以理解为cosine相似度，并且可以很好地刻画一对多的关系，但是不能刻画可逆的关系</li></ul><h4 id="ComplEx"><a href="#ComplEx" class="headerlink" title="ComplEx"></a>ComplEx</h4><ul><li>基于DisMult方法，将嵌入向量表示在复数空间中，其打分函数为：</li></ul><p>$$<br>f_{r}(h, t)=Re(\sum_{i} h_i \cdot r_i \cdot \overline{t}_i)<br>$$</p><ul><li>这种方法可以很好地描述对称关系，反对称关系，可逆关系和一对多关系</li></ul><h4 id="KGE的总结"><a href="#KGE的总结" class="headerlink" title="KGE的总结"></a>KGE的总结</h4><p><img src="/2021/07/20/gml8/image-20210629135855933.png" alt="不同类型的知识图谱嵌入算法比较"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 图机器学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 机器学习 </tag>
+            
+            <tag> 数据挖掘 </tag>
+            
+            <tag> 知识图谱 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>图机器学习7：GNN的训练和应用</title>
+      <link href="2021/07/20/gml7/"/>
+      <url>2021/07/20/gml7/</url>
+      
+        <content type="html"><![CDATA[<h2 id="图神经网络的表示能力"><a href="#图神经网络的表示能力" class="headerlink" title="图神经网络的表示能力"></a>图神经网络的表示能力</h2><p>​      我们已经了解了一系列经典的图神经网络的架构，比如GCN，GraphSAGE，GAT等等，这些图神经网络可以生成一系列的节点嵌入，但是我们应该怎么评估节点嵌入的表示效果(换句话说就是图神经网络的表示效果)呢？</p><h3 id="局部结构和计算图"><a href="#局部结构和计算图" class="headerlink" title="局部结构和计算图"></a>局部结构和计算图</h3><p>​      图中存在一定的局部结构，比如下面的这张图中，节点1和2在局部结构中是对称的，而1和5就不是，因为1和2相互交换之后图的结构不会改变。</p><img src="image-20210628195344771.png" alt="图的邻居结构" style="zoom:50%;" /><p>​      而局部结构可以很好的反映出GNN的表达能力，<strong>一个好的GNN应该要能表示出节点的局部结构</strong>，可以区分对称的节点和不对称的节点，进一步，我们需要<strong>理解GNN是如何捕捉局部的结构信息的</strong>。</p><p>​      计算图可以表示出GNN中的每个节点如何一步步聚合其他节点的信息形成自己的嵌入向量的过程，比如上图中1和2的计算图如下：</p><p><img src="/2021/07/20/gml7/image-20210628201537021.png" alt="节点1和2的计算图比较"></p><p>我们发现1和2的计算图的结构非常相似，因此最终得到的1和2的嵌入向量也是相同的，换句话说GNN无法区别节点1和2，而局部结构类似的节点往往会有相似的计算图。</p><p>​      因此GNN的表示能力其实来自于对计算图中的一个子树结构的信息提取，一个好的GNN应该把不同的子树映射成不同的向量。如果一个GNN在每一步中都可以完全获取邻居节点的信息，那么生成的节点嵌入就可以区分不同的子树，也就是说一个表达能力强的GNN的聚合函数应该是一个injective function(单射函数)</p><h3 id="GNN的设计"><a href="#GNN的设计" class="headerlink" title="GNN的设计"></a>GNN的设计</h3><h4 id="经典架构"><a href="#经典架构" class="headerlink" title="经典架构"></a>经典架构</h4><p>​      本节内容的目标是归纳总结出设计高效GNN的一些方法论。经典的GNN架构中，GCN采用了逐点的均值池化作为聚合函数，而GraphSAGE采用了逐点的最大池化，但是GCN无法区分一些数量不同但节点组成类型相同的局部结构，因为这样的不同结构在均值池化下得到的结果是相同的，与之类似的，GraphSAGE在碰到label集相同的子结构的时候也无法区分，因为这个时候最大池化的结果是相同的。</p><h4 id="MLP和GIN"><a href="#MLP和GIN" class="headerlink" title="MLP和GIN"></a>MLP和GIN</h4><p>​      一个GNN的聚合函数最好是一个单射函数，这种函数可以形式化的表示成非线性激活函数和线性函数的组合$\Phi(\sum_{x\in S}f(x))$，我们知道一个具有足够大维数的隐层和激活函数的多层感知机就可以逼近任何连续空间中的函数，因此GIN架构提出了使用MLP作为聚合函数，也就是：</p><p>$$<br>MLP_\Phi (\sum_{x\in S}MLP_f(x))<br>$$</p><p>这种GNN被认为是表达能力最强的消息传递类GNN，因为采用的MLP理论上可以拟合任何函数，这种GIN实际上是WL核函数的神经网络形式，WL核函数的形式如下：</p><p>$$<br>c^{(k+1)}(v)=HASH(c^{(k)}(v),{c^{(k)}(u)}_{u \in N(v)})<br>$$</p><p>而GIN就是使用神经网络作为其中的Hash函数，因此GIN模型可以表示为：</p><p>$$<br>MLP_{\Phi}((1+\epsilon) \cdot MLP_{f}(c^{(k)}(v)))+\sum_{u \in N(v)} MLP_{f}(c^{(k)}(u))<br>$$</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 图机器学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 机器学习 </tag>
+            
+            <tag> 数据挖掘 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>图机器学习6：GNN的训练和应用</title>
       <link href="2021/07/19/gml6/"/>
       <url>2021/07/19/gml6/</url>
@@ -157,11 +242,11 @@
       
         <tags>
             
+            <tag> 知识图谱 </tag>
+            
             <tag> 图机器学习 </tag>
             
             <tag> 表示学习 </tag>
-            
-            <tag> 知识图谱 </tag>
             
         </tags>
       
